@@ -270,7 +270,7 @@ export default function PPDBForm() {
                 disabled={status === "loading"}
                 className="bg-[radial-gradient(circle_at_0%_0%,_#1d8b84,_#156357,_#156357,_#156357,_#156357,_#1d8b84)] text-white font-semibold border-white border-2 px-10 py-2 rounded-lg transition duration-200 disabled:opacity-50"
               >
-                &#x25B6; DAFTAR PPDB &#x25C0;
+                &#x25B6; SUBMIT &#x25C0;
               </button>
             </div>
           </form>

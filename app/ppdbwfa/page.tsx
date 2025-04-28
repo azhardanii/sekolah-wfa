@@ -261,7 +261,7 @@ export default function PPDBForm() {
                 className="mt-1 accent-blue-600"
                 required
               />
-              Saya bersedia dimasukkan ke grup early access
+              Saya bersedia dimasukkan ke grup Early Access Sekolah WFA
             </label>
             <div className="pt-10 flex justify-center w-full">
               <button

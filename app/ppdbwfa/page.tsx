@@ -42,6 +42,19 @@ export default function PPDBForm() {
     }));
   };
 
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      email: "",
+      whatsapp: "",
+      message: "",
+      agreeWhatsapp: false,
+      agreeGroup: false,
+    });
+    setErrorMsg("");
+    setStatus("idle");
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg("");
@@ -104,7 +117,7 @@ export default function PPDBForm() {
   return (
     <div className="bg-[radial-gradient(circle_at_0%_0%,_#ffffff_0%,_#ffffff_40%,_#ffffff_70%,_#34d0ce_100%)]">
       <div
-        className={`relative min-h-screen flex flex-col items-center justify-center  p-6 transition-opacity duration-300 
+        className={`relative min-h-screen flex flex-col items-center justify-center p-10 transition-opacity duration-300 
     ${isVisible ? "opacity-100" : "opacity-0"}`}
       >
         {status === "loading" && (
@@ -118,18 +131,7 @@ export default function PPDBForm() {
 
             <div className="flex gap-4 mt-4">
               <button
-                onClick={() => {
-                  setStatus("idle");
-                  setFormData({
-                    name: "",
-                    email: "",
-                    whatsapp: "",
-                    message: "",
-                    agreeWhatsapp: false,
-                    agreeGroup: false,
-                  });
-                  setErrorMsg("");
-                }}
+                onClick={resetForm}
                 className="px-5 py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-full transition duration-200"
               >
                 Tutup
@@ -148,18 +150,7 @@ export default function PPDBForm() {
 
             <div className="flex gap-4 mt-4">
               <button
-                onClick={() => {
-                  setStatus("idle");
-                  setFormData({
-                    name: "",
-                    email: "",
-                    whatsapp: "",
-                    message: "",
-                    agreeWhatsapp: false,
-                    agreeGroup: false,
-                  });
-                  setErrorMsg("");
-                }}
+                onClick={resetForm}
                 className="px-5 py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-full transition duration-200"
               >
                 Tutup
@@ -177,17 +168,15 @@ export default function PPDBForm() {
           </div>
         )}
 
-        <div className="absolute top-10">
+        <div className="w-full max-w-xl mx-auto text-[#156357]">
           <Image
-            className="mx-auto"
+            className="mx-auto pb-10"
             src="/logo-wfa.webp"
-            alt="Sekolah WFA Logo"
+            alt="Logo"
             width={125}
             height={38}
             priority
           />
-        </div>
-        <div className="relative w-full max-w-xl mx-auto text-[#156357]">
           <h1 className="text-3xl text-center">
             FORMULIR <b>[ P.P.D.B. ]</b>
           </h1>
@@ -252,17 +241,7 @@ export default function PPDBForm() {
               />
               Saya bersedia menerima notifikasi WhatsApp dari Sekolah WFA
             </label>
-            <label className="flex items-start gap-2 text-sm">
-              <input
-                type="checkbox"
-                name="agreeGroup"
-                checked={formData.agreeGroup}
-                onChange={handleChange}
-                className="mt-1 accent-blue-600"
-                required
-              />
-              Saya bersedia dimasukkan ke grup Early Access Sekolah WFA
-            </label>
+
             <div className="pt-10 flex justify-center w-full">
               <button
                 type="submit"

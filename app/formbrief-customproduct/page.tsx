@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function ClientBriefForm() {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
-    brandName: "",
+    productName: "",
     contactName: "",
     email: "",
     whatsapp: "",
@@ -59,13 +59,41 @@ export default function ClientBriefForm() {
     }));
   };
 
+  const resetForm = () => {
+    setFormData({
+      productName: "",
+      contactName: "",
+      email: "",
+      whatsapp: "",
+      productType: "",
+      urgentProblem: "",
+      productDescription: "",
+      targetUser: "",
+      targetAge: "",
+      platform: "",
+      mainFeatures: "",
+      exampleProducts: "",
+      paymentRequired: false,
+      paymentMethod: "",
+      designStyle: "",
+      primaryColor: "",
+      fontPreference: "",
+      startDate: "",
+      deadline: "",
+      budget: "",
+      additionalNotes: "",
+    });
+    setErrorMsg("");
+    setStatus("idle");
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg("");
     setStatus("idle");
 
     const {
-      brandName,
+      productName,
       contactName,
       email,
       whatsapp,
@@ -88,7 +116,7 @@ export default function ClientBriefForm() {
     } = formData;
 
     if (
-      !brandName.trim() ||
+      !productName.trim() ||
       !contactName.trim() ||
       !email.trim() ||
       !whatsapp.trim()
@@ -105,7 +133,7 @@ export default function ClientBriefForm() {
         {
           method: "POST",
           body: JSON.stringify({
-            brandName: sanitize(brandName),
+            productName: sanitize(productName),
             contactName: sanitize(contactName),
             email: sanitize(email),
             whatsapp: sanitize(whatsapp),
@@ -132,7 +160,7 @@ export default function ClientBriefForm() {
       if (res.ok) {
         setStatus("success");
         setFormData({
-          brandName: "",
+          productName: "",
           contactName: "",
           email: "",
           whatsapp: "",
@@ -171,7 +199,7 @@ export default function ClientBriefForm() {
   return (
     <div className="bg-[radial-gradient(circle_at_0%_0%,_#ffffff_0%,_#ffffff_40%,_#ffffff_70%,_#34d0ce_100%)]">
       <div
-        className={`min-h-screen flex flex-col items-center justify-center  p-6 transition-opacity duration-300 
+        className={`min-h-screen flex flex-col items-center justify-center p-10 transition-opacity duration-300 
     ${isVisible ? "opacity-100" : "opacity-0"}`}
       >
         {status === "loading" && (
@@ -185,33 +213,7 @@ export default function ClientBriefForm() {
 
             <div className="flex gap-4 mt-4">
               <button
-                onClick={() => {
-                  setStatus("idle");
-                  setFormData({
-                    brandName: "",
-                    contactName: "",
-                    email: "",
-                    whatsapp: "",
-                    productType: "",
-                    urgentProblem: "",
-                    productDescription: "",
-                    targetUser: "",
-                    targetAge: "",
-                    platform: "",
-                    mainFeatures: "",
-                    exampleProducts: "",
-                    paymentRequired: false,
-                    paymentMethod: "",
-                    designStyle: "",
-                    primaryColor: "",
-                    fontPreference: "",
-                    startDate: "",
-                    deadline: "",
-                    budget: "",
-                    additionalNotes: "",
-                  });
-                  setErrorMsg("");
-                }}
+                onClick={resetForm}
                 className="px-5 py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-full transition duration-200"
               >
                 Tutup
@@ -230,33 +232,7 @@ export default function ClientBriefForm() {
 
             <div className="flex gap-4 mt-4">
               <button
-                onClick={() => {
-                  setStatus("idle");
-                  setFormData({
-                    brandName: "",
-                    contactName: "",
-                    email: "",
-                    whatsapp: "",
-                    productType: "",
-                    urgentProblem: "",
-                    productDescription: "",
-                    targetUser: "",
-                    targetAge: "",
-                    platform: "",
-                    mainFeatures: "",
-                    exampleProducts: "",
-                    paymentRequired: false,
-                    paymentMethod: "",
-                    designStyle: "",
-                    primaryColor: "",
-                    fontPreference: "",
-                    startDate: "",
-                    deadline: "",
-                    budget: "",
-                    additionalNotes: "",
-                  });
-                  setErrorMsg("");
-                }}
+                onClick={resetForm}
                 className="px-5 py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-full transition duration-200"
               >
                 Tutup
@@ -267,14 +243,14 @@ export default function ClientBriefForm() {
 
         <div className="w-full max-w-xl mx-auto text-[#156357]">
           <Image
-            className="mx-auto pb-20"
+            className="mx-auto pb-10"
             src="/logo-wfa.webp"
             alt="Logo"
             width={125}
             height={38}
             priority
           />
-          <h1 className="text-3xl text-center mb-10">
+          <h1 className="text-3xl text-center mb-5">
             Brief Custom Development
             <br /> <b>DIGITAL PRODUCT</b>
           </h1>
@@ -313,10 +289,32 @@ export default function ClientBriefForm() {
               className={inputStyle}
             />
 
+            <div className="text-sm pt-3 opacity-70">
+              <label className="block mb-2 font-medium">Jenis Produk:</label>
+              {[
+                "Template Spreadsheet",
+                "Flip Book / Workbook",
+                "Web App",
+                "Bot (WA/Tele/Discord)",
+                "Lainnya",
+              ].map((option) => (
+                <label key={option} className="flex items-center gap-2 mb-1">
+                  <input
+                    type="radio"
+                    name="productType"
+                    value={option}
+                    checked={formData.productType === option}
+                    onChange={handleChange}
+                  />
+                  {option}
+                </label>
+              ))}
+            </div>
+
             <input
-              name="brandName"
+              name="productName"
               placeholder="Nama Produk"
-              value={formData.brandName}
+              value={formData.productName}
               onChange={handleChange}
               required
               className={inputStyle}

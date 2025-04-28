@@ -5,10 +5,6 @@ import Link from "next/link";
 
 export default function PPDBForm() {
   const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    // Saat pertama render halaman ➔ fade-in
-    setIsVisible(true);
-  }, []);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,21 +18,24 @@ export default function PPDBForm() {
   >("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
-  const sanitize = (str: string) => str.replace(/[<>\/\\{}]/g, "").trim(); // basic sanitasi karakter berbahaya
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  // Perbaiki sanitize supaya spasi tidak dihapus
+  const sanitize = (str: string) => str.replace(/[<>\/\\{}]/g, "").trim();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type } = e.target;
-
     let newValue: string | boolean;
 
     if (type === "checkbox") {
       newValue = (e.target as HTMLInputElement).checked;
     } else {
-      newValue = sanitize(value);
+      newValue = value;
     }
-
     setFormData((prev) => ({
       ...prev,
       [name]: newValue,
@@ -51,7 +50,7 @@ export default function PPDBForm() {
     const { name, email, whatsapp, message, agreeWhatsapp, agreeGroup } =
       formData;
 
-    if (!name || !email || !whatsapp || !message) {
+    if (!name.trim() || !email.trim() || !whatsapp.trim() || !message.trim()) {
       setErrorMsg("Semua field wajib diisi.");
       return;
     }
@@ -64,7 +63,7 @@ export default function PPDBForm() {
 
     try {
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbwYxh199iAM7dc5oOWzYoTVm6MrE8gOkgwkqcR-27KV575S2il61Fv4kdxM2f0ZK3T3xQ/exec",
+        "https://script.google.com/macros/s/AKfycbz63v3nL9ta2iOvV2bNrHqqVjYiluWE7Y_UeDCEP0ogvzLm0Ut9TFV04_ggTLpVhFmi/exec",
         {
           method: "POST",
           body: JSON.stringify({
@@ -167,7 +166,7 @@ export default function PPDBForm() {
               </button>
 
               <Link
-                href="https://chat.whatsapp.com/LINK-GRUP-KAMU" // Ganti dengan link grup WA asli
+                href="https://chat.whatsapp.com/D19aLdZ6PLcE7a5f8XXe3J"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-2 bg-green-700 hover:bg-green-600 text-white font-medium rounded-full transition duration-200 text-center"

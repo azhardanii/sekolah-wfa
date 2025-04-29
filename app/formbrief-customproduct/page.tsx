@@ -88,12 +88,13 @@ export default function ClientBriefForm() {
       );
 
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbzXHNGKgSJP4sfzxEMQxjxGc54arWmU7ql8NZ2v--kyUQRVN-i9V8Zs7uxadViKHe6ExA/exec",
+        "https://script.google.com/macros/s/AKfycbyH45B07LWr44jH7QuySbO_ucyqJIUlhOGzi6gGgfa00LxpdWYlnTLECLWfUnBIgcrn_Q/exec",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
+          mode: "cors",
           body: JSON.stringify(sanitizedData),
         }
       );
@@ -107,9 +108,15 @@ export default function ClientBriefForm() {
         throw new Error(responseData.message || "Gagal submit");
       }
     } catch (error) {
-      console.error("Error details:", error);
+      let message = "Ups! Terjadi kesalahan saat mengirim. Coba lagi nanti.";
+
+      if (error instanceof TypeError) {
+        message = "Koneksi internet terganggu atau server tidak merespon";
+      }
+
+      console.error("Full error:", error);
       setStatus("error");
-      setErrorMsg("Ups! Terjadi kesalahan saat mengirim. Coba lagi nanti.");
+      setErrorMsg(message);
     }
   };
 

@@ -16,12 +16,12 @@ const initialFormData = {
   additionalNotes: "",
 };
 
+type Status = "idle" | "loading" | "success" | "error";
+
 export default function ClientBriefForm() {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
@@ -36,17 +36,10 @@ export default function ClientBriefForm() {
     >
   ) => {
     const { name, value, type } = e.target;
-    let newValue: string | boolean;
+    const newValue =
+      type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
 
-    if (type === "checkbox") {
-      newValue = (e.target as HTMLInputElement).checked;
-    } else {
-      newValue = value;
-    }
-    setFormData((prev) => ({
-      ...prev,
-      [name]: newValue,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: newValue }));
   };
 
   const resetForm = () => {
@@ -55,12 +48,8 @@ export default function ClientBriefForm() {
     setStatus("idle");
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setErrorMsg("");
-    setStatus("idle");
-
-    const requiredFields = [
+  const validateFields = (): boolean => {
+    const required = [
       "productName",
       "productType",
       "productDescription",
@@ -70,52 +59,55 @@ export default function ClientBriefForm() {
       "primaryColor",
       "fontPreference",
     ];
-    for (const field of requiredFields) {
-      if (!formData[field as keyof typeof formData].toString().trim()) {
-        setErrorMsg("Semua field wajib diisi.");
-        return;
+    for (const field of required) {
+      const val = formData[field as keyof typeof formData];
+      if (!val.toString().trim()) {
+        setErrorMsg(`Field "${field}" wajib diisi.`);
+        return false;
       }
     }
+
+    if (!/^\d{9,15}$/.test(formData.whatsapp)) {
+      setErrorMsg("No. WA tidak valid.");
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMsg("");
+    setStatus("idle");
+
+    if (!validateFields()) return;
 
     setStatus("loading");
 
     try {
       const sanitizedData = Object.fromEntries(
-        Object.entries(formData).map(([key, value]) => [
+        Object.entries(formData).map(([key, val]) => [
           key,
-          typeof value === "string" ? sanitize(value) : value,
+          typeof val === "string" ? sanitize(val) : val,
         ])
       );
 
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbw7e97kL74gK58B58KKko-IegFnli-w7Ye736h3-wfWWRX_738lIUM7OqffOEiZ6vT10w/exec",
+        "https://script.google.com/macros/s/AKfycbyB3wEE9FIv8hfOX0XEvT6R7IYL3SmT9sPjCnIUa_BjCILnTeH3DVxYWT-gNFgPsXVS_A/exec",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "text/plain;charset=UTF-8", // Modifikasi header ini
-          },
-          body: JSON.stringify({
-            ...sanitizedData,
-            timestamp: new Date().toISOString(), // Tambahkan field timestamp
-          }),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(sanitizedData),
         }
       );
 
-      const text = await res.text();
-      console.log("Raw response:", text);
-
-      const responseData = await res.json();
-
-      if (res.ok) {
-        setStatus("success");
-        resetForm();
-      } else {
-        throw new Error(responseData.message || "Gagal submit");
-      }
-    } catch (error) {
-      console.error("Full error:", error);
-      setErrorMsg("Coba buka di browser lain/buka mode incognito");
+      if (!res.ok) throw new Error("Server error");
+      setStatus("success");
+      resetForm();
+    } catch (err) {
+      console.error(err);
       setStatus("error");
+      setErrorMsg("Ups! Terjadi kesalahan saat mengirim. Coba lagi nanti.");
     }
   };
 

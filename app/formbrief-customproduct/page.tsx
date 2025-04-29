@@ -103,9 +103,7 @@ export default function ClientBriefForm() {
       }
     } catch (error) {
       setStatus("error");
-      setErrorMsg(
-        "Ups! Terjadi kesalahan saat mengirim. Coba lagi sebentar lagi."
-      );
+      setErrorMsg("Ups! Terjadi kesalahan saat mengirim. Coba lagi nanti.");
     }
   };
 
@@ -182,7 +180,7 @@ export default function ClientBriefForm() {
   ];
 
   return (
-    <div className="bg-[radial-gradient(circle_at_0%_0%,_#ffffff_0%,_#ffffff_40%,_#ffffff_70%,_#34d0ce_100%)]">
+    <div className="bg-[radial-gradient(circle_at_0%_0%,_#ffffff_0%,_#ffffff_40%,_#ffffff_70%,_#34d0ce_100%)] relative w-full min-h-screen">
       <div
         className={`min-h-screen flex flex-col items-center justify-center p-10 transition-opacity duration-300 ${
           isVisible ? "opacity-100" : "opacity-0"
@@ -195,8 +193,8 @@ export default function ClientBriefForm() {
         )}
 
         {(status === "error" || errorMsg) && (
-          <div className="absolute inset-0 h-full flex flex-col items-center justify-center gap-4 backdrop-blur-sm text-white bg-red-900/60 z-30 p-6">
-            <h3 className="text-xl">{errorMsg}</h3>
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 backdrop-blur-sm text-white bg-red-900/60 z-30 p-6">
+            <h3 className="text-xl text-center">{errorMsg}</h3>
             <button
               onClick={resetForm}
               className="px-5 py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-full transition duration-200"
@@ -207,7 +205,7 @@ export default function ClientBriefForm() {
         )}
 
         {status === "success" && (
-          <div className="absolute inset-0 flex h-full flex-col items-center justify-center gap-4 backdrop-blur-sm text-white bg-green-900/60 z-30 p-6">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 backdrop-blur-sm text-white bg-green-900/60 z-30 p-6">
             <h3 className="text-2xl font-bold">Terima kasih! 🎉</h3>
             <p className="text-center text-base max-w-md">
               Kamu berhasil mengirim brief produk digitalmu. Tunggu sebentar
@@ -265,6 +263,7 @@ export default function ClientBriefForm() {
                   value={formData[name as keyof typeof formData] as string}
                   onChange={handleChange}
                   required
+                  autoComplete="off"
                   className={inputStyle}
                   {...inputProps}
                 />
@@ -305,7 +304,7 @@ export default function ClientBriefForm() {
               ))}
             </div>
 
-            <div className="flex justify-center w-full">
+            <div className="flex justify-center w-full pt-3">
               <button
                 type="submit"
                 disabled={status === "loading"}

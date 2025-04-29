@@ -86,10 +86,6 @@ export default function ClientBriefForm() {
     setStatus("loading");
 
     try {
-      if (!supabase) {
-        throw new Error("Supabase client belum terinisialisasi.");
-      }
-
       const sanitizedData = Object.fromEntries(
         Object.entries(formData).map(([key, val]) => [
           key,
@@ -97,18 +93,15 @@ export default function ClientBriefForm() {
         ])
       );
 
-      const { error } = await supabase
-        .from("form_custom_digital_product")
-        .insert([sanitizedData]);
+      const res = await fetch("/api/submit-formbrief-customproduct", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(sanitizedData),
+      });
 
-      if (error) {
-        console.error(
-          "Error dari Supabase:",
-          error.message,
-          error.details,
-          error.hint
-        );
-        throw error;
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Submit failed");
       }
 
       setStatus("success");
@@ -222,7 +215,7 @@ export default function ClientBriefForm() {
             <h3 className="text-2xl font-bold">Terima kasih!! 🎉</h3>
             <p className="text-center text-base max-w-md">
               Kamu berhasil mengirim brief produk digitalmu. Tunggu sebentar
-              yaa, kamu akan segera dihubungi via WA.
+              yaa, kamu akan segera dihubungi via WA 🚀
             </p>
             <button
               onClick={resetForm}

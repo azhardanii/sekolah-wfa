@@ -88,9 +88,12 @@ export default function ClientBriefForm() {
       );
 
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbwFr2hzkYjwMPLSlLL962X1UCsBii0zYGUfPd8wNKUjOfTdX--mBDuK992s0CLC_Bd8Xg/exec",
+        "https://script.google.com/macros/s/AKfycbxRP8eQQf4vVtqqLBuAJCKI0O8apPiNqVP2a5p2sZc4AmMSA9H77_S5cZzXdyVZjyqwwQ/exec",
         {
           method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(sanitizedData),
         }
       );
@@ -182,7 +185,7 @@ export default function ClientBriefForm() {
   return (
     <div className="bg-[radial-gradient(circle_at_0%_0%,_#ffffff_0%,_#ffffff_40%,_#ffffff_70%,_#34d0ce_100%)] relative w-full min-h-screen">
       <div
-        className={`min-h-screen flex flex-col items-center justify-center p-10 transition-opacity duration-300 ${
+        className={`min-h-screen flex flex-col items-center justify-center p-5 md:p-10 transition-opacity duration-300 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >

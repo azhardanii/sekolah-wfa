@@ -195,7 +195,7 @@ export default function ClientBriefForm() {
         )}
 
         {(status === "error" || errorMsg) && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 backdrop-blur-sm text-white bg-red-900/60 z-30 p-6">
+          <div className="absolute inset-0 h-full flex flex-col items-center justify-center gap-4 backdrop-blur-sm text-white bg-red-900/60 z-30 p-6">
             <h3 className="text-xl">{errorMsg}</h3>
             <button
               onClick={resetForm}
@@ -207,7 +207,7 @@ export default function ClientBriefForm() {
         )}
 
         {status === "success" && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 backdrop-blur-sm text-white bg-green-900/60 z-30 p-6">
+          <div className="absolute inset-0 flex h-full flex-col items-center justify-center gap-4 backdrop-blur-sm text-white bg-green-900/60 z-30 p-6">
             <h3 className="text-2xl font-bold">Terima kasih! 🎉</h3>
             <p className="text-center text-base max-w-md">
               Kamu berhasil mengirim brief produk digitalmu. Tunggu sebentar
@@ -296,13 +296,14 @@ export default function ClientBriefForm() {
                     value={option}
                     checked={formData.designStyle === option}
                     onChange={handleChange}
+                    required
                   />
                   {option}
                 </label>
               ))}
             </div>
 
-            <div className="pt-10 flex justify-center w-full">
+            <div className="flex justify-center w-full">
               <button
                 type="submit"
                 disabled={status === "loading"}

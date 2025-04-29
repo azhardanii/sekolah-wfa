@@ -4,25 +4,15 @@ import Image from "next/image";
 
 const initialFormData = {
   productName: "",
-  contactName: "",
-  email: "",
   whatsapp: "",
   productType: "",
   productDescription: "",
   urgentProblem: "",
   targetUser: "",
-  targetAge: "",
-  platform: "",
-  mainFeatures: "",
   referenceProducts: "",
-  paymentRequired: false,
-  paymentMethod: "",
   designStyle: "",
   primaryColor: "",
   fontPreference: "",
-  startDate: "",
-  deadline: "",
-  budget: "",
   additionalNotes: "",
 };
 
@@ -70,7 +60,12 @@ export default function ClientBriefForm() {
     setErrorMsg("");
     setStatus("idle");
 
-    const requiredFields = ["productName", "contactName", "email", "whatsapp"];
+    const requiredFields = [
+      "productName",
+      "productType",
+      "productDescription",
+      "whatsapp",
+    ];
     for (const field of requiredFields) {
       if (!formData[field as keyof typeof formData].toString().trim()) {
         setErrorMsg("Semua field wajib diisi.");
@@ -142,10 +137,9 @@ export default function ClientBriefForm() {
     },
     {
       name: "referenceProducts",
-      placeholder: "Referensi Produk Serupa",
+      placeholder: "Referensi Produk Serupa (link/nama produk)",
       type: "input",
     },
-    { name: "designStyle", placeholder: "Tampilan Visual", type: "input" },
     { name: "primaryColor", placeholder: "Warna Utama", type: "input" },
     {
       name: "fontPreference",
@@ -165,6 +159,14 @@ export default function ClientBriefForm() {
     "Web App",
     "Bot (WA/Tele/Discord)",
     "Lainnya",
+  ];
+
+  const designStyle = [
+    "Minimalist",
+    "Modern & Futuristic",
+    "Clean Professional",
+    "Fun & Energic",
+    "Vintage/Retro",
   ];
 
   return (
@@ -238,7 +240,7 @@ export default function ClientBriefForm() {
                   value={formData[name as keyof typeof formData] as string}
                   onChange={handleChange}
                   required
-                  rows={2}
+                  rows={1}
                   className={inputStyle}
                 />
               ) : (
@@ -265,6 +267,22 @@ export default function ClientBriefForm() {
                     name="productType"
                     value={option}
                     checked={formData.productType === option}
+                    onChange={handleChange}
+                  />
+                  {option}
+                </label>
+              ))}
+            </div>
+
+            <div className="text-sm pt-3 opacity-70">
+              <label className="block mb-2 font-medium">Tampilan Visual:</label>
+              {designStyle.map((option) => (
+                <label key={option} className="flex items-center gap-2 mb-1">
+                  <input
+                    type="radio"
+                    name="designStyle"
+                    value={option}
+                    checked={formData.designStyle === option}
                     onChange={handleChange}
                   />
                   {option}

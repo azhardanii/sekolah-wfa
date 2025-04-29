@@ -88,7 +88,7 @@ export default function ClientBriefForm() {
       );
 
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbzeqAsCOWBx_9z2ysd1FT5xdEs90eU8dsPeWGbbV-TP7UyP4akJ6dcJNoxRaIu2iGFD4A/exec",
+        "https://script.google.com/macros/s/AKfycbyMfXh1stJwvTWNn9Mjzi4UclPauVX1slmlq2IGp1Fprfrh1oywrsWjtB1rhOLAUX6qXw/exec",
         {
           method: "POST",
           headers: {

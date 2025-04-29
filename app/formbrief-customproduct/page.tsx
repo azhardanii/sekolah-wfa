@@ -96,8 +96,11 @@ export default function ClientBriefForm() {
         "https://script.google.com/macros/s/AKfycbyB3wEE9FIv8hfOX0XEvT6R7IYL3SmT9sPjCnIUa_BjCILnTeH3DVxYWT-gNFgPsXVS_A/exec",
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(sanitizedData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+          mode: "cors",
         }
       );
 

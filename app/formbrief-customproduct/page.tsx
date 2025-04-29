@@ -65,6 +65,10 @@ export default function ClientBriefForm() {
       "productType",
       "productDescription",
       "whatsapp",
+      "urgentProblem",
+      "designStyle",
+      "primaryColor",
+      "fontPreference",
     ];
     for (const field of requiredFields) {
       if (!formData[field as keyof typeof formData].toString().trim()) {
@@ -84,7 +88,7 @@ export default function ClientBriefForm() {
       );
 
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbz63v3nL9ta2iOvV2bNrHqqVjYiluWE7Y_UeDCEP0ogvzLm0Ut9TFV04_ggTLpVhFmi/exec",
+        "https://script.google.com/macros/s/AKfycbwFr2hzkYjwMPLSlLL962X1UCsBii0zYGUfPd8wNKUjOfTdX--mBDuK992s0CLC_Bd8Xg/exec",
         {
           method: "POST",
           body: JSON.stringify(sanitizedData),
@@ -131,16 +135,25 @@ export default function ClientBriefForm() {
       type: "textarea",
     },
     {
+      name: "urgentProblem",
+      placeholder: "Masalah yg Terselesaikan dengan Produk ini?",
+      type: "textarea",
+    },
+    {
       name: "targetUser",
-      placeholder: "Target Pengguna, Siapa yang Akan Menggunakan Produk ini?",
+      placeholder: "Target Pengguna, Siapa yang Menggunakan?",
       type: "input",
     },
     {
       name: "referenceProducts",
-      placeholder: "Referensi Produk Serupa (link/nama produk)",
+      placeholder: "Referensi (link/nama produk) *jika ada",
       type: "input",
     },
-    { name: "primaryColor", placeholder: "Warna Utama", type: "input" },
+    {
+      name: "primaryColor",
+      placeholder: "Warna Utama / Color Pallete",
+      type: "input",
+    },
     {
       name: "fontPreference",
       placeholder: "Font yang Ingin Digunakan",
@@ -158,7 +171,6 @@ export default function ClientBriefForm() {
     "Flip Book / Workbook",
     "Web App",
     "Bot (WA/Tele/Discord)",
-    "Lainnya",
   ];
 
   const designStyle = [
@@ -198,8 +210,8 @@ export default function ClientBriefForm() {
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 backdrop-blur-sm text-white bg-green-900/60 z-30 p-6">
             <h3 className="text-2xl font-bold">Terima kasih! 🎉</h3>
             <p className="text-center text-base max-w-md">
-              Kamu berhasil mengirimkan brief produk digital. Kami akan segera
-              menghubungi Anda.
+              Kamu berhasil mengirim brief produk digitalmu. Tunggu sebentar
+              yaa, kami akan segera menghubungi kamu di WA.
             </p>
             <button
               onClick={resetForm}

@@ -88,7 +88,7 @@ export default function ClientBriefForm() {
       );
 
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbzzB3w5VKWIgoaBf2a83kSjOj0bni-4HpXCRrIe3RygwbloO3muHMphWDeWKB7d6noSXQ/exec",
+        "https://script.google.com/macros/s/AKfycbzXHNGKgSJP4sfzxEMQxjxGc54arWmU7ql8NZ2v--kyUQRVN-i9V8Zs7uxadViKHe6ExA/exec",
         {
           method: "POST",
           headers: {
@@ -98,13 +98,16 @@ export default function ClientBriefForm() {
         }
       );
 
+      const responseData = await res.json();
+
       if (res.ok) {
         setStatus("success");
         resetForm();
       } else {
-        throw new Error("Gagal submit");
+        throw new Error(responseData.message || "Gagal submit");
       }
     } catch (error) {
+      console.error("Error details:", error);
       setStatus("error");
       setErrorMsg("Ups! Terjadi kesalahan saat mengirim. Coba lagi nanti.");
     }

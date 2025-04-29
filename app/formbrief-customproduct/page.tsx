@@ -252,6 +252,7 @@ export default function ClientBriefForm() {
                   value={formData[name as keyof typeof formData] as string}
                   onChange={handleChange}
                   required
+                  autoComplete="off"
                   rows={1}
                   className={inputStyle}
                 />
@@ -280,6 +281,7 @@ export default function ClientBriefForm() {
                     value={option}
                     checked={formData.productType === option}
                     onChange={handleChange}
+                    required
                   />
                   {option}
                 </label>

@@ -219,7 +219,7 @@ export default function ClientBriefForm() {
 
         {status === "success" && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 backdrop-blur-sm text-white bg-green-900/60 z-30 p-6">
-            <h3 className="text-2xl font-bold">Terima kasih! 🎉</h3>
+            <h3 className="text-2xl font-bold">Terima kasih!! 🎉</h3>
             <p className="text-center text-base max-w-md">
               Kamu berhasil mengirim brief produk digitalmu. Tunggu sebentar
               yaa, kamu akan segera dihubungi via WA.

@@ -88,16 +88,21 @@ export default function ClientBriefForm() {
       );
 
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbyH45B07LWr44jH7QuySbO_ucyqJIUlhOGzi6gGgfa00LxpdWYlnTLECLWfUnBIgcrn_Q/exec",
+        "https://script.google.com/macros/s/AKfycbw7e97kL74gK58B58KKko-IegFnli-w7Ye736h3-wfWWRX_738lIUM7OqffOEiZ6vT10w/exec",
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "text/plain;charset=UTF-8", // Modifikasi header ini
           },
-          mode: "cors",
-          body: JSON.stringify(sanitizedData),
+          body: JSON.stringify({
+            ...sanitizedData,
+            timestamp: new Date().toISOString(), // Tambahkan field timestamp
+          }),
         }
       );
+
+      const text = await res.text();
+      console.log("Raw response:", text);
 
       const responseData = await res.json();
 
@@ -108,15 +113,9 @@ export default function ClientBriefForm() {
         throw new Error(responseData.message || "Gagal submit");
       }
     } catch (error) {
-      let message = "Ups! Terjadi kesalahan saat mengirim. Coba lagi nanti.";
-
-      if (error instanceof TypeError) {
-        message = "Koneksi internet terganggu atau server tidak merespon";
-      }
-
       console.error("Full error:", error);
+      setErrorMsg("Coba buka di browser lain/buka mode incognito");
       setStatus("error");
-      setErrorMsg(message);
     }
   };
 

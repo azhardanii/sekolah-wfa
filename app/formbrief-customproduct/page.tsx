@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { supabase } from "@/lib/supabase";
 
 const initialFormData = {
   productName: "",
@@ -85,6 +86,10 @@ export default function ClientBriefForm() {
     setStatus("loading");
 
     try {
+      if (!supabase) {
+        throw new Error("Supabase client belum terinisialisasi.");
+      }
+
       const sanitizedData = Object.fromEntries(
         Object.entries(formData).map(([key, val]) => [
           key,
@@ -92,25 +97,26 @@ export default function ClientBriefForm() {
         ])
       );
 
-      const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbyB3wEE9FIv8hfOX0XEvT6R7IYL3SmT9sPjCnIUa_BjCILnTeH3DVxYWT-gNFgPsXVS_A/exec",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-          mode: "cors",
-        }
-      );
+      const { error } = await supabase
+        .from("form_custom_digital_product")
+        .insert([sanitizedData]);
 
-      if (!res.ok) throw new Error("Server error");
+      if (error) {
+        console.error(
+          "Error dari Supabase:",
+          error.message,
+          error.details,
+          error.hint
+        );
+        throw error;
+      }
+
       setStatus("success");
-      resetForm();
-    } catch (err) {
-      console.error(err);
+    } catch (err: any) {
       setStatus("error");
-      setErrorMsg("Ups! Terjadi kesalahan saat mengirim. Coba lagi nanti.");
+      setErrorMsg(
+        "Ups! Terjadi kesalahan saat menyimpan ke database. Coba lagi nanti."
+      );
     }
   };
 
@@ -216,7 +222,7 @@ export default function ClientBriefForm() {
             <h3 className="text-2xl font-bold">Terima kasih! 🎉</h3>
             <p className="text-center text-base max-w-md">
               Kamu berhasil mengirim brief produk digitalmu. Tunggu sebentar
-              yaa, kami akan segera menghubungi kamu di WA.
+              yaa, kamu akan segera dihubungi via WA.
             </p>
             <button
               onClick={resetForm}

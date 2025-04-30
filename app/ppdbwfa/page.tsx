@@ -11,7 +11,6 @@ export default function PPDBForm() {
     whatsapp: "",
     message: "",
     agreeWhatsapp: false,
-    agreeGroup: false,
   });
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -49,7 +48,6 @@ export default function PPDBForm() {
       whatsapp: "",
       message: "",
       agreeWhatsapp: false,
-      agreeGroup: false,
     });
     setErrorMsg("");
     setStatus("idle");
@@ -60,14 +58,13 @@ export default function PPDBForm() {
     setErrorMsg("");
     setStatus("idle");
 
-    const { name, email, whatsapp, message, agreeWhatsapp, agreeGroup } =
-      formData;
+    const { name, email, whatsapp, message, agreeWhatsapp } = formData;
 
     if (!name.trim() || !email.trim() || !whatsapp.trim() || !message.trim()) {
       setErrorMsg("Semua field wajib diisi.");
       return;
     }
-    if (!agreeWhatsapp || !agreeGroup) {
+    if (!agreeWhatsapp) {
       setErrorMsg("Checkbox harus dicentang.");
       return;
     }
@@ -85,7 +82,6 @@ export default function PPDBForm() {
             whatsapp: sanitize(whatsapp),
             message: sanitize(message),
             agreeWhatsapp,
-            agreeGroup,
           }),
         }
       );
@@ -98,7 +94,6 @@ export default function PPDBForm() {
           whatsapp: "",
           message: "",
           agreeWhatsapp: false,
-          agreeGroup: false,
         });
       } else {
         throw new Error("Gagal submit");

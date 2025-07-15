@@ -2,20 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(14deg); }
+  100% { transform: rotate(0deg); }
+}
+.animate-wave {
+  animation: wave 2s infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+.gradient-border-circular {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.gradient-border-circular::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(at 0% 0%, #237674, #32c8c7);
+  background-size: 200% 200%;
+  background-position: center;
+
+  animation: pulseGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1); /* Skala normal */
+    filter: brightness(1); /* Kecerahan normal */
+    opacity: 1; /* Opasitas normal */
+  }
+  50% {
+    transform: scale(1.02); /* Sedikit membesar untuk efek denyutan */
+    filter: brightness(1.2); /* Sedikit lebih cerah (efek glow) */
+    opacity: 0.95; /* Sedikit transparan (opsional, untuk soft glow) */
+  }
+  100% {
+    transform: scale(1); /* Kembali ke skala normal */
+    filter: brightness(1); /* Kembali ke kecerahan normal */
+    opacity: 1; /* Kembali ke opasitas normal */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.ProseMirror h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.ProseMirror h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.ProseMirror ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+.ProseMirror ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
 }

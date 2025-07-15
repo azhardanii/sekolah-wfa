@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const inter = Inter({
@@ -11,19 +12,6 @@ export const metadata: Metadata = {
   title: "Sekolah WFA",
   description:
     "Sekolah WFA – Platform Digital Terlengkap untuk Pekerja WFA Masa Kini. Belajar, Berkarya, dan Berpenghasilan Dari Mana Aja!",
-  keywords: [
-    "sekolah WFA",
-    "platform digital WFA",
-    "belajar kerja remote",
-    "pekerja fleksibel",
-    "belajar digital skill",
-    "kursus online WFA",
-    "work from anywhere",
-    "belajar freelance",
-    "penghasilan online",
-    "peluang kerja digital",
-    "sekolah fleksibel",
-  ],
   openGraph: {
     title: "Sekolah WFA – Platform Digital Terlengkap untuk Pekerja WFA",
     description:
@@ -59,8 +47,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+    <html lang="id">
+      <body className={`${inter.variable} font-inter antialiased overflow-x-hidden`}>{children}</body>
     </html>
   );
 }

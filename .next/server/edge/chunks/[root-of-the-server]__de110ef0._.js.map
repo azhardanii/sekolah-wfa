@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 23, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/middleware.ts"],"sourcesContent":["import { NextResponse } from 'next/server';\nimport type { NextRequest } from 'next/server';\n\nexport function middleware(request: NextRequest) {\n  const url = request.nextUrl;\n\n  // Redirect ke /under-development\n  url.pathname = '/under-development';\n  return NextResponse.redirect(url);\n}\n\nexport const config = {\n  matcher: [\n    '/ekskul',\n    '/kantin',\n    '/ruangbk',\n    '/rekreasi',\n    '/kelas-online',\n    '/kelas-offline',\n  ],\n};\n"],"names":[],"mappings":";;;;AAAA;AAAA;;AAGO,SAAS,WAAW,OAAoB;IAC7C,MAAM,MAAM,QAAQ,OAAO;IAE3B,iCAAiC;IACjC,IAAI,QAAQ,GAAG;IACf,OAAO,6LAAA,CAAA,eAAY,CAAC,QAAQ,CAAC;AAC/B;AAEO,MAAM,SAAS;IACpB,SAAS;QACP;QACA;QACA;QACA;QACA;QACA;KACD;AACH"}}]
+}

@@ -1,18 +1,27 @@
-import type { Config } from "tailwindcss";
+// tailwind.config.js
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
-export default {
+module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        inter: ['var(--font-inter)', ...fontFamily.sans],
+      },
+      keyframes: {
+        bouncePulse: {
+          '0%, 100%': { transform: 'translateY(0) scale(1)' },
+          '50%': { transform: 'translateY(-10%) scale(1.05)', opacity: 0.6 },
+        },
+      },
+      animation: {
+        'bounce-pulse': 'bouncePulse 2s infinite',
       },
     },
   },
   plugins: [],
-} satisfies Config;
+}

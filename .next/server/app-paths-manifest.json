@@ -1,21 +1,4 @@
 {
-  "/api/mading/[slug]/route": "app/api/mading/[slug]/route.js",
-  "/api/mading/generate-content/route": "app/api/mading/generate-content/route.js",
-  "/api/mading/route": "app/api/mading/route.js",
-  "/api/mading/generate-keyword/route": "app/api/mading/generate-keyword/route.js",
-  "/api/upload/route": "app/api/upload/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/kelas-offline/page": "app/kelas-offline/page.js",
-  "/kelas-online/page": "app/kelas-online/page.js",
-  "/rekreasi/page": "app/rekreasi/page.js",
-  "/formbrief-customproduct/page": "app/formbrief-customproduct/page.js",
-  "/ppdbwfa/page": "app/ppdbwfa/page.js",
-  "/page": "app/page.js",
-  "/ekskul/page": "app/ekskul/page.js",
-  "/kantin/page": "app/kantin/page.js",
-  "/ruangarsip/mading/page": "app/ruangarsip/mading/page.js",
-  "/ruangarsip/mading/preview/[slug]/page": "app/ruangarsip/mading/preview/[slug]/page.js",
-  "/ruangbk/page": "app/ruangbk/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/under-development/page": "app/under-development/page.js"
+  "/page": "app/page.js"
 }

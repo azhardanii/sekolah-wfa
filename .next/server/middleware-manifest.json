@@ -1,52 +1,6 @@
 {
   "version": 3,
-  "middleware": {
-    "/": {
-      "files": [
-        "server/edge-runtime-webpack.js",
-        "server/middleware.js"
-      ],
-      "name": "middleware",
-      "page": "/",
-      "matchers": [
-        {
-          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/ekskul(\\.json)?[\\/#\\?]?$",
-          "originalSource": "/ekskul"
-        },
-        {
-          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/kantin(\\.json)?[\\/#\\?]?$",
-          "originalSource": "/kantin"
-        },
-        {
-          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/ruangbk(\\.json)?[\\/#\\?]?$",
-          "originalSource": "/ruangbk"
-        },
-        {
-          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/rekreasi(\\.json)?[\\/#\\?]?$",
-          "originalSource": "/rekreasi"
-        },
-        {
-          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/kelas-online(\\.json)?[\\/#\\?]?$",
-          "originalSource": "/kelas-online"
-        },
-        {
-          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/kelas-offline(\\.json)?[\\/#\\?]?$",
-          "originalSource": "/kelas-offline"
-        }
-      ],
-      "wasm": [],
-      "assets": [],
-      "env": {
-        "__NEXT_BUILD_ID": "gLKGiA9bfiq1srrEVVn9P",
-        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "xT6kE9HKK+fQcmCbp+aQECJPXz4Rk4sGD7/kAMBhe5E=",
-        "__NEXT_PREVIEW_MODE_ID": "dfbac9799f6fbea41ccc4534d7515a62",
-        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "9ab5e3c2188f8a7c517fcf95d079d6ae0f995834c669c3cddfbc017feedc8c20",
-        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "50a66cf8d8850ce5a218418f2446871915d7e139ba627e9defe7b511c5229ad6"
-      }
-    }
-  },
+  "middleware": {},
   "functions": {},
-  "sortedMiddleware": [
-    "/"
-  ]
+  "sortedMiddleware": []
 }

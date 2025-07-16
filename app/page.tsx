@@ -68,7 +68,7 @@ const produkList: {
       title: 'The Next Level Content Planner AI Integrated - CONTENT AUTO PILOT by Sekolah WFA',
       imageSrc: '/autopilot-sekolahwfa.webp',
       priceOriginal: 250_000,
-      priceDiscounted: 79_000,
+      priceDiscounted: 99_000,
       linkHref: 'https://lynk.id/febbyanggun/Gxz5rZb',
     },
     {
@@ -77,7 +77,7 @@ const produkList: {
       title: 'Assistant Keuangan pakai AI di WA - F.I.N.A. by Sekolah WFA Ngga Perlu Install Aplikasi Lagi!!',
       imageSrc: '/financialassistant-sekolahwfa.webp',
       priceOriginal: 200_000,
-      priceDiscounted: 79_000,
+      priceDiscounted: 89_000,
       linkHref: 'https://lynk.id/febbyanggun/zxnr3943280z',
     },
     {
@@ -86,7 +86,7 @@ const produkList: {
       title: "HABIT TRACKER FULL VERSION Bonus!! Daily Todo List, Mood, Sleep, n' Water Tracker",
       imageSrc: '/trackerhabit-sekolahwfa.webp',
       priceOriginal: 150_000,
-      priceDiscounted: 79_000,
+      priceDiscounted: 49_000,
       linkHref: 'https://lynk.id/febbyanggun/PGPyE25',
     },
     {

@@ -11,11 +11,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Sekolah WFA",
   description:
-    "Sekolah WFA – Platform Digital Terlengkap untuk Pekerja WFA Masa Kini. Belajar, Berkarya, dan Berpenghasilan Dari Mana Aja!",
+    "Sekolah WFA – Sekolah Digital Terlengkap untuk Pekerja WFA Masa Kini. Belajar, Berkarya, dan Berpenghasilan Dari Mana Aja!",
   openGraph: {
-    title: "Sekolah WFA – Platform Digital Terlengkap untuk Pekerja WFA",
+    title: "Sekolah WFA – Belajar, Berkarya, dan Berpenghasilan Dari Mana Aja!",
     description:
-      "Tempatmu Bertumbuh, Belajar, Berkarya, dan Berpenghasilan Dari Mana Aja!",
+      "Sekolah Digital Terlengkap untuk Para Pekerja WFA Masa Kini.",
     url: "https://sekolahwfa.com",
     siteName: "Sekolah WFA",
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "https://res.cloudinary.com/dpytrn22z/image/upload/v1745844397/sekolah-WFA_vi4fzq.jpg",
         width: 1200,
         height: 630,
-        alt: "Sekolah WFA – Platform Digital Terlengkap untuk Pekerja WFA",
+        alt: "Sekolah WFA – Sekolah Digital Terlengkap untuk Pekerja WFA Masa Kini.",
       },
     ],
     locale: "id_ID",

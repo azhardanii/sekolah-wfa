@@ -34,7 +34,7 @@ export default function RuangAIPage() {
           ✨ Detail Info tentang RuangAI, <span className="underline font-bold tracking-wide">Klik di Sini!!</span> ✨
         </Link>
         <div className="absolute top-0 w-full h-[6.75rem] bg-[#C9E6F0]" />
-        <div className="absolute top-12 w-full flex justify-center">
+        <div className="absolute top-[2.9rem] w-full flex justify-center">
           <Image 
             src="/wfaxruangai.webp" 
             width={300} 

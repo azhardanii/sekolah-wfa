@@ -1,4 +1,4 @@
 {
-  "/ruangai/beasiswa/page": "app/ruangai/beasiswa/page.js",
-  "/ruangai/page": "app/ruangai/page.js"
+  "/ruangai/page": "app/ruangai/page.js",
+  "/ruangai/beasiswa/page": "app/ruangai/beasiswa/page.js"
 }

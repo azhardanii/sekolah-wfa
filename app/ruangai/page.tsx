@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function RuangAIPage() {
   const [isLoading, setIsLoading] = useState(true);
-  const [overlayActive, setOverlayActive] = useState(true); // ✅ default aktif
+  const [overlayActive, setOverlayActive] = useState(true);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const router = useRouter();
 
@@ -58,7 +58,6 @@ export default function RuangAIPage() {
           onLoad={() => setIsLoading(false)}
         />
 
-        {/* Overlay klik */}
         <div
           onClick={handleOverlayClick}
           className={`absolute inset-0 z-20 transition-opacity duration-500`}

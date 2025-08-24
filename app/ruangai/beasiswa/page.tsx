@@ -25,12 +25,12 @@ export default function RuangAIPage() {
       <div className="relative flex-grow">
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-200 z-10 rounded-lg">
-            <div className="animate-spin rounded-full h-10 w-10 border-4 border-b-emerald-500 border-gray-400"></div>
-            <p className="ml-4 text-gray-700 text-lg">Sedang Masuk ke Ruang AI...</p>
+            <div className="animate-spin rounded-full h-8 w-8 border-4 border-b-emerald-500 border-gray-400"></div>
+            <p className="ml-4 text-gray-700 text-lg">Mengakses Ruang AI...</p>
           </div>
         )}
 
-        <Link href="/ruangai" className="absolute top-0 left-0 w-full bg-emerald-500 text-white text-center p-1.5 font-semibold hover:bg-emerald-600 transition-colors z-50 cursor-pointer">
+        <Link href="/ruangai" className="absolute top-0 left-0 w-full bg-emerald-500 text-white text-center p-2 text-xs font-semibold hover:bg-emerald-600 transition-colors z-50 cursor-pointer">
           ✨ Detail Info tentang RuangAI, <span className="underline font-bold tracking-wide">Klik di Sini!!</span> ✨
         </Link>
         <div className="absolute top-0 w-full h-[6.75rem] bg-[#C9E6F0]" />

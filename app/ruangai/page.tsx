@@ -10,21 +10,27 @@ export default function RuangAIPage() {
   const router = useRouter();
 
   useEffect(() => {
+    const handleInteraction = () => {
+      setOverlayActive(false);
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+
+      scrollTimeoutRef.current = setTimeout(() => {
+        setOverlayActive(true);
+      }, 500);
+    };
+
+    // Tambahin listener global
+    window.addEventListener("scroll", handleInteraction, { passive: true });
+    window.addEventListener("wheel", handleInteraction, { passive: true });
+    window.addEventListener("touchmove", handleInteraction, { passive: true });
+
     return () => {
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      window.removeEventListener("scroll", handleInteraction);
+      window.removeEventListener("wheel", handleInteraction);
+      window.removeEventListener("touchmove", handleInteraction);
     };
   }, []);
-
-  const handleInteraction = () => {
-    // Begitu ada scroll/geser → overlay langsung non-aktif
-    setOverlayActive(false);
-    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-
-    // Kalau berhenti scroll 600ms → overlay aktif lagi
-    scrollTimeoutRef.current = setTimeout(() => {
-      setOverlayActive(true);
-    }, 100);
-  };
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -35,16 +41,12 @@ export default function RuangAIPage() {
 
   return (
     <div className="flex flex-col h-screen w-screen overflow-hidden bg-gray-100 font-inter">
-      <div
-        className="relative flex-grow"
-        onWheel={handleInteraction}
-        onTouchMove={handleInteraction}
-      >
+      <div className="relative flex-grow">
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-200 z-30 rounded-lg">
-            <div className="animate-spin rounded-full h-10 w-10 border-4 border-b-emerald-500 border-gray-400"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-4 border-b-emerald-500 border-gray-400"></div>
             <p className="ml-4 text-gray-700 text-lg">
-              Sedang Masuk ke Ruang AI...
+              Mengakses Ruang AI...
             </p>
           </div>
         )}

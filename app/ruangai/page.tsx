@@ -16,7 +16,7 @@ export default function RuangAIPage() {
 
       scrollTimeoutRef.current = setTimeout(() => {
         setOverlayActive(true);
-      }, 500);
+      }, 900);
     };
 
     // Tambahin listener global

@@ -23,7 +23,7 @@ export default function RuangAIPage() {
     // Kalau berhenti scroll 600ms → overlay aktif lagi
     scrollTimeoutRef.current = setTimeout(() => {
       setOverlayActive(true);
-    }, 1000);
+    }, 100);
   };
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {

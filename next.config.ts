@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
   devIndicators: {
     autoPrerender: false,
   } as any,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

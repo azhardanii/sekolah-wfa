@@ -45,7 +45,6 @@ export default function Home() {
             width={600}
             height={200}
             className="mx-auto max-w-sm pr-1 -ml-5 md:ml-auto"
-            loading="lazy"
           />
         </div>
       </Section>

@@ -7,17 +7,20 @@ type LazyYoutubeProps = {
   videoId: string;
   title: string;
   ratio?: "16:9" | "9:16";
+  thumbnailUrl?: string;
 };
 
 export default function LazyYoutube({
   videoId,
   title,
   ratio = "9:16",
+  thumbnailUrl,
 }: LazyYoutubeProps) {
   const [isClicked, setIsClicked] = useState(false);
   const [isIframeLoaded, setIsIframeLoaded] = useState(false);
 
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  const finalThumbnailUrl =
+    thumbnailUrl || `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   // Konversi rasio jadi padding bottom (aspect ratio hack)
   const aspectPadding = ratio === "16:9" ? "56.25%" : "177.77%";
@@ -28,7 +31,6 @@ export default function LazyYoutube({
       style={{ paddingBottom: aspectPadding }}
       onClick={() => setIsClicked(true)}
     >
-      {/* Saat sudah diklik, tunggu iframe */}
       {isClicked ? (
         <>
           {!isIframeLoaded && (
@@ -47,10 +49,9 @@ export default function LazyYoutube({
           />
         </>
       ) : (
-        // Thumbnail + tombol play
         <div className="absolute top-0 left-0 w-full h-full bg-black">
           <Image
-            src={thumbnailUrl}
+            src={finalThumbnailUrl}
             width={300}
             height={100}
             alt={`Thumbnail ${title}`}

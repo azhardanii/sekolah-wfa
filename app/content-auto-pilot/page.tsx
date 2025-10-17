@@ -50,6 +50,14 @@ export default function Home() {
       </Section>
 
       <Section className="text-center">
+        <div className="relative w-full -mt-10 mx-auto max-w-sm px-3">
+          <p className="bg-gradient-to-r from-[#3AA8A2] to-[#276E68] bg-clip-text text-transparent font-bold text-2xl">Dapatkan Akses Seumur Hidup ke Sistem Konten AI ini Hanya dengan Investasi Sekali!!</p>
+          <p className="mt-3 bg-gradient-to-r from-[#a83a3a] to-[#6e2727] bg-clip-text text-transparent font-extrabold text-3xl line-through">Rp. 800.000</p>
+          <p className="mt-3 bg-gradient-to-r from-[#276E68] to-[#3AA8A2] bg-clip-text text-transparent font-bold text-5xl">Rp.127.000</p>
+        </div>
+      </Section>
+
+      <Section className="text-center">
         <div className="relative w-full -mt-20 mx-auto">
           <Image
             src="https://raw.githubusercontent.com/sekolahwfa/img/refs/heads/main/cap-2.webp"

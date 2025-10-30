@@ -16,10 +16,21 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
+    "/content-auto-pilot/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/content-auto-pilot/layout.css",
+      "static/chunks/app/content-auto-pilot/layout.js"
+    ],
     "/content-auto-pilot/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/content-auto-pilot/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

@@ -13,9 +13,9 @@ const Section = ({
   <section className={`w-full py-10 ${className} text-center`}>{children}</section>
 );
 
-export default function Home() {
+export default function ContentAutoPilotPage() {
   return (
-    <main className="w-full relative overflow-hidden">
+    <div className="w-full relative overflow-hidden">
       {/* <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-sm flex justify-center items-center text-center bg-white px-5 h-20 z-10 shadow-xl">
         <Link href={'https://lynk.id/febbyanggun/lx1mjy6y77k7/checkout'} className="bg-[#B62A2B] w-full p-2 rounded-md shadow-md text-white font-extrabold text-lg flex gap-2 items-center justify-center">
             <svg
@@ -88,7 +88,7 @@ export default function Home() {
           <Image
             src="/content-pilot/cap-intro.webp"
             alt="Memperkenalkan Content Auto Pilot"
-            width={300}
+            width={350}
             height={200}
             className="mx-auto max-w-sm md:max-w-xl pr-1 md:pr-0 scale-110"
             loading="lazy"
@@ -135,26 +135,28 @@ export default function Home() {
               loading="lazy"
             />
           </div>
-          <div className="-ml-10 mt-5 px-3 md:px-0 hidden md:block">
-            <Image
-              src="/content-pilot/cap-access.webp"
-              alt="Access Button Content Auto Pilot"
-              width={400}
-              height={200}
-              className="mx-auto hover:scale-110 cursor-pointer transition-all"
-              loading="lazy"
-            />
-          </div>
-          <div className="-ml-7 mt-3 px-3 md:px-0 block md:hidden">
-            <Image
-              src="/content-pilot/cap-access.webp"
-              alt="Access Button Content Auto Pilot"
-              width={250}
-              height={200}
-              className="mx-auto hover:scale-110 cursor-pointer transition-all"
-              loading="lazy"
-            />
-          </div>
+          <Link href={'http://lynk.id/febbyanggun/lx1mjy6y77k7/checkout'} target="_blank">
+            <div className="-ml-10 mt-5 px-3 md:px-0 hidden md:block">
+              <Image
+                src="/content-pilot/cap-access.webp"
+                alt="Access Button Content Auto Pilot"
+                width={400}
+                height={200}
+                className="mx-auto hover:scale-110 cursor-pointer transition-all"
+                loading="lazy"
+              />
+            </div>
+            <div className="-ml-7 mt-3 px-3 md:px-0 block md:hidden">
+              <Image
+                src="/content-pilot/cap-access.webp"
+                alt="Access Button Content Auto Pilot"
+                width={250}
+                height={200}
+                className="mx-auto hover:scale-110 cursor-pointer transition-all"
+                loading="lazy"
+              />
+            </div>
+          </Link>
         </div>
       </Section>
 
@@ -163,7 +165,7 @@ export default function Home() {
           <Image
             src="/content-pilot/cap-createfor.webp"
             alt="Memperkenalkan Content Auto Pilot"
-            width={300}
+            width={350}
             height={200}
             className="mx-auto max-w-sm md:max-w-xl pr-1 md:pr-0 scale-110"
             loading="lazy"
@@ -186,7 +188,7 @@ export default function Home() {
           <Image
             src="/content-pilot/cap-feature.webp"
             alt="Memperkenalkan Content Auto Pilot"
-            width={300}
+            width={350}
             height={200}
             className="mx-auto max-w-sm md:max-w-xl pr-1 md:pr-0 scale-110"
             loading="lazy"
@@ -216,26 +218,28 @@ export default function Home() {
               loading="lazy"
             />
           </div>
-          <div className="-ml-10 mt-10 px-3 md:px-0 hidden md:block">
-            <Image
-              src="/content-pilot/cap-access.webp"
-              alt="Access Button Content Auto Pilot"
-              width={400}
-              height={200}
-              className="mx-auto hover:scale-110 cursor-pointer transition-all"
-              loading="lazy"
-            />
-          </div>
-          <div className="-ml-7 mt-7 md:mt-3 px-3 md:px-0 block md:hidden">
-            <Image
-              src="/content-pilot/cap-access.webp"
-              alt="Access Button Content Auto Pilot"
-              width={250}
-              height={200}
-              className="mx-auto hover:scale-110 cursor-pointer transition-all"
-              loading="lazy"
-            />
-          </div>
+          <Link href={'http://lynk.id/febbyanggun/lx1mjy6y77k7/checkout'} target="_blank">
+            <div className="-ml-10 mt-10 px-3 md:px-0 hidden md:block">
+              <Image
+                src="/content-pilot/cap-access.webp"
+                alt="Access Button Content Auto Pilot"
+                width={400}
+                height={200}
+                className="mx-auto hover:scale-110 cursor-pointer transition-all"
+                loading="lazy"
+              />
+            </div>
+            <div className="-ml-7 mt-7 md:mt-3 px-3 md:px-0 block md:hidden">
+              <Image
+                src="/content-pilot/cap-access.webp"
+                alt="Access Button Content Auto Pilot"
+                width={250}
+                height={200}
+                className="mx-auto hover:scale-110 cursor-pointer transition-all"
+                loading="lazy"
+              />
+            </div>
+          </Link>
         </div>
       </Section>
 
@@ -244,7 +248,7 @@ export default function Home() {
           <Image
             src="/content-pilot/cap-faq.webp"
             alt="Memperkenalkan Content Auto Pilot"
-            width={300}
+            width={350}
             height={200}
             className="mx-auto max-w-sm md:max-w-xl pr-1 md:pr-0 scale-110"
             loading="lazy"
@@ -276,6 +280,6 @@ export default function Home() {
           <p>All rights reserved.</p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

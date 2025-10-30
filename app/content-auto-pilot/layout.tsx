@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "Content Auto Pilot – Bantu Kamu Membuat dan Mengelola Konten Lebih Efisien!!",
   description:
-    "Tools digital yang membantu kamu membuat dan mengelola konten lebih profesional, simpel, dan engaging. Cocok untuk mahasiswa, kreator pemula, influencer, freelancer, affiliator, digital agency, maupun bisnis owner.",
+    "Tools digital yang membantu kamu membuat dan mengelola konten lebih profesional, simpel, dan engaging. Cocok untuk mahasiswa, kreator pemula, influencer, affiliator, digital agency, maupun bisnis owner.",
   openGraph: {
     title:
       "Content Auto Pilot – Bantu Kamu Membuat dan Mengelola Konten Lebih Efisien!!",
@@ -42,16 +42,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function ContentAutoPilotLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={poppins.className}>
-      <body className="min-h-screen bg-white relative overflow-x-hidden [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/30 hover:[&::-webkit-scrollbar-thumb]:bg-white/50 [&::-webkit-scrollbar-thumb]:rounded-full">
-          {children}
-      </body>
-    </html>
+    <main
+      className={`min-h-screen bg-white relative overflow-x-hidden [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/30 hover:[&::-webkit-scrollbar-thumb]:bg-white/50 [&::-webkit-scrollbar-thumb]:rounded-full ${poppins.className}`}
+    >
+      {children}
+    </main>
   );
 }

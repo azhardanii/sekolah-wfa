@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Content Auto Pilot",
     images: [
       {
-        url: "https://res.cloudinary.com/dpytrn22z/image/upload/v1757232018/Meta_Image_imcz0t.webp",
+        url: "https://raw.githubusercontent.com/azhardanii/sekolah-wfa/main/public/content-pilot/cap-metaimg.jpg",
         width: 1200,
         height: 630,
         alt: "Content Auto Pilot – All in One Tools for Create & Manage Content",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description:
       "Toolkit simpel & profesional untuk membuat & mengelola konten lebih efisien.",
     images: [
-      "https://res.cloudinary.com/dpytrn22z/image/upload/v1757232018/Meta_Image_imcz0t.webp",
+      "https://raw.githubusercontent.com/azhardanii/sekolah-wfa/main/public/content-pilot/cap-metaimg.jpg",
     ],
     creator: "@azhardanii",
   },

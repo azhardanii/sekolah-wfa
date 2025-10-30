@@ -114,7 +114,7 @@ export default function ContentAutoPilotPage() {
 
       <Section>
         <div className="max-w-xl mx-auto text-center -mt-8 md:-mt-5">
-          <h2 className="text-sm md:text-[1.4rem] text-black mb-6 tracking-wider px-4">
+          <h2 className="text-sm md:text-[1.4rem] md:leading-tight text-black mb-6 tracking-wider px-4">
             TOOLS INI ADALAH <span className="font-extrabold text-[#ff0000]">RAHASIA PARA KONTEN KREATOR, BISNIS OWNER & DIGITAL SELLER <span className="italic">!!</span></span>
           </h2>
           <div className="aspect-video w-full max-w-xl mx-auto mb-7 px-3 md:px-0">

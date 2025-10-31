@@ -39,7 +39,7 @@ export default function ContentAutoPilotPage() {
       </div> */}
 
       <Section>
-        <h1 className="max-w-sm md:max-w-xl px-5 text-[#205d53] text-3xl mt-10 font-black tracking-wider text-center mx-auto">TOOLS DIGITAL BIKIN KONTEN VIRAL CUMA <span className="bg-gradient-to-r from-[#18736a] to-[#28afae] bg-clip-text text-transparent">1 MENIT</span> & CAPAI <span className="bg-gradient-to-r from-[#18736a] to-[#28afae] bg-clip-text text-transparent">10K FOLLOWERS</span> DALAM <span className="bg-gradient-to-r from-[#18736a] to-[#28afae] bg-clip-text text-transparent">3 BULAN</span></h1>
+        <h1 className="max-w-sm md:max-w-xl px-5 text-[#353429] text-[1.2rem] md:text-3xl mt-10 font-black tracking-wider text-center mx-auto">TOOLS DIGITAL BIKIN KONTEN VIRAL CUMA <span className="bg-gradient-to-r from-[#d90000] to-[#e5212b] bg-clip-text text-transparent">1 MENIT</span> & CAPAI <span className="bg-gradient-to-r from-[#d90000] to-[#e5212b] bg-clip-text text-transparent">10K FOLLOWERS</span> DALAM <span className="bg-gradient-to-r from-[#d90000] to-[#e5212b] bg-clip-text text-transparent">3 BULAN</span></h1>
       </Section>
 
       <Section>

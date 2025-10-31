@@ -52,7 +52,7 @@ export default function ContentAutoPilotLayout({
     <main
       className={`min-h-screen bg-white relative overflow-x-hidden [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/30 hover:[&::-webkit-scrollbar-thumb]:bg-white/50 [&::-webkit-scrollbar-thumb]:rounded-full ${poppins.className}`}
     >
-      <Script id="meta-pixel" strategy="afterInteractive">
+      {/* <Script id="meta-pixel" strategy="afterInteractive">
         {`
           !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -68,7 +68,7 @@ export default function ContentAutoPilotLayout({
       </Script>
       <noscript><img height="1" width="1" style={{ display: "none" }}
         src="https://www.facebook.com/tr?id=1346212237107053&ev=PageView&noscript=1" />
-      </noscript>
+      </noscript> */}
       {children}
     </main>
   );

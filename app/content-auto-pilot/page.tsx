@@ -37,8 +37,13 @@ export default function ContentAutoPilotPage() {
           {'>> Kuota Diskon Sisa: 1 <<'}
         </Link>
       </div> */}
+
       <Section>
-        <div className="relative w-full mx-auto hidden md:block">
+        <h1 className="max-w-sm md:max-w-xl px-5 text-[#205d53] text-3xl mt-10 font-black tracking-wider text-center mx-auto">TOOLS DIGITAL BIKIN KONTEN VIRAL CUMA <span className="bg-gradient-to-r from-[#18736a] to-[#28afae] bg-clip-text text-transparent">1 MENIT</span> & CAPAI <span className="bg-gradient-to-r from-[#18736a] to-[#28afae] bg-clip-text text-transparent">10K FOLLOWERS</span> DALAM <span className="bg-gradient-to-r from-[#18736a] to-[#28afae] bg-clip-text text-transparent">3 BULAN</span></h1>
+      </Section>
+
+      <Section>
+        <div className="relative w-full mx-auto hidden -mt-10 md:block">
           <Image
             src="/content-pilot/cap-hook.webp"
             alt="User Content Auto Pilot"
@@ -48,7 +53,7 @@ export default function ContentAutoPilotPage() {
             priority
           />
         </div>
-        <div className="relative w-full mx-auto block mt-10 md:hidden">
+        <div className="relative w-full mx-auto block mt-5 md:hidden">
           <Image
             src="/content-pilot/cap-hook-mobver.webp"
             alt="User Content Auto Pilot"

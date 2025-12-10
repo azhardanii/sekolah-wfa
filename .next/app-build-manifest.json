@@ -16,15 +16,21 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/_not-found/page": [
+    "/draft-page/main-lp/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/css/app/draft-page/main-lp/layout.css",
+      "static/chunks/app/draft-page/main-lp/layout.js"
     ],
-    "/intern-submit/page": [
+    "/draft-page/main-lp/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/intern-submit/page.js"
+      "static/chunks/app/draft-page/main-lp/page.js"
+    ],
+    "/internship-submit/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/internship-submit/page.js"
     ]
   }
 }

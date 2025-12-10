@@ -1,4 +1,3 @@
-// tailwind.config.js
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
@@ -11,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ['var(--font-inter)', ...fontFamily.sans],
+        poppins: ["var(--font-poppins)"],
       },
       keyframes: {
         bouncePulse: {

@@ -30,9 +30,9 @@
     "compromise": "^14.14.4",
     "framer-motion": "^12.18.1",
     "html-react-parser": "^5.2.5",
-    "next": "^15.3.5",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "next": "^16.0.8",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "sharp": "^0.34.2"
   },
   "devDependencies": {

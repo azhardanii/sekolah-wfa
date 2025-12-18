@@ -47,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={inter.variable}>
+    <html lang="id" className={`${inter.variable} scrollbar-hide`}>
       <body className="font-inter antialiased overflow-x-hidden">{children}</body>
     </html>
   );

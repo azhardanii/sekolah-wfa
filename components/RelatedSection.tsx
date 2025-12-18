@@ -59,7 +59,6 @@ const THEPROBLEMS = [
 export default function RelateSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   
-  // Menggunakan useRef untuk logic internal agar tidak menyebabkan re-render visual yang kasar
   const isPaused = useRef(false); 
   const pauseTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -69,13 +68,8 @@ export default function RelateSection() {
 
     const animateScroll = () => {
       if (scrollContainer && !isPaused.current) {
-        // Logic Running Text:
-        // Tambahkan scrollLeft sedikit demi sedikit setiap frame.
-        // Angka 0.5 adalah kecepatan (semakin kecil = semakin pelan/halus)
         scrollContainer.scrollLeft += 0.5;
 
-        // Logic Infinite Loop (Opsional tapi disarankan untuk running text):
-        // Jika sudah mentok di ujung kanan, kembalikan ke awal (0) secara instan
         if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1) {
            scrollContainer.scrollLeft = 0; 
         }
@@ -83,30 +77,24 @@ export default function RelateSection() {
       animationFrameId = requestAnimationFrame(animateScroll);
     };
 
-    // Mulai loop animasi saat komponen dipasang
     animationFrameId = requestAnimationFrame(animateScroll);
 
-    // Bersihkan animasi saat komponen dicopot (unmount)
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   const handleManualScroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      // 1. PAUSE OTOMATIS: Hentikan auto-scroll seketika
       isPaused.current = true;
 
-      // 2. CLEAR TIMER LAMA: Jika user klik tombol berkali-kali dengan cepat, reset hitungan 3 detiknya
       if (pauseTimeout.current) clearTimeout(pauseTimeout.current);
 
-      // 3. EKSEKUSI SCROLL MANUAL
-      const scrollAmount = 350; // Jarak geser per klik
+      const scrollAmount = 350;
       if (direction === 'left') {
         scrollRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
       } else {
         scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
       }
 
-      // 4. RESUME TIMER: Tunggu 3 detik, lalu jalankan auto-scroll lagi
       pauseTimeout.current = setTimeout(() => {
         isPaused.current = false;
       }, 3000);
@@ -115,13 +103,11 @@ export default function RelateSection() {
 
   return (
     <section className="relative w-full py-20">
-      
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="w-full">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-10 items-center lg:items-start">
           
-          {/* --- LEFT SIDE: STICKY HEADING --- */}
-          <div className="w-full lg:w-1/3 lg:sticky lg:top-32 flex flex-col justify-center text-center lg:text-left z-20">
-            <div className="absolute top-1/3 left-1/2 lg:left-0 w-[300px] h-[300px] bg-[#32c8c7]/40 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 -translate-x-1/2" />
+          <div className="w-full lg:w-1/3 lg:sticky lg:top-32 flex flex-col justify-center text-center lg:text-left z-20 px-6 lg:pl-[max(1.5rem,calc((100vw-80rem)/2))]">
+            <div className="absolute top-1/3 left-1/2 w-[300px] h-[300px] bg-[#32c8c7]/40 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 -translate-x-1/2" />
             
             <h2 className="relative z-10 text-5xl md:text-7xl font-bold tracking-wide text-white leading-tight">
               KAMU <br />
@@ -129,7 +115,6 @@ export default function RelateSection() {
               <span className="text-white/80">SENDIRI...</span>
             </h2>
 
-            {/* Navigasi Desktop (Optional tapi UX Friendly) */}
             <div className="hidden lg:flex gap-4 mt-8">
                 <button 
                     onClick={() => handleManualScroll('left')}
@@ -146,52 +131,40 @@ export default function RelateSection() {
             </div>
           </div>
 
-          {/* --- RIGHT SIDE: HORIZONTAL CAROUSEL --- */}
-          <div className="w-full lg:w-2/3 relative z-10">
-             {/* Gradient Masking: Agar user tahu ada konten di sebelah kanan yang terpotong */}
+          <div className="w-full lg:w-2/3 relative z-10 pl-6 lg:pl-0">
              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none lg:hidden" />
 
-             {/* Container Scroll */}
              <div 
                 ref={scrollRef}
                 className="flex overflow-x-auto gap-6 pb-8 scrollbar-hide -mx-6 px-6 lg:mx-0 lg:px-0"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                // Opsional: Pause juga saat user hover mouse di atas kartu
+                style={{
+                    scrollbarWidth: 'none',
+                    msOverflowStyle: 'none',
+                    maskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 25%, black 95%, transparent 100%)'
+                }}
                 onMouseEnter={() => (isPaused.current = true)}
                 onMouseLeave={() => (isPaused.current = false)}
              >
               {THEPROBLEMS.map((item, index) => (
                 <div 
                   key={index} 
-                  // min-w-[300px] sm:min-w-[350px] -> Menjaga kartu tidak gepeng
-                  // snap-center -> Agar saat swipe berhenti pas di tengah
                   className="min-w-[300px] sm:min-w-[350px] snap-center group relative pl-[1px] pb-[1px] pt-[1px] pr-[1px] rounded-2xl bg-gradient-to-br from-[#32c8c7]/50 to-transparent hover:to-[#32c8c7]/30 transition-all duration-300"
                 >
                   <div className="h-full bg-black/90 backdrop-blur-sm rounded-2xl p-6 flex flex-col justify-between border border-white/5 hover:bg-black/80 transition-all relative">
-
-                   
-
                     <p className="text-white/80 text-sm leading-relaxed pt-5 mb-6 italic">
-
                       <span className="text-[#1d8b84] text-7xl leading-none font-serif opacity-50 top-2 absolute">“</span> {item.text}
-
                     </p>
-
                    
-
                     <div className="border-t border-white/10 pt-4 mt-auto">
-
                       <p className="text-[#1d8b84] font-bold text-base">
-
                         {item.name}
-
                       </p>
-
                       <p className="text-white/50 text-xs">
                         {item.role}
                       </p>
                     </div>
-                    </div>
+                  </div>
                 </div>
               ))}
              </div>

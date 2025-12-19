@@ -1,5 +1,7 @@
 import StatSection from '@/components/StatSection';
 import RelatedSection from '@/components/RelatedSection';
+import PortoLabSection from '@/components/PortoLabSection';
+import FaqSection from '@/components/FaqSection';
 import Image from 'next/image';
 
 export default function Home() {
@@ -21,7 +23,7 @@ export default function Home() {
             Sekolah Digital Terlengkap
           </h1>
           
-          <h2 className="text-4xl md:text-7xl font-bold tracking-tight leading-tight pb-2 bg-clip-text text-transparent bg-gradient-to-b from-[#32c8c7] to-[#237674]">
+          <h2 className="text-4xl md:text-7xl font-bold tracking-tight leading-tight pb-2 bg-clip-text text-transparent bg-gradient-to-b from-[#32c8c7] via-[#32c8c7] to-[#237674]">
             Dari Gen-Z untuk Negeri.
           </h2>
 
@@ -41,14 +43,12 @@ export default function Home() {
 
           {/* BUTTON ACTION */}
           <div className="mt-16 flex flex-col md:flex-row gap-5 w-full md:w-auto items-center">
-            {/* Tombol Outline Gradient */}
-            <button className="relative group p-[2px] rounded-full bg-gradient-to-r from-[#32c8c7] to-[#1a5f5d] hover:to-[#32c8c7] transition-all duration-300">
+            <button className="relative group pt-[2.25px] pr-[2.5px] pl-[2.5px] pb-[2.5px] rounded-full bg-gradient-to-l from-[#32c8c7] to-[#1a5f5d] hover:to-[#32c8c7] transition-all duration-300">
               <div className="px-12 py-3 rounded-full bg-black group-hover:bg-black/80 transition-all duration-300 h-full w-full flex items-center justify-center">
                   <span className="text-white font-medium tracking-wide">Lihat Program Sekolah WFA</span>
               </div>
             </button>
 
-            {/* Tombol Solid Gradient + Glow Effect */}
             <button className="relative px-20 py-3 rounded-full bg-gradient-to-r from-[#189090] to-[#023d3c] text-white font-semibold shadow-[0_0_20px_rgba(50,200,199,0.3)] hover:shadow-[0_0_35px_rgba(50,200,199,0.6)] hover:scale-105 transition-all duration-300">
               Mulai Belajar Sekarang
             </button>
@@ -140,9 +140,29 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mt-10">
+          <PortoLabSection />
+      </section>
+
       <section className='h-screen'></section>
 
+      <section>
+        <FaqSection />
+      </section>
 
+      <footer className="mt-10 w-full overflow-hidden flex justify-center">
+        <div className="w-full max-w-6xl h-32 md:h-64 bg-gradient-to-b from-[#32c8c7] to-[#32c8c7]/10 rounded-t-full flex items-center justify-center relative px-4">
+          <div className="relative w-48 h-12 md:w-[35rem] md:h-24 scale-150">
+            <Image
+              src="/img/lp/linelogo-wfa.svg"
+              alt="Sekolah WFA Logo"
+              fill
+              className="object-contain"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

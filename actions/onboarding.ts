@@ -3,6 +3,7 @@
 import { auth } from "@/auth"
 import { db } from "@/lib/db"
 import { revalidatePath } from "next/cache"
+import { Prisma } from "@prisma/client"
 
 export async function submitOnboarding(rawAnswers: Record<string, string>) {
   const session = await auth()
@@ -14,7 +15,7 @@ export async function submitOnboarding(rawAnswers: Record<string, string>) {
   const userId: string = session.user.id
 
   try {
-    await db.$transaction(async (tx) => {
+    await db.$transaction(async (tx: Prisma.TransactionClient) => {
       for (const [questionId, answer] of Object.entries(rawAnswers)) {
         await tx.formResponse.create({
           data: {

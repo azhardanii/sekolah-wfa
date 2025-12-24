@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Providers } from "@/components/providers"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
@@ -48,7 +49,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${inter.variable} scrollbar-hide`}>
-      <body className="font-inter antialiased overflow-x-hidden">{children}</body>
+      <body className="font-inter antialiased overflow-x-hidden">
+        <Providers>
+          {children}
+        </Providers>
+        </body>
     </html>
   );
 }

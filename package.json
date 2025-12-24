@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "postinstall": "npx prisma generate",
     "dev": "pnpm next dev",
-    "build": "prisma generate && pnpm next build",
+    "build": "pnpm next build",
     "start": "pnpm next start",
     "lint": "pnpm next lint"
   },
@@ -53,6 +54,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
     "postcss": "^8",
+    "prisma": "^7.2.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

@@ -8,6 +8,9 @@ export default {
       clientSecret: process.env.AUTH_GOOGLE_SECRET!,
     }),
   ],
+  pages: {
+    signIn: '/login',
+  },
   callbacks: {
     // 1. Masukkan data user dari DB ke dalam Token JWT
     async jwt({ token, user, trigger, session }) {

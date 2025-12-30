@@ -4,8 +4,9 @@ import { useSession } from "next-auth/react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowRight, Check, ChevronLeft } from "lucide-react"
+import { ChevronRight, Check, ChevronLeft } from "lucide-react"
 import { submitOnboarding } from "@/actions/onboarding"
+import Image from "next/image"
 
 interface Question {
   id: string
@@ -91,18 +92,34 @@ export function OnboardingForm({ questions }: OnboardingFormProps) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-50 px-4">
+    <div className="relative min-h-screen overflow-hidden w-full flex items-center justify-center bg-gradient-to-b from-[white] via-[#26D7C4]/50 to-[white] p-4">
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-white opacity-30 rounded-full translate-x-1/3 -translate-y-[30%] pointer-events-none"></div>
+      <div className="absolute -bottom-10 right-10 w-[300px] h-[300px] bg-gradient-to-b from-[#26D7C4] to-white opacity-15 rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white opacity-30 rounded-full -translate-x-1/3 -translate-y-[30%] pointer-events-none"></div>
+      <div className="absolute -bottom-10 left-10 w-[300px] h-[300px] bg-gradient-to-b from-[#26D7C4] to-white opacity-15 rounded-full pointer-events-none"></div>
+
+      <div className="absolute w-full flex justify-center top-10">
+          <Image
+              src="/logo-wfa.webp" 
+              alt="Sekolah WFA Logo" 
+              width={135}
+              height={75}
+              priority
+              className="object-contain"
+          />
+      </div>
+
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-2 bg-gray-200">
         <motion.div 
-          className="h-full bg-blue-600"
+          className="h-full bg-[#26D7C4]"
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
           transition={{ duration: 0.5 }}
         />
       </div>
 
-      <div className="w-full max-w-2xl">
+      <div className="w-full max-w-5xl px-10">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentQuestion.id}
@@ -114,19 +131,19 @@ export function OnboardingForm({ questions }: OnboardingFormProps) {
             transition={{ duration: 0.4, type: "spring", stiffness: 100 }}
             className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 min-h-[300px] flex flex-col justify-center"
           >
-            <span className="text-sm font-bold text-blue-600 mb-4 block">
+            <span className="text-sm font-bold text-[#26D7C4] mb-4 block">
               Pertanyaan {currentIndex + 1} dari {questions.length}
             </span>
 
             <h2 className="text-3xl font-bold text-gray-800 mb-8">
               {currentQuestion.question}
-              <span className="text-red-500 ml-1">*</span>
+              <span className="text-teal-500 ml-1">*</span>
             </h2>
 
             <input
               type="text"
               autoFocus
-              className="w-full text-2xl border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2 bg-transparent transition-colors placeholder:text-gray-300"
+              className="w-full text-2xl border-b-2 border-gray-300 focus:border-[#26D7C4] outline-none py-2 bg-transparent transition-colors placeholder:text-gray-300"
               placeholder="Ketik jawabanmu..."
               value={currentAnswer}
               onChange={(e) => handleInput(e.target.value)}
@@ -147,7 +164,7 @@ export function OnboardingForm({ questions }: OnboardingFormProps) {
             )}
             
             <p className="text-xs text-gray-400 mt-4">
-              {isValid ? "Tekan Enter ↵ untuk lanjut" : "Isi jawaban untuk melanjutkan"}
+              {isValid ? "Tekan Enter ↵ atau klik tombol selanjutnya untuk lanjut" : "Isi jawaban untuk melanjutkan"}
             </p>
           </motion.div>
         </AnimatePresence>
@@ -156,9 +173,9 @@ export function OnboardingForm({ questions }: OnboardingFormProps) {
           <button
             onClick={handleBack}
             disabled={currentIndex === 0}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg tracking-wide font-medium transition-colors ${
               currentIndex === 0 
-                ? "text-gray-300 cursor-not-allowed" 
+                ? "text-gray-400 cursor-not-allowed" 
                 : "text-gray-600 hover:bg-gray-100"
             }`}
           >
@@ -169,10 +186,10 @@ export function OnboardingForm({ questions }: OnboardingFormProps) {
             onClick={handleNext}
             disabled={!isValid || isSubmitting}
             className={`
-              px-8 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg transition-all
+              px-5 py-3 rounded-xl font-semibold tracking-wide flex items-center gap-2 shadow-lg transition-all
               ${!isValid || isSubmitting 
                 ? "bg-gray-300 text-gray-500 cursor-not-allowed shadow-none" 
-                : "bg-blue-600 hover:bg-blue-700 text-white hover:shadow-blue-500/30"
+                : "bg-gradient-to-t from-[#147167] to-[#2AB3B0] shadow-lg active:scale-95 transition-transform duration-150 ease-in-out text-white hover:shadow-blue-500/30"
               }
             `}
           >
@@ -181,7 +198,7 @@ export function OnboardingForm({ questions }: OnboardingFormProps) {
             ) : currentIndex === questions.length - 1 ? (
               <>Selesai <Check size={20} /></>
             ) : (
-              <>Lanjut <ArrowRight size={20} /></>
+              <>Selanjutnya <ChevronRight size={20} /></>
             )}
           </button>
         </div>

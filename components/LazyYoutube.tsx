@@ -3,79 +3,87 @@
 import { useState } from "react";
 import Image from "next/image";
 
-type LazyYoutubeProps = {
-  videoId: string;
-  title: string;
-  ratio?: "16:9" | "9:16";
-  thumbnailUrl?: string;
-};
-
 export default function LazyYoutube({
   videoId,
   title,
   ratio = "9:16",
   thumbnailUrl,
-}: LazyYoutubeProps) {
+}: {
+  videoId: string;
+  title: string;
+  ratio?: "16:9" | "9:16";
+  thumbnailUrl?: string;
+}) {
   const [isClicked, setIsClicked] = useState(false);
-  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
 
-  const finalThumbnailUrl =
-    thumbnailUrl || `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  const finalThumbnail =
+    thumbnailUrl || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
-  // Konversi rasio jadi padding bottom (aspect ratio hack)
   const aspectPadding = ratio === "16:9" ? "56.25%" : "177.77%";
+
+  const handleThumbnailClick = () => {
+    setIsClicked(true);
+  };
 
   return (
     <div
-      className="relative w-full h-0 overflow-hidden rounded-xl cursor-pointer"
+      className="relative w-full h-0 overflow-hidden rounded-xl bg-black"
       style={{ paddingBottom: aspectPadding }}
-      onClick={() => setIsClicked(true)}
+      onContextMenu={(e) => e.preventDefault()}
     >
-      {isClicked ? (
-        <>
-          {!isIframeLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black">
-              <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          )}
+      {/* IFRAME PLAYER */}
+      {isClicked && (
+        <div className="absolute inset-0 z-20">
           <iframe
-            className="absolute top-0 left-0 w-full h-full"
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`}
+            className="absolute inset-0 w-full h-full"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&modestbranding=1&rel=0&showinfo=0&controls=1&fs=1&iv_load_policy=3`}
             title={title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
             allowFullScreen
-            onLoad={() => setIsIframeLoaded(true)}
+            style={{
+              border: "none",
+            }}
           />
-        </>
-      ) : (
-        <div className="absolute top-0 left-0 w-full h-full bg-black">
+          
+          {/* CSS overlay to prevent right-click but allow video controls */}
+          <style jsx>{`
+            iframe {
+              pointer-events: auto;
+            }
+            
+            /* Prevent text selection */
+            * {
+              user-select: none;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+            }
+          `}</style>
+        </div>
+      )}
+
+      {/* THUMBNAIL */}
+      {!isClicked && (
+        <div
+          onClick={handleThumbnailClick}
+          className="absolute inset-0 cursor-pointer z-10 group"
+        >
           <Image
-            src={finalThumbnailUrl}
-            width={300}
-            height={100}
-            alt={`Thumbnail ${title}`}
-            className="w-full h-full object-cover"
+            src={finalThumbnail}
+            alt={title}
+            fill
+            className="object-cover"
+            onError={(e) => {
+              e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+            }}
           />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="80"
-              height="80"
-              viewBox="0 0 100 100"
-              className="transition-transform duration-200 ease-in-out hover:scale-110"
-            >
-              <rect
-                x="18"
-                y="25"
-                width="70"
-                height="50"
-                rx="12"
-                ry="12"
-                fill="#FF0000"
-              />
-              <polygon points="45,38 65,50 45,62" fill="white" />
-            </svg>
+
+          <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+            <div className="bg-[#147167] rounded-2xl p-4 shadow-lg group-hover:scale-110 transition-transform duration-200">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
         </div>
       )}

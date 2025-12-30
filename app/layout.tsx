@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { Providers } from "@/components/providers"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -48,8 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${inter.variable} scrollbar-hide`}>
-      <body className="font-inter antialiased overflow-x-hidden">
+    <html lang="id" className="scrollbar-hide overflow-x-hidden scroll-smooth">
+      <body className={`${poppins.variable} font-poppins`}>
         <Providers>
           {children}
         </Providers>

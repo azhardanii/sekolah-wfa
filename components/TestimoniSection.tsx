@@ -1,0 +1,326 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const TESTIMONIALS = [
+  {
+    id: 1,
+    name: 'Ibun Aif',
+    handle: '@aifarifah',
+    avatar: '/img/testi/avatar-aif.webp',
+    image: '/img/testi/profileig-aif.webp',
+    text: "Belajar di Sekolah WFA beneran mengubah mindset saya. Materinya daging semua dan mentornya sangat suportif!",
+  },
+  {
+    id: 2,
+    name: 'Raden Anggie',
+    handle: '@radengie',
+    avatar: '/img/testi/avatar-anggie.webp',
+    image: '/img/testi/profileig-anggie.webp',
+    text: "Awalnya ragu, tapi setelah join ternyata sistemnya sangat terstruktur. Sekarang sudah bisa dapet klien pertama!",
+  },
+  {
+    id: 3,
+    name: 'Asran Shady',
+    handle: '@gashady',
+    avatar: '/img/testi/avatar-asran.webp',
+    image: '/img/testi/profileig-asran.webp',
+    text: "Dalam misi trip ke semua negara di dunia. Sekolah WFA ngasih fleksibilitas yang aku butuhin banget buat traveling.",
+  },
+  {
+    id: 4,
+    name: 'Clara',
+    handle: '@ceritadigitalclara',
+    avatar: '/img/testi/avatar-clara.webp',
+    image: '/img/testi/profileig-clara.webp',
+    text: "Komunitasnya aktif banget. Gak cuma belajar skill, tapi juga networking sama temen-temen se-visi.",
+  },
+  {
+    id: 5,
+    name: 'David Lo',
+    handle: '@davidlo.fit',
+    avatar: '/img/testi/avatar-david.webp',
+    image: '/img/testi/profileig-david.webp',
+    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+  },
+  {
+    id: 6,
+    name: 'Dimas Ramadhan',
+    handle: '@dimasramadhan',
+    avatar: '/img/testi/avatar-dimas.webp',
+    image: '/img/testi/profileig-dimas.webp',
+    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+  },
+  {
+    id: 7,
+    name: 'Sherly Fanny',
+    handle: '@fannykondoh',
+    avatar: '/img/testi/avatar-fanny.webp',
+    image: '/img/testi/profileig-fanny.webp',
+    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+  },
+  {
+    id: 8,
+    name: 'Fuad Rizal',
+    handle: '@fuadekspor',
+    avatar: '/img/testi/avatar-fuad.webp',
+    image: '/img/testi/profileig-fuad.webp',
+    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+  },
+  {
+    id: 9,
+    name: 'Hana Puji',
+    handle: '@hana.ph',
+    avatar: '/img/testi/avatar-hana.webp',
+    image: '/img/testi/profileig-hana.webp',
+    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+  },
+  {
+    id: 10,
+    name: 'Kadafi Devayan',
+    handle: '@kadafidevayana',
+    avatar: '/img/testi/avatar-kadafi.webp',
+    image: '/img/testi/profileig-kadafi.webp',
+    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+  },
+  {
+    id: 11,
+    name: 'Mia Aulia',
+    handle: '@miaauliaa.p',
+    avatar: '/img/testi/avatar-mia.webp',
+    image: '/img/testi/profileig-mia.webp',
+    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+  },
+  {
+    id: 12,
+    name: 'Amanda Mindiw',
+    handle: '@amanddanf',
+    avatar: '/img/testi/avatar-mindiw.webp',
+    image: '/img/testi/profileig-mindiw.webp',
+    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+  },
+  {
+    id: 13,
+    name: 'Uci Afterhours',
+    handle: '@digital.afterhours',
+    avatar: '/img/testi/avatar-suci.webp',
+    image: '/img/testi/profileig-suci.webp',
+    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+  },
+  {
+    id: 14,
+    name: 'Yetti Oktarina',
+    handle: '@rinaprana',
+    avatar: '/img/testi/avatar-yetti.webp',
+    image: '/img/testi/profileig-yetti.webp',
+    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+  },
+];
+
+export default function TestimonialSection() {
+  const [activeIndex, setActiveIndex] = useState(2); 
+  const [isPaused, setIsPaused] = useState(false);
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+  };
+
+  useEffect(() => {
+    // Jika sedang dipause (hover), jangan jalankan interval
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      handleNext();
+    }, 10000);
+
+    // Cleanup interval saat component unmount atau paused berubah
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  // Helper untuk mendapatkan jarak index (support infinite loop wrap-around)
+  const getOffset = (index: number) => {
+    const total = TESTIMONIALS.length;
+    let offset = (index - activeIndex);
+    if (offset > total / 2) offset -= total;
+    if (offset < -total / 2) offset += total;
+    return offset;
+  };
+
+  return (
+    <section className="relative w-full bg-white pt-10 pb-20 md:pb-32 overflow-hidden flex flex-col items-center min-h-[900px]">
+      
+      <div className="absolute top-[10%] md:top-[20%] left-0 w-full h-[700px] pointer-events-none">
+        <svg 
+            viewBox="0 0 1440 700" 
+            className="w-full h-full" 
+            preserveAspectRatio="none"
+        >
+            {/* 1. Definisi Gradient */}
+            <defs>
+            <linearGradient id="valleyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                {/* Atas: #26D7C4 */}
+                <stop offset="0%" stopColor="#26D7C4" /> 
+                {/* Bawah: Putih (#ffffff) */}
+                <stop offset="100%" stopColor="#ffffff" /> 
+            </linearGradient>
+            </defs>
+
+            {/* 2. Terapkan Gradient ke Path */}
+            {/* fill="url(#id)" menghubungkan path dengan gradient di atas */}
+            {/* fillOpacity="0.5" mengatur transparansi menjadi 50% */}
+            <path 
+            d="M0,0 Q720,350 1440,0 L1440,700 L0,700 Z" 
+            fill="url(#valleyGradient)" 
+            fillOpacity="0.5" 
+            />
+        </svg>
+        </div>
+
+      {/* --- HEADER TEXT --- */}
+      <div className="relative z-10 text-center px-4 mb-8 md:mb-2 mx-auto mt-8">
+        <h2 className="text-xl md:text-2xl font-semibold text-[#147167] leading-snug">
+          Teman belajar di Sekolah WFA yang berhasil memulai & <br />
+          berpenghasilan dari mana aja dengan sistem yang mereka terapkan.
+        </h2>
+      </div>
+
+      {/* --- SLIDER CONTAINER --- */}
+      <div className="relative z-10 w-full h-[700px] flex items-center justify-center mt-4">
+        
+        {/* Nav Buttons */}
+        <button onClick={handlePrev} className="absolute left-4 md:left-20 z-50 p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-1/2 -translate-y-1/2">
+            <ChevronLeft size={24} />
+        </button>
+        <button onClick={handleNext} className="absolute right-4 md:right-20 z-50 p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-1/2 -translate-y-1/2">
+            <ChevronRight size={24} />
+        </button>
+
+        {/* ITEMS */}
+        {TESTIMONIALS.map((item, index) => {
+          const offset = getOffset(index);
+          const isActive = offset === 0;
+
+          // --- KONFIGURASI POSISI BARU (Lengkungan Senyum) ---
+          const spacing = 340; // Jarak horizontal antar item
+          const baseY = 250; // Posisi Y paling rendah (untuk item tengah)
+
+          // Kita gunakan string kalkulasi CSS untuk X agar centering sempurna
+          // `calc(-50% + ...px)` memastikan anchor point tetap di tengah
+          let x: string | number = `calc(-50% + ${offset * spacing}px)`; 
+          let y = 0;
+          let scale = 1;
+          let zIndex = 0;
+          let opacity = 1;
+
+          if (isActive) {
+            // CENTER (Paling Bawah)
+            y = baseY; 
+            scale = 1;
+            zIndex = 50;
+            opacity = 1;
+          } else if (Math.abs(offset) === 1) {
+            // POSISI 1 (Naik sedikit)
+            y = baseY - 120; 
+            scale = 0.95;
+            zIndex = 40;
+            opacity = 0.9;
+          } else if (Math.abs(offset) === 2) {
+            // POSISI 2 (Naik banyak / Paling atas)
+            y = baseY - 190; 
+            scale = 0.75;
+            zIndex = 30;
+            opacity = 0.7;
+          } else {
+            // Item yang tersembunyi (untuk smooth looping)
+            x = `calc(-50% + ${offset > 0 ? 1500 : -1500}px)`;
+            y = baseY - 300;
+            scale = 0;
+            opacity = 0;
+          }
+
+          // Responsive Adjustment (Mobile)
+          const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+          if (isMobile) {
+             const mobileSpacing = 160;
+             x = `calc(-50% + ${offset * mobileSpacing}px)`;
+             if (Math.abs(offset) === 1) { y = baseY - 80; scale: 0.6; }
+             if (Math.abs(offset) >= 2) { opacity = 0; pointerEvents: 'none' } // Hide far items on mobile
+          }
+
+          return (
+            <motion.div
+              key={item.id}
+              // Animate ke nilai kalkulasi yang baru
+              animate={{ x, y, scale, zIndex, opacity }}
+              // Transisi smooth physics-based
+              transition={{ type: 'spring', stiffness: 180, damping: 25, mass: 1 }}
+              className="absolute top-0 origin-center flex flex-col items-center justify-center cursor-pointer"
+              onClick={() => {
+                if (offset === -1) handlePrev();
+                if (offset === 1) handleNext();
+              }}
+              // PENTING: Anchor di tengah layar secara absolut. 
+              // Kita HAPUS `x: '-50%'` dari sini dan memindahkannya ke dalam `animate` (calc)
+              // untuk menghindari konflik alignment.
+              style={{ left: '50%' }} 
+            >
+              
+              {isActive ? (
+                /* === ACTIVE STATE (CLEAN IMAGE CARD) === */
+                <div className="relative flex flex-col items-center md:-mt-52"> {/* Tetap gunakan margin negatif agar posisi naik sesuai kurva */}
+                    
+                    {/* IMAGE CONTAINER */}
+                    {/* Ukuran disesuaikan agar proporsional sebagai kartu foto vertical */}
+                    
+                        <Image 
+                            src={item.image} 
+                            alt="Testimonial Image" 
+                            width={500}
+                            height={750}
+                        />
+
+                    {/* TEXT CARD OVERLAY (Floating at bottom) */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        // Adjust posisi bottom agar overlap-nya pas dengan kartu gambar
+                        className="absolute -bottom-16 w-[340px] md:w-[600px] bg-white rounded-3xl px-6 pt-3 pb-5 shadow-[0_-3px_10px_0_rgba(0,0,0,0.15)] z-30 text-center border border-gray-50"
+                    >
+                        <h3 className="text-[#147167] text-2xl md:text-2xl font-semibold mb-2">
+                          {item.name}
+                        </h3>
+                        <p className="text-[#147167] text-sm md:text-lg leading-relaxed font-normal">
+                          {item.text}
+                        </p>
+                    </motion.div>
+                </div>
+              ) : (
+                /* === INACTIVE STATE (AVATAR ONLY) === */
+                /* ... kode inactive tetap sama ... */
+                <div className="relative group flex flex-col justify-center items-center">
+                   <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-full p-1 transition-transform duration-300 group-hover:scale-105`}>
+                      <div className="w-full h-full rounded-full overflow-hidden relative">
+                        <Image src={item.avatar} alt="user" fill className="object-cover shadow-md" />
+                      </div>
+                   </div>
+                   
+                   <div className="mt-3 px-4 py-1 bg-white/90 backdrop-blur-sm rounded-full shadow-sm text-sm font-bold text-[#147167] whitespace-nowrap">
+                       {item.name}
+                   </div>
+                </div>
+              )}
+            </motion.div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

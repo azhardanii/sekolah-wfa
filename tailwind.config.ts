@@ -31,6 +31,8 @@ module.exports = {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'scroll-left': 'scroll-left 200s linear infinite',
         'scroll-right': 'scroll-right 200s linear infinite',
+        'scrollcollab-left': 'scroll-left 20s linear infinite',
+        'scrollcollab-right': 'scroll-right 20s linear infinite',
       },
     },
   },

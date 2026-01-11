@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const TESTIMONIALS = [
   {
@@ -80,7 +80,7 @@ const TESTIMONIALS = [
   },
   {
     id: 10,
-    name: 'Kadafi Devayan',
+    name: 'Kadafi Devayana',
     handle: '@kadafidevayana',
     avatar: '/img/testi/avatar-kadafi.webp',
     image: '/img/testi/profileig-kadafi.webp',
@@ -155,7 +155,7 @@ export default function TestimonialSection() {
 
   return (
     <section className="relative w-full bg-white pt-10 pb-20 md:pb-32 overflow-hidden flex flex-col items-center min-h-[900px]">
-      
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-[500px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
       <div className="absolute top-[10%] md:top-[20%] left-0 w-full h-[700px] pointer-events-none">
         <svg 
             viewBox="0 0 1440 700" 
@@ -187,19 +187,19 @@ export default function TestimonialSection() {
       <div className="relative z-10 text-center px-4 mb-8 md:mb-2 mx-auto mt-8">
         <h2 className="text-xl md:text-2xl font-semibold text-[#147167] leading-snug">
           Teman belajar di Sekolah WFA yang berhasil memulai & <br />
-          berpenghasilan dari mana aja dengan sistem yang mereka terapkan.
+          berpenghasilan dari mana aja dengan sistem yang telah mereka pelajari.
         </h2>
       </div>
 
       {/* --- SLIDER CONTAINER --- */}
-      <div className="relative z-10 w-full h-[700px] flex items-center justify-center mt-4">
+      <div className="relative z-10 w-full h-[700px] flex items-center justify-center mt-4" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
         
         {/* Nav Buttons */}
-        <button onClick={handlePrev} className="absolute left-4 md:left-20 z-50 p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-1/2 -translate-y-1/2">
-            <ChevronLeft size={24} />
+        <button onClick={handlePrev} className="absolute left-4 md:left-20 z-50 p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
+            <ArrowLeft className="w-6 h-6 text-[#147167] stroke-[2.5] stroke-[#147167] group-hover:text-white group-hover:stroke-white transition-colors" />
         </button>
-        <button onClick={handleNext} className="absolute right-4 md:right-20 z-50 p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-1/2 -translate-y-1/2">
-            <ChevronRight size={24} />
+        <button onClick={handleNext} className="absolute right-4 md:right-20 z-50 p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
+            <ArrowRight className="w-6 h-6 text-[#147167] stroke-[2.5] stroke-[#147167] group-hover:text-white group-hover:stroke-white transition-colors" />
         </button>
 
         {/* ITEMS */}
@@ -233,7 +233,7 @@ export default function TestimonialSection() {
             opacity = 0.9;
           } else if (Math.abs(offset) === 2) {
             // POSISI 2 (Naik banyak / Paling atas)
-            y = baseY - 190; 
+            y = baseY - 200; 
             scale = 0.75;
             zIndex = 30;
             opacity = 0.7;
@@ -274,7 +274,7 @@ export default function TestimonialSection() {
               
               {isActive ? (
                 /* === ACTIVE STATE (CLEAN IMAGE CARD) === */
-                <div className="relative flex flex-col items-center md:-mt-52"> {/* Tetap gunakan margin negatif agar posisi naik sesuai kurva */}
+                <div className="relative flex flex-col items-center md:-mt-60"> {/* Tetap gunakan margin negatif agar posisi naik sesuai kurva */}
                     
                     {/* IMAGE CONTAINER */}
                     {/* Ukuran disesuaikan agar proporsional sebagai kartu foto vertical */}
@@ -304,7 +304,6 @@ export default function TestimonialSection() {
                 </div>
               ) : (
                 /* === INACTIVE STATE (AVATAR ONLY) === */
-                /* ... kode inactive tetap sama ... */
                 <div className="relative group flex flex-col justify-center items-center">
                    <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-full p-1 transition-transform duration-300 group-hover:scale-105`}>
                       <div className="w-full h-full rounded-full overflow-hidden relative">
@@ -312,7 +311,7 @@ export default function TestimonialSection() {
                       </div>
                    </div>
                    
-                   <div className="mt-3 px-4 py-1 bg-white/90 backdrop-blur-sm rounded-full shadow-sm text-sm font-bold text-[#147167] whitespace-nowrap">
+                   <div className="mt-1 px-4 py-1 bg-white/90 backdrop-blur-sm rounded-full shadow-sm text-sm font-bold text-[#147167] whitespace-nowrap">
                        {item.name}
                    </div>
                 </div>

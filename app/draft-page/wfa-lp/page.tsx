@@ -3,11 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import CommunitySlider from "@/components/CommunitySlider";
+import CollaboratorSlider from "@/components/CollaboratorSlider";
+import PortfolioLabSlider from "@/components/PortfolioLabSlider";
 import TestimoniSection from "@/components/TestimoniSection";
+import FacilitiesSlider from "@/components/FacilitiesSlider";
+import FAQSection from "@/components/FaqSection";
 
 export default function HeroSection() {
   const COMMUNITY_IMAGES = Array.from({ length: 26 }, (_, i) => 
     `/img/community/Community Momment (${i + 1}).webp`
+  );
+
+  const COLLABORATOR_IDS = [ 'bhumi', 'kadev', 'jsj', 'schoters', 'dnalliance', 'englishcafe', 'instaperfect', 'journey', 'rumakerja', 'sweetlayers', 'switchkarir', 'undukan', 'excelab'];
+  const COLLABORATOR_IMAGES = COLLABORATOR_IDS.map((name) => 
+    `/img/collab/collaboratorwfa-${name}.webp`
   );
 
   return (
@@ -115,7 +124,7 @@ export default function HeroSection() {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-5xl">
-                      21.500+
+                      & 1.221.500+
                     </span>
                     <span className="text-base max-w-[10rem] leading-tight bg-gradient-to-l pt-0.5 h-11 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
                       Pembelajar yang Telah Bergabung
@@ -153,13 +162,253 @@ export default function HeroSection() {
 
       <TestimoniSection />
 
-      <section className="my-12">
-        <h2 className="text-4xl font-semibold text-center mb-10 text-[#147167]">
+      <FacilitiesSlider />
+
+      <section className="w-full py-20 bg-white overflow-hidden">
+          {/* Section Title */}
+          <h2 className="text-3xl md:text-5xl font-semibold text-[#147167] text-center mb-16">
+            Profiling Facilitator
+          </h2>
+        <div className="container mx-auto px-4 flex justify-center">
+
+          <div className="flex gap-20 md:gap-1">
+            
+            {/* === CARD 1: FEBBY ANGGUN (Text Left, Image Right) === */}
+            <div className="flex flex-col-reverse md:flex-row items-center justify-center">
+              
+              {/* Text Card */}
+              <div className="relative w-full md:w-[550px] min-h-[400px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] rounded-[40px] p-8 md:p-12 md:pr-44 flex flex-col justify-between items-center mt-[-60px] md:mt-0 z-0">
+                <div>
+                  <div className="flex flex-col items-end gap-3 mb-2">
+                    <h3 className="text-4xl font-semibold text-[#147167] mb-2">Febby Anggun</h3>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="bg-[#26D7C4]/75 border-[2.75px] border-[#147167] text-white text-[13px] font-semibold px-3 py-1 rounded-full tracking-wider">
+                        WFA INITIATOR
+                      </span>
+                      
+                      {/* Social Icons */}
+                      <div className="flex items-center gap-1">
+                        {/* Instagram */}
+                        <Link href="https://www.instagram.com/febbyanggun.s/" target="_blank">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"
+                            className="w-[34px] h-[34px] text-[#147167] hover:text-[#dc2743] transition"
+                          >
+                            <path
+                              fill="currentColor"
+                              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.7-9.9-67.3-36.2-93.6s-57.9-34.5-93.6-36.2c-37-2.1-147.9-2.1-184.9 0-35.7 1.7-67.3 9.9-93.6 36.2s-34.5 57.9-36.2 93.6c-2.1 37-2.1 147.9 0 184.9 1.7 35.7 9.9 67.3 36.2 93.6s57.9 34.5 93.6 36.2c37 2.1 147.9 2.1 184.9 0 35.7-1.7 67.3-9.9 93.6-36.2s34.5-57.9 36.2-93.6c2.1-37 2.1-147.8 0-184.9zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5 29.4-11.7 99.2-9 132.3-9s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z"
+                            />
+                          </svg>
+                        </Link>
+
+                        {/* LinkedIn */}
+                        <Link href="https://www.linkedin.com/in/febby-anggun-sari-a27645260/" target="_blank" className="hover:border-blue-600">
+                          <div className="border-[3px] border-[#147167] group hover:border-blue-600 rounded-[8px] p-[3px] ml-1">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 448 512"
+                              className="w-[18px] h-[18px] text-[#147167] group-hover:text-blue-600 transition"
+                              fill="currentColor"
+                            >
+                              <path d="M100.28 448H7.4V148.9h92.88zm-46.44-341a53.73 53.73 0 1 1 53.73-53.73 53.73 53.73 0 0 1-53.73 53.73zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.3-79.3-48.3 0-55.7 37.7-55.7 76.6V448h-92.68V148.9h88.96v40.8h1.3c12.4-23.6 42.6-48.3 87.7-48.3 93.8 0 111.1 61.8 111.1 142.3V448z"/>
+                            </svg>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-[#147167] text-sm text-justify leading-normal mb-6 font-medium">
+                    Dulu aku cuma anak desa yang hampir nggak bisa lanjut SMA. Tapi siapa sangka, sekarang aku jadi inisiator Work From Anywhere, membantu ribuan orang mendapatkan penghasilan dari mana saja.
+                    <span className="block h-2" aria-hidden="true" />
+                    Aku tahu rasanya terbatas oleh keadaan. Tapi aku percaya bahwa di dunia digital punya peluang yang begitu luas — sayangnya, masih banyak yang belum menyadari hal ini.
+                  </p>
+                </div>
+
+                {/* Button */}
+                <button className="w-full md:w-fit mt-1 px-10 py-5 rounded-full bg-gradient-to-b from-[#26D7C4] to-[#147167] text-white font-semibold text-xl shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300">
+                  Kenalan Lebih Dekat
+                </button>
+              </div>
+
+              {/* Image (Overlapping Right) */}
+              <div className="relative w-[280px] h-[380px] md:w-[320px] md:h-[450px] shrink-0 -ml-44 -mt-80 z-10">
+                <div className="relative w-full h-full overflow-hidden">
+                  <Image 
+                    src="/facilitatorwfa-febby.webp"
+                    alt="Febby Anggun Sari"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
+
+            </div>
+
+
+            {/* === CARD 2: SYAUQI AZHAR (Image Left, Text Right) === */}
+            <div className="flex flex-col md:flex-row items-center justify-center mt-72 -ml-28">
+              
+              {/* Image (Overlapping Left) */}
+              <div className="relative w-[280px] h-[380px] md:w-[320px] md:h-[450px] shrink-0 -mr-[11.5rem] -mt-80 z-10">
+                <div className="relative w-full h-full overflow-hidden">
+                  <Image 
+                    src="/facilitatorwfa-syauqi.webp"
+                    alt="Syauqi Azhar"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
+
+              {/* Text Card */}
+              <div className="relative w-full md:w-[550px] min-h-[400px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] rounded-[40px] p-8 md:p-12 md:pl-44 flex flex-col justify-between items-center mt-[-60px] md:mt-0 z-0">
+                <div>
+                  <div className="flex flex-col items-start gap-3 mb-2">
+                    <h3 className="text-4xl font-semibold text-[#147167] mb-2">Syauqi Azhar</h3>
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="flex items-center gap-1">
+                          {/* Instagram */}
+                          <Link href="https://www.instagram.com/azhardanii/" target="_blank">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 448 512"
+                              className="w-[34px] h-[34px] text-[#147167] hover:text-[#dc2743] transition"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.7-9.9-67.3-36.2-93.6s-57.9-34.5-93.6-36.2c-37-2.1-147.9-2.1-184.9 0-35.7 1.7-67.3 9.9-93.6 36.2s-34.5 57.9-36.2 93.6c-2.1 37-2.1 147.9 0 184.9 1.7 35.7 9.9 67.3 36.2 93.6s57.9 34.5 93.6 36.2c37 2.1 147.9 2.1 184.9 0 35.7-1.7 67.3-9.9 93.6-36.2s34.5-57.9 36.2-93.6c2.1-37 2.1-147.8 0-184.9zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5 29.4-11.7 99.2-9 132.3-9s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z"
+                              />
+                            </svg>
+                          </Link>
+                          {/* LinkedIn */}
+                          <Link href="https://www.linkedin.com/in/azhardanii/" target="_blank" className="hover:border-blue-600">
+                            <div className="border-[3px] border-[#147167] group hover:border-blue-600 rounded-[8px] p-[3px] ml-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-[18px] h-[18px] text-[#147167] group-hover:text-blue-600 transition" fill="currentColor"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-341a53.73 53.73 0 1 1 53.73-53.73 53.73 53.73 0 0 1-53.73 53.73zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.3-79.3-48.3 0-55.7 37.7-55.7 76.6V448h-92.68V148.9h88.96v40.8h1.3c12.4-23.6 42.6-48.3 87.7-48.3 93.8 0 111.1 61.8 111.1 142.3V448z"/></svg></div>
+                          </Link>
+                      </div>
+
+                      <span className="bg-[#26D7C4]/75 border-[2.75px] border-[#147167] text-white text-[13px] font-semibold px-3 py-1 rounded-full tracking-wider">
+                        DIGIPRENEUR
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="text-[#147167] text-sm leading-normal mb-6 text-justify font-medium">
+                    Memulai karir di bidang teknologi sejak 2017, bermula dari Fullstack Web Developer kemudian terus berkembang mempelajari SEO, UI/UX, Digital Marketing, Artificial Intelegent, Spreadsheet Formula, Automation, dsb. Hingga detik ini masih terus mempelajari hal-hal baru seiring dengan perkembangan teknologi di dunia 👨🏻‍💻
+                  </p>
+                </div>
+
+                {/* Button */}
+                <button className="w-full md:w-fit mt-1 px-10 py-5 rounded-full bg-gradient-to-b from-[#26D7C4] to-[#147167] text-white font-semibold text-xl shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300">
+                  Kenalan Lebih Dekat
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <PortfolioLabSlider />
+
+      <section className="mb-12 mt-20">
+        <h2 className="text-4xl font-semibold text-center mb-16 text-[#147167]">
           Moment Bersama Komunitas
         </h2>
         <CommunitySlider images={COMMUNITY_IMAGES} />
       </section>
       
+      <section className="relative mb-12 mt-28 w-full">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
+
+        <h2 className="text-4xl font-semibold text-center mb-16 text-[#147167]">
+          Collaborator & Partnership Sekolah WFA
+        </h2>
+        <CollaboratorSlider images={COLLABORATOR_IMAGES} />
+      </section>
+
+      <FAQSection />
+      
+      <footer className="w-full pt-32 pb-20 bg-gradient-to-b from-white to-[#26D7C4]/60">
+        <div className="container mx-auto px-4 pt-20">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+            
+            {/* --- LEFT SECTION: LOGO & TAGLINE --- */}
+            <div className="flex flex-col gap-4 max-w-sm">
+              <div className="relative w-[180px] h-[60px]">
+                <Image 
+                  src="/logo-wfa.webp" 
+                  alt="Sekolah WFA Logo" 
+                  fill 
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-xl mt-1 ml-6 font-semibold leading-relaxed text-[#147167]">
+                Sekolah Digital Masa Kini <br />
+                Belajar, Berkarya, dan Berpenghasilan dari Mana Saja.
+              </h3>
+            </div>
+
+            {/* --- RIGHT SECTION: NAVIGATION LINKS --- */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-20">
+              
+              {/* Navigation */}
+              <div className="flex flex-col gap-4">
+                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Navigation</h4>
+                <nav className="flex flex-col gap-2">
+                  {['Home', 'Program', 'Store', 'Contact'].map((item) => (
+                    <Link key={item} href={`#${item.toLowerCase()}`} className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
+                      {item}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+
+              {/* Support */}
+              <div className="flex flex-col gap-4">
+                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Support</h4>
+                <nav className="flex flex-col gap-2">
+                  {['FAQ', 'Kontak', 'Syarat & Ketentuan', 'Kebijakan Privasi'].map((item) => (
+                    <Link key={item} href="#" className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
+                      {item}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+
+              {/* Links */}
+              <div className="flex flex-col gap-4">
+                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Links</h4>
+                <Link href="#" className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
+                  www
+                </Link>
+              </div>
+
+            </div>
+          </div>
+
+          {/* --- BOTTOM SECTION: SOCIAL BUTTONS --- */}
+          <div className="mt-16 flex flex-wrap gap-4 items-center justify-end mr-44">
+            {[
+              { label: 'Instagram', href: '#' },
+              { label: 'Youtube', href: '#' },
+              { label: 'LinkedIn', href: '#' }
+            ].map((social) => (
+              <Link 
+                key={social.label} 
+                href={social.href}
+                className="px-8 py-2 rounded-full border-2 border-[#147167] text-[#147167] font-bold hover:bg-[#147167] hover:text-white transition-all duration-300 shadow-sm"
+              >
+                {social.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

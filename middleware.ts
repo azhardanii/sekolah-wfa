@@ -8,7 +8,7 @@ export default auth((req) => {
   const user = req.auth?.user;
 
   const isOnboarding = req.nextUrl.pathname.startsWith("/onboarding");
-  const isMemberArea = req.nextUrl.pathname.startsWith("/ruang-belajar");
+  const isMemberArea = req.nextUrl.pathname.startsWith("/ruang-kelas");
 
   // 1. Proteksi Ruang Belajar
   if (isMemberArea) {
@@ -34,7 +34,7 @@ export default auth((req) => {
 
     // @ts-ignore
     if (user?.onboardingCompleted === true) {
-      return NextResponse.redirect(new URL("/ruang-belajar", req.nextUrl));
+      return NextResponse.redirect(new URL("/ruang-kelas", req.nextUrl));
     }
   }
 
@@ -42,5 +42,5 @@ export default auth((req) => {
 });
 
 export const config = {
-  matcher: ["/ruang-belajar/:path*", "/onboarding/:path*"],
+  matcher: ["/ruang-kelas/:path*", "/onboarding/:path*"],
 };

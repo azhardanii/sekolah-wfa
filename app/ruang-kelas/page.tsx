@@ -1,4 +1,3 @@
-// app/ruang-belajar/page.tsx
 import { auth, signOut } from "@/auth";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";

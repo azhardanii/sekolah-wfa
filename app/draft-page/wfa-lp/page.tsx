@@ -355,24 +355,11 @@ export default function HeroSection() {
 
             {/* --- RIGHT SECTION: NAVIGATION LINKS --- */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-20">
-              
-              {/* Navigation */}
-              <div className="flex flex-col gap-4">
-                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Navigation</h4>
-                <nav className="flex flex-col gap-2">
-                  {['Home', 'Program', 'Store', 'Contact'].map((item) => (
-                    <Link key={item} href={`#${item.toLowerCase()}`} className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
-                      {item}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
 
-              {/* Support */}
               <div className="flex flex-col gap-4">
-                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Support</h4>
+                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Fasilitas</h4>
                 <nav className="flex flex-col gap-2">
-                  {['FAQ', 'Kontak', 'Syarat & Ketentuan', 'Kebijakan Privasi'].map((item) => (
+                  {['Ruang Kelas','Ruang BK', 'Rekreasi', 'Laboratorium'].map((item) => (
                     <Link key={item} href="#" className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
                       {item}
                     </Link>
@@ -380,12 +367,26 @@ export default function HeroSection() {
                 </nav>
               </div>
 
-              {/* Links */}
               <div className="flex flex-col gap-4">
-                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Links</h4>
-                <Link href="#" className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
-                  www
-                </Link>
+                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Navigasi</h4>
+                <nav className="flex flex-col gap-2">
+                  {['Profil', 'Alumni', 'Mading', 'Kantin'].map((item) => (
+                    <Link key={item} href={`#${item.toLowerCase()}`} className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
+                      {item}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Dukungan</h4>
+                <nav className="flex flex-col gap-2">
+                  {['FAQ', 'Kontak', 'Syarat & Ketentuan', 'Kebijakan Privasi'].map((item) => (
+                    <Link key={item} href="#" className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
+                      {item}
+                    </Link>
+                  ))}
+                </nav>
               </div>
 
             </div>

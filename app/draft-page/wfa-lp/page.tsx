@@ -58,7 +58,7 @@ export default function HeroSection() {
                   Cerita Alumni
                   </a>
                   <a href="#" className="text-[#147167] font-semibold hover:text-[#2AB3B0] transition-colors scale-105">
-                  Event
+                  Mading
                   </a>
                   <a href="#" className="text-[#147167] font-semibold hover:text-[#2AB3B0] transition-colors scale-105">
                   Promo

@@ -195,10 +195,10 @@ export default function TestimonialSection() {
       <div className="relative z-10 w-full h-[700px] flex items-center justify-center mt-4" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
         
         {/* Nav Buttons */}
-        <button onClick={handlePrev} className="absolute left-3 md:left-20 z-50 p-2 md:p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-[26.5%] md:top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
+        <button onClick={handlePrev} className="absolute left-2 md:left-20 z-50 p-2 md:p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-[26.5%] md:top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
             <ArrowLeft className="w-4 h-4 md:w-6 md:h-6 text-[#147167] stroke-[2.5] stroke-[#147167] group-hover:text-white group-hover:stroke-white transition-colors" />
         </button>
-        <button onClick={handleNext} className="absolute right-3 md:right-20 z-50 p-2 md:p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-[26.5%] md:top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
+        <button onClick={handleNext} className="absolute right-2 md:right-20 z-50 p-2 md:p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-[26.5%] md:top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
             <ArrowRight className="w-4 h-4 md:w-6 md:h-6 text-[#147167] stroke-[2.5] stroke-[#147167] group-hover:text-white group-hover:stroke-white transition-colors" />
         </button>
 
@@ -257,37 +257,32 @@ export default function TestimonialSection() {
           return (
             <motion.div
               key={item.id}
-              // Animate ke nilai kalkulasi yang baru
               animate={{ x, y, scale, zIndex, opacity }}
-              // Transisi smooth physics-based
               transition={{ type: 'spring', stiffness: 180, damping: 25, mass: 1 }}
               className="absolute top-0 origin-center flex flex-col items-center justify-center cursor-pointer"
               onClick={() => {
                 if (offset === -1) handlePrev();
                 if (offset === 1) handleNext();
               }}
-              // PENTING: Anchor di tengah layar secara absolut. 
-              // Kita HAPUS `x: '-50%'` dari sini dan memindahkannya ke dalam `animate` (calc)
-              // untuk menghindari konflik alignment.
               style={{ left: '50%' }} 
             >
               
               {isActive ? (
-                /* === ACTIVE STATE (CLEAN IMAGE CARD) === */
                 <div className="relative flex flex-col items-center -mt-96 md:-mt-60">            
-                      <Image 
-                          src={item.image} 
-                          alt="Testimonial Image" 
-                          width={500}
-                          height={750}
-                          className="scale-125"
-                      />
+                    <Image 
+                        src={item.image} 
+                        alt="Testimonial Image" 
+                        width={500}
+                        height={750}
+                        className="scale-125 md:scale-100"
+                        priority
+                    />
 
                     <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="absolute -bottom-24 md:-bottom-16 w-[300px] md:w-[600px] bg-white rounded-3xl px-2 md:px-6 pt-2 md:pt-3 pb-3 md:pb-5 shadow-[0_-3px_10px_0_rgba(0,0,0,0.15)] z-30 text-center border border-gray-50"
+                        transition={{ duration: 0.1, ease: "easeOut", delay: 0.1 }}
+                        className="absolute -bottom-24 md:-bottom-20 w-[300px] md:w-[600px] bg-white rounded-3xl px-2 md:px-6 pt-2 md:pt-3 pb-3 md:pb-5 shadow-[0_-3px_10px_0_rgba(0,0,0,0.15)] z-30 text-center border border-gray-50"
                     >
                         <h3 className="text-[#147167] text-xl md:text-2xl font-semibold mb-0.5 md:mb-2">
                           {item.name}

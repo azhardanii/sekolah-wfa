@@ -5,6 +5,46 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// Data Mega Menu dipindah ke luar agar bisa diakses Mobile & Desktop
+const megaMenuItems = [
+  {
+    title: "Ruang Kelas",
+    desc: "Pembelajaran kerja WFA (berpenghasilan dari mana aja). Akses kapanpun & dimanapun Kamu berada.",
+    icon: "/iconwfa-ruangkelas.webp",
+    href: "/ruang-kelas",
+  },
+  {
+    title: "Laboratorium",
+    desc: "Digital Asset's Agency (jasa customise development digital tools).",
+    icon: "/iconwfa-lab.webp",
+    href: "/laboratorium",
+  },
+  {
+    title: "Rekreasi",
+    desc: "Trip bersama ke destinasi dalam & luar negeri, sekaligus menjalin relasi.",
+    icon: "/iconwfa-rekreasi.webp",
+    href: "/rekreasi",
+  },
+  {
+    title: "Ruang BK",
+    desc: "Konsultasi Mental Health & Kenali Potensi Dalam Dirimu Bareng Psikolog.",
+    icon: "/iconwfa-ruangbk.webp",
+    href: "/ruang-bk",
+  },
+  {
+    title: "Kantin",
+    desc: "Tempat Jajan Ebook, Tools Digital, Record Webinar, dsb.",
+    icon: "/iconwfa-kantin.webp",
+    href: "/kantin",
+  },
+  {
+    title: "Mading",
+    desc: "Pusat Info loker, showcase karya, & news update seputar dunia digital.",
+    icon: "/iconwfa-mading.webp",
+    href: "/mading",
+  },
+];
+
 const navItems = [
   { name: "Beranda", href: "/" },
   { name: "Fasilitas", href: "/fasilitas", hasMegaMenu: true },
@@ -16,21 +56,17 @@ const navItems = [
 
 export default function NavbarWFA() {
   const pathname = usePathname();
-  // State untuk melacak menu mana yang sedang di-hover
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
-
-  const firstItem = navItems[0];
-  const lastItem = navItems[navItems.length - 1];
-
-  const isFirstActive = pathname === firstItem.href;
-  const isLastActive = pathname === lastItem.href;
-
+  
+  // State untuk Mobile
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileFasilitasOpen, setIsMobileFasilitasOpen] = useState(false);
 
   return (
     <nav className="relative z-50 flex items-center justify-between px-6 md:px-24 mt-4 py-4">
       {/* 1. LOGO SECTION */}
-      <Link href="/" className="flex flex-col">
+      <Link href="/" className="flex flex-col relative z-50">
         <Image
           src="/logo-wfa.webp"
           alt="Sekolah WFA Logo"
@@ -41,66 +77,23 @@ export default function NavbarWFA() {
         />
       </Link>
 
-      {/* 2. NAVIGATION LINKS */}
+      {/* ================= DESKTOP NAV START (SAMA PERSIS SEPERTI SEBELUMNYA) ================= */}
+      {/* Dibungkus hidden md:flex agar hilang di mobile */}
       <div className="hidden md:flex pt-[3.5px] pb-[3.65px] pl-[3.75px] pr-[4px] rounded-full bg-gradient-to-b from-[#2AB3B0] to-[#147167] shadow-sm">
-        <div
-          className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full text-base relative"
-        >
-
+        <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full text-base relative">
           {navItems.map((item, index) => {
             const isActuallyActive = pathname === item.href;
             const isHovered = hoveredItem === item.name;
-            
-            const showAsActive = hoveredItem 
-              ? isHovered 
-              : isActuallyActive;
+
+            const showAsActive = hoveredItem ? isHovered : isActuallyActive;
 
             let inactiveLinkPadding = "px-2";
 
             if (index === 0) {
-              inactiveLinkPadding = "pl-8 pr-2"; 
+              inactiveLinkPadding = "pl-8 pr-2";
             } else if (index === navItems.length - 1) {
               inactiveLinkPadding = "pr-8 pl-2";
             }
-
-            const megaMenuItems = [
-              {
-                title: "Ruang Kelas",
-                desc: "Pembelajaran kerja WFA (berpenghasilan dari mana aja). Akses kapanpun & dimanapun Kamu berada.",
-                icon: "/iconwfa-ruangkelas.webp",
-                href: "/ruang-kelas"
-              },
-              {
-                title: "Laboratorium",
-                desc: "Digital Asset's Agency (jasa customise development digital tools).",
-                icon: "/iconwfa-lab.webp",
-                href: "/laboratorium"
-              },
-              {
-                title: "Rekreasi",
-                desc: "Trip bersama ke destinasi dalam & luar negeri, sekaligus menjalin relasi.",
-                icon: "/iconwfa-rekreasi.webp",
-                href: "/rekreasi"
-              },
-              {
-                title: "Ruang BK",
-                desc: "Konsultasi Mental Health & Kenali Potensi Dalam Dirimu Bareng Psikolog.",
-                icon: "/iconwfa-ruangbk.webp",
-                href: "/ruang-bk"
-              },
-              {
-                title: "Kantin",
-                desc: "Tempat Jajan Ebook, Tools Digital, Record Webinar, dsb.",
-                icon: "/iconwfa-kantin.webp",
-                href: "/kantin"
-              },
-              {
-                title: "Mading",
-                desc: "Pusat Info loker, showcase karya, & news update seputar dunia digital.",
-                icon: "/iconwfa-mading.webp",
-                href: "/mading"
-              },
-            ];
 
             return (
               <div
@@ -133,12 +126,14 @@ export default function NavbarWFA() {
                   </Link>
                 )}
 
+                {/* MEGA MENU DESKTOP */}
                 {item.hasMegaMenu && isMegaMenuOpen && (
                   <div className="absolute top-full -left-72 mt-0.5 w-[1000px] z-50">
                     <div
                       className="rounded-[30px] p-8 grid grid-cols-3 gap-6 animate-in fade-in slide-in-from-top-2 duration-300"
                       style={{
-                        background: "linear-gradient(to bottom, #147167, #26D7C4)",
+                        background:
+                          "linear-gradient(to bottom, #147167, #26D7C4)",
                         boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.7)",
                       }}
                     >
@@ -172,16 +167,147 @@ export default function NavbarWFA() {
           })}
         </div>
       </div>
+      {/* ================= DESKTOP NAV END ================= */}
 
-      {/* 3. CTA BUTTON */}
-      <Link 
-        href="/ruang-kelas"
-        className="hidden md:block group relative pb-[3.5px] pt-[3.5px] pl-[3px] pr-[3px] rounded-full bg-gradient-to-t from-[#147167] to-[#2AB3B0] shadow-lg shadow-teal-700/20 active:scale-95 transition-all duration-150"
+      {/* 3. CTA BUTTON & MOBILE TOGGLE */}
+      {/* Container utama tombol stylingnya SAMA untuk Desktop & Mobile */}
+      <div
+        className="group relative pb-[3.5px] pt-[3.5px] pl-[3px] pr-[3px] rounded-full bg-gradient-to-t from-[#147167] to-[#2AB3B0] shadow-lg shadow-teal-700/20 active:scale-95 transition-all duration-150 z-50 cursor-pointer"
+        onClick={() => {
+          // Hanya berfungsi sebagai toggle di mode mobile
+          if (window.innerWidth < 768) {
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+          }
+        }}
       >
-        <div className="px-6 py-2 rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white font-semibold text-base tracking-wide flex items-center gap-2">
-          Belajar GRATIS <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform inline-block">↗</span>
+        {/* DESKTOP CONTENT: Text Belajar Gratis */}
+        <Link
+          href="/ruang-kelas"
+          className="hidden md:flex px-6 py-2 rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white font-semibold text-base tracking-wide items-center gap-2"
+        >
+          Belajar GRATIS{" "}
+          <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform inline-block">
+            ↗
+          </span>
+        </Link>
+
+        {/* MOBILE CONTENT: Hamburger / Close Icon */}
+        <div className="md:hidden flex w-12 h-10 items-center justify-center rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white">
+          {isMobileMenuOpen ? (
+            // Icon X
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            // Icon Hamburger (Garis 3)
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          )}
         </div>
-      </Link>
+      </div>
+
+      {/* ================= MOBILE MENU OVERLAY ================= */}
+      <div
+        className={`fixed inset-x-0 top-0 pt-28 pb-10 px-6 bg-white min-h-screen z-40 transform transition-transform duration-300 ease-in-out md:hidden overflow-y-auto ${
+          isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        <div className="flex flex-col gap-4">
+          {navItems.map((item, index) => {
+            // Khusus Logic untuk Item Fasilitas (Mega Menu di Mobile)
+            if (item.hasMegaMenu) {
+              return (
+                <div key={index} className="flex flex-col border-b border-gray-100 pb-2">
+                  <button
+                    onClick={() => setIsMobileFasilitasOpen(!isMobileFasilitasOpen)}
+                    className="flex items-center justify-between w-full py-3 text-lg font-bold text-[#147167]"
+                  >
+                    <span>{item.name}</span>
+                    <span className={`transition-transform duration-300 ${isMobileFasilitasOpen ? "rotate-180" : ""}`}>
+                      ▼
+                    </span>
+                  </button>
+                  
+                  {/* Mega Menu Content Mobile */}
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                      isMobileFasilitasOpen ? "max-h-[2000px] opacity-100 mt-2" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="grid grid-cols-1 gap-4 pl-2">
+                      {megaMenuItems.map((megaItem, idx) => (
+                        <Link
+                          key={idx}
+                          href={megaItem.href}
+                          onClick={() => setIsMobileMenuOpen(false)} // Tutup menu saat klik
+                          className="flex items-start gap-4 p-3 rounded-xl bg-gray-50 hover:bg-teal-50 border border-transparent hover:border-teal-200 transition-colors"
+                        >
+                           <div className="relative w-12 h-12 flex-shrink-0">
+                            <Image
+                              src={megaItem.icon}
+                              alt={megaItem.title}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                          <div>
+                            <h5 className="font-bold text-[#147167] text-base">{megaItem.title}</h5>
+                            <p className="text-xs text-gray-500 mt-1 line-clamp-2">{megaItem.desc}</p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            // Link Navigasi Biasa (Non-Dropdown)
+            return (
+              <Link
+                key={index}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="py-3 text-lg font-bold text-[#147167] border-b border-gray-100 hover:text-[#2AB3B0] hover:pl-2 transition-all"
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+
+          {/* Tombol CTA di dalam menu mobile (opsional, karena tombol trigger di atas sudah jadi menu) */}
+           <Link
+              href="/ruang-kelas"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="mt-6 w-full text-center py-4 rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white font-bold text-lg shadow-md active:scale-95 transition-transform"
+            >
+              Mulai Belajar GRATIS
+            </Link>
+        </div>
+      </div>
     </nav>
   );
 }

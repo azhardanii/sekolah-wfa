@@ -30,35 +30,40 @@ export default function HeroSection() {
 
         <NavbarWFA />
 
-        <div className="relative z-10 container mx-auto py-10">
+        <div className="relative z-10 container mx-auto py-10 px-6 md:px-0">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-4">
-            <div className="w-full md:w-1/2 lg:w-7/12 max-w-3xl -mt-10">
+            <div className="w-full md:w-1/2 lg:w-7/12 max-w-3xl md:-mt-10">
               <h1 className="text-5xl md:text-7xl font-semibold mb-6 text-[#147167]">
                 Sekolah WFA <br />
                 <span className="md:text-[5.25rem] text-[#147167]">Pertama</span> <br />
                 di Indonesia
               </h1>
 
-              <h2 className="text-2xl md:text-[2.65rem] pt-1 font-semibold bg-gradient-to-r h-12 from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-[2.65rem] pt-1 font-semibold bg-gradient-to-r h-12 from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent">
                 Dari Gen Z untuk Negeri
               </h2>
 
               <p className="text-black font-medium text-lg mb-10 pl-0.5 max-w-xl">
-                Ngajarin kamu Skill WFA & Product Digital tanpa batas usia
+                Ngajarin kamu Skill WFA & Product Digital tanpa batas usia.
               </p>
 
               <div className="flex flex-col items-start gap-8">
-                <button className="hidden md:block group relative pb-[3.25px] pt-[3.5px] pl-[3px] pr-[2.5px] rounded-full bg-gradient-to-t from-[#147167] to-[#2AB3B0] shadow-lg shadow-teal-700/20 active:scale-95 transition-transform duration-150 ease-in-out">
+                <button className="block group relative pb-[3.25px] pt-[3.5px] pl-[3px] pr-[2.5px] rounded-full bg-gradient-to-t from-[#147167] to-[#2AB3B0] shadow-lg shadow-teal-700/20 active:scale-95 transition-transform duration-150 ease-in-out">
                   <Link
                     href="/ruang-kelas"
                     className="block italic w-full h-full px-5 py-2 rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white font-semibold text-xl tracking-wide"
                   >
-                    Mulai Belajar Sekarang, GRATIS!!
+                    <span className="md:hidden">
+                      Mulai Belajar, GRATIS!!
+                    </span>
+                    <span className="hidden md:inline">
+                      Mulai Belajar Sekarang, GRATIS!!
+                    </span>
                   </Link>
                 </button>
 
-                <div className="flex items-center gap-4 mt-4">
-                  <div className="flex -space-x-3">
+                <div className="flex-col md:flex-row items-center gap-4 mt-4">
+                  <div className="flex -space-x-3 mb-2">
                     {[
                       '/img/testi/avatar-dimas.webp',
                       '/img/testi/avatar-fanny.webp',
@@ -79,10 +84,10 @@ export default function HeroSection() {
                     ))}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-5xl">
+                    <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-[2.15rem] md:text-5xl">
                       & 1.221.500+
                     </span>
-                    <span className="text-base max-w-[10rem] leading-tight bg-gradient-to-l pt-0.5 h-11 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
+                    <span className="text-sm md:text-base max-w-[10rem] leading-tight bg-gradient-to-l pt-0.5 h-11 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
                       Pembelajar yang Telah Bergabung
                     </span>
                   </div>
@@ -104,14 +109,22 @@ export default function HeroSection() {
 
           </div>
         </div>
-        <div className="px-24">
+        <div className="px-6 md:px-24">
           <Image 
             src="/img/lp/trust-wfa.webp"
-            alt="Trust Sekolah WFA"
+            alt="Trust Sekolah WFA Desktop"
             width={2000} 
             height={1000}
             priority
-            className="relative z-10 w-full h-auto object-contain"
+            className="hidden md:block relative z-10 w-full h-auto object-contain"
+          />
+          <Image 
+            src="/img/lp/mobver-trust-wfa.webp"
+            alt="Trust Sekolah WFA Mobile"
+            width={800}
+            height={400}
+            priority
+            className="block md:hidden relative z-10 w-full h-auto object-contain"
           />
         </div>
       </section>

@@ -291,7 +291,7 @@ export default function HeroSection() {
         <CommunitySlider images={COMMUNITY_IMAGES} />
       </section>
       
-      <section className="relative mb-12 mt-28 w-full">
+      <section className="relative mb-12 mt-28 w-full overflow-hidden">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
 
         <h2 className="text-2xl md:text-4xl font-semibold text-center mb-10 md:mb-16 text-[#147167]">

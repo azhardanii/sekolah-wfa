@@ -79,7 +79,7 @@ export default function FacilitiesSlider() {
   };
 
   return (
-    <section className="-mt-[22rem] md:mt-0 w-full pb-10 bg-white flex flex-col items-center">    
+    <section className="-mt-[22rem] md:mt-0 w-full pb-10 bg-white flex flex-col items-center overflow-hidden">    
 
       {/* --- SLIDER AREA --- */}
       <div className="relative w-full h-[450px] md:h-[500px] flex items-center justify-center perspective-1000">

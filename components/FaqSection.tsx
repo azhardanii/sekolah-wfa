@@ -17,7 +17,7 @@ interface FAQItemProps {
 const faqData: FAQData[] = [
   {
     id: 1,
-    question: "Sistem Belajarnya gimana kak?",
+    question: "Belajarnya gimana kak?",
     answer: "Sistem belajar kami online dengan akses materi seumur hidup. Kamu bisa belajar kapan saja dan di mana saja melalui dashboard member area yang sudah kami sediakan."
   },
   {

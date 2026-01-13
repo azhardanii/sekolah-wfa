@@ -132,7 +132,7 @@ export default function HeroSection() {
       <TestimoniSection />
       
       <section className="mb-12 mt-0 md:mt-0 lg:mt-5">
-        <h2 className="text-[1.75rem] lg:text-4xl font-semibold text-center mb-1 text-[#147167]">
+        <h2 className="text-[1.75rem] lg:text-5xl font-semibold text-center mb-1 text-[#147167]">
           Fasilitas di Sekolah WFA
         </h2>
         <FacilitiesSlider />
@@ -140,7 +140,7 @@ export default function HeroSection() {
 
       <section className="w-full py-20 bg-white overflow-hidden">
         <h2 className="text-2xl lg:text-5xl font-semibold text-[#147167] text-center mb-7 lg:mb-16">
-          Profiling Facilitator
+          Profil Fasilitator
         </h2>
         <div className="container mx-auto px-4 md:px-20 lg:px-4 flex justify-center">
 
@@ -289,7 +289,7 @@ export default function HeroSection() {
       <PortfolioLabSlider />
 
       <section className="mb-12 mt-20">
-        <h2 className="text-3xl lg:text-4xl font-semibold text-center mb-10 lg:mb-16 text-[#147167]">
+        <h2 className="text-3xl lg:text-5xl font-semibold text-center mb-10 lg:mb-16 text-[#147167]">
           Moment Bersama Komunitas
         </h2>
         <CommunitySlider images={COMMUNITY_IMAGES} />
@@ -298,7 +298,7 @@ export default function HeroSection() {
       <section className="relative mb-12 mt-28 w-full overflow-hidden">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
 
-        <h2 className="text-2xl lg:text-4xl font-semibold text-center mb-10 lg:mb-16 text-[#147167]">
+        <h2 className="text-2xl lg:text-5xl font-semibold text-center mb-10 lg:mb-16 text-[#147167]">
           Collaborator & Partnership Sekolah WFA
         </h2>
         <CollaboratorSlider images={COLLABORATOR_IMAGES} />

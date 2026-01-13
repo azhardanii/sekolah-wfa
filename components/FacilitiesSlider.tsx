@@ -79,15 +79,8 @@ export default function FacilitiesSlider() {
   };
 
   return (
-    <section className="-mt-[22rem] md:mt-0 w-full pb-10 bg-white flex flex-col items-center overflow-hidden">    
-
-      {/* --- SLIDER AREA --- */}
-      <div className="relative w-full h-[450px] md:h-[500px] flex items-center justify-center perspective-1000">
-        <div className="absolute -top-12 text-center mb-5 px-4">
-          <h2 className="text-2xl md:text-5xl font-semibold text-[#147167]">
-            Fasilitas di Sekolah WFA
-          </h2>
-        </div>
+    <div className="w-full bg-white flex flex-col items-center overflow-hidden pb-5">    
+      <div className="relative w-full h-[450px] lg:h-[500px] flex items-center justify-center perspective-1000">
         {FACILITIES.map((item, index) => {
           const offset = getOffset(index);
           const isActive = offset === 0;
@@ -138,7 +131,7 @@ export default function FacilitiesSlider() {
             >
               <div 
                 className={`
-                  relative w-[280px] h-[360px] md:w-[300px] md:h-[300px] 
+                  relative w-[280px] h-[360px] lg:w-[300px] lg:h-[300px] 
                   rounded-[35px] p-6 flex flex-col items-center text-center justify-between
                   bg-gradient-to-br from-[#FEFEFE] via-[#23c6b6] to-[#147167]
                   shadow-[0_20px_40px_-10px_rgba(20,113,103,0.3)]
@@ -149,7 +142,7 @@ export default function FacilitiesSlider() {
                      src={item.icon} 
                      alt={item.title} 
                      fill 
-                     className="object-contain drop-shadow-md"
+                     className="object-contain drop-shadow-lg"
                    />
                 </div>
 
@@ -162,7 +155,7 @@ export default function FacilitiesSlider() {
                     </p>
                 </div>
 
-                <button className="mt-2 mb-4 bg-white text-[#147167] px-6 py-2 rounded-full text-sm font-bold shadow-md hover:scale-105 transition-transform">
+                <button className="mt-2 mb-4 bg-white text-[#147167] px-6 py-2 rounded-full text-sm font-bold shadow-lg hover:scale-105 transition-transform">
                     Lihat Detail
                 </button>
               </div>
@@ -189,6 +182,6 @@ export default function FacilitiesSlider() {
 
       </div>
 
-    </section>
+    </div>
   );
 }

@@ -79,9 +79,9 @@ export default function NavbarWFA() {
   }, [isMobileMenuOpen]);
 
   return (
-    <nav className={isMobileMenuOpen ? "fixed top-4 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-24 py-4" : "relative z-50 flex items-center justify-between px-6 md:px-24 mt-4 py-4"}>
+    <nav className={isMobileMenuOpen ? "fixed top-4 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-24 py-4" : "relative z-50 flex items-center justify-between px-6 lg:px-24 mt-4 py-4"}>
       {isMobileMenuOpen && (
-        <div className="fixed top-0 left-0 right-0 h-[6.5rem] w-full bg-white z-50 md:hidden" />
+        <div className="fixed top-0 left-0 right-0 h-[6.5rem] w-full bg-white z-50 lg:hidden" />
       )}
       {/* 1. LOGO SECTION */}
       <Link href="/" className="flex flex-col relative z-50">
@@ -96,8 +96,8 @@ export default function NavbarWFA() {
       </Link>
 
       {/* ================= DESKTOP NAV START (SAMA PERSIS SEPERTI SEBELUMNYA) ================= */}
-      {/* Dibungkus hidden md:flex agar hilang di mobile */}
-      <div className="hidden md:flex pt-[3.5px] pb-[3.65px] pl-[3.75px] pr-[4px] rounded-full bg-gradient-to-b from-[#2AB3B0] to-[#147167] shadow-sm">
+      {/* Dibungkus hidden lg:flex agar hilang di mobile */}
+      <div className="hidden lg:flex pt-[3.5px] pb-[3.65px] pl-[3.75px] pr-[4px] rounded-full bg-gradient-to-b from-[#2AB3B0] to-[#147167] shadow-sm">
         <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full text-base relative">
           {navItems.map((item, index) => {
             const isActuallyActive = pathname === item.href;
@@ -201,7 +201,7 @@ export default function NavbarWFA() {
         {/* DESKTOP CONTENT: Text Belajar Gratis */}
         <Link
           href="/ruang-kelas"
-          className="hidden md:flex px-6 py-2 rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white font-semibold text-base tracking-wide items-center gap-2"
+          className="hidden lg:flex px-6 py-2 rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white font-semibold text-base tracking-wide items-center gap-2"
         >
           Belajar GRATIS{" "}
           <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform inline-block">
@@ -210,7 +210,7 @@ export default function NavbarWFA() {
         </Link>
 
         {/* MOBILE CONTENT: Hamburger / Close Icon */}
-        <div className="md:hidden flex w-12 h-10 items-center justify-center rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white">
+        <div className="lg:hidden flex w-12 h-10 items-center justify-center rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white">
           {isMobileMenuOpen ? (
             // Icon X
             <svg
@@ -249,7 +249,7 @@ export default function NavbarWFA() {
 
       {/* ================= MOBILE MENU OVERLAY ================= */}
       <div
-        className={`fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${
+        className={`fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${
           isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >

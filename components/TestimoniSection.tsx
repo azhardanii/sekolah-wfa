@@ -154,7 +154,7 @@ export default function TestimonialSection() {
   };
 
   return (
-    <section className="relative w-full bg-white pt-10 pb-20 md:pb-32 overflow-hidden flex flex-col items-center min-h-[900px]">
+    <section className="relative w-full bg-white pt-10 pb-0 md:pb-32 overflow-hidden flex flex-col items-center min-h-[500px] md:min-h-[900px]">
       <div className="absolute left-1/2 top-[25%] md:top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-[300px] md:h-[500px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
       <div className="absolute top-[20%] left-0 w-full h-[300px] md:h-[700px] pointer-events-none">
         <svg 
@@ -184,21 +184,21 @@ export default function TestimonialSection() {
         </div>
 
       {/* --- HEADER TEXT --- */}
-      <div className="relative z-10 text-center px-4 mb-8 md:mb-2 mx-auto mt-8">
-        <h2 className="text-base md:text-2xl font-semibold text-[#147167] leading-snug">
+      <div className="relative z-10 text-center px-4 mb-8 md:mb-2 mx-auto -mt-2 md:mt-8">
+        <h2 className="text-xs md:text-lg lg:text-2xl px-10 md:px-0 font-semibold text-[#147167] leading-snug">
           Teman belajar di Sekolah WFA yang berhasil memulai & <br className="hidden md:block" />
           berpenghasilan dari mana aja dengan sistem yang telah mereka pelajari.
         </h2>
       </div>
 
       {/* --- SLIDER CONTAINER --- */}
-      <div className="relative z-10 w-full h-[700px] flex items-center justify-center mt-4" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
+      <div className="relative z-10 w-full h-[300px] md:h-[700px] flex items-center justify-center mt-4" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
         
         {/* Nav Buttons */}
-        <button onClick={handlePrev} className="absolute left-2 md:left-20 z-50 p-2 md:p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-[26.5%] md:top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
+        <button onClick={handlePrev} className="absolute left-2 md:left-4 lg:left-20 z-50 p-2 md:p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-[26.5%] md:top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
             <ArrowLeft className="w-4 h-4 md:w-6 md:h-6 text-[#147167] stroke-[2.5] stroke-[#147167] group-hover:text-white group-hover:stroke-white transition-colors" />
         </button>
-        <button onClick={handleNext} className="absolute right-2 md:right-20 z-50 p-2 md:p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-[26.5%] md:top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
+        <button onClick={handleNext} className="absolute right-2 md:right-4 lg:right-20 z-50 p-2 md:p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-[26.5%] md:top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
             <ArrowRight className="w-4 h-4 md:w-6 md:h-6 text-[#147167] stroke-[2.5] stroke-[#147167] group-hover:text-white group-hover:stroke-white transition-colors" />
         </button>
 
@@ -293,7 +293,7 @@ export default function TestimonialSection() {
                     </motion.div>
                 </div>
               ) : (
-                <div className="hidden relative group md:flex flex-col justify-center items-center -mt-60 md:mt-0">
+                <div className="hidden relative group lg:flex flex-col justify-center items-center -mt-60 md:mt-0">
                    <div className={`relative w-16 h-16 md:w-28 md:h-28 rounded-full p-1 transition-transform duration-300 group-hover:scale-105`}>
                       <div className="w-full h-full rounded-full overflow-hidden relative">
                         <Image src={item.avatar} alt="user" fill className="object-cover shadow-md" />

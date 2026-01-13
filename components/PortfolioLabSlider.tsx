@@ -106,7 +106,7 @@ export default function PortfolioLabSlider() {
       <div className="absolute left-[70%] top-1/2 -translate-y-1/2 w-screen h-[650px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
 
       {/* TITLE */}
-      <h2 className="text-4xl md:text-5xl font-semibold text-[#147167] mb-10 md:mb-16 text-center">
+      <h2 className="text-4xl lg:text-5xl font-semibold text-[#147167] mb-10 md:mb-16 text-center">
         Portofolio Project Sekolah WFA
       </h2>
 

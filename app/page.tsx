@@ -30,16 +30,16 @@ export default function HeroSection() {
 
         <NavbarWFA />
 
-        <div className="relative z-10 container mx-auto py-10 px-6 md:px-0">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-4">
-            <div className="w-full md:w-1/2 lg:w-7/12 max-w-3xl md:-mt-10">
-              <h1 className="text-5xl md:text-7xl font-semibold mb-6 text-[#147167]">
+        <div className="relative z-10 container mx-auto py-10 px-6 lg:px-0">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-4">
+            <div className="w-full lg:w-7/12 max-w-3xl lg:-mt-10">
+              <h1 className="text-5xl lg:text-7xl font-semibold mb-6 text-[#147167]">
                 Sekolah WFA <br />
                 <span className="md:text-[5.25rem] text-[#147167]">Pertama</span> <br />
                 di Indonesia
               </h1>
 
-              <h2 className="text-3xl md:text-[2.65rem] pt-1 font-semibold bg-gradient-to-r h-12 from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent">
+              <h2 className="text-3xl lg:text-[2.65rem] pt-1 font-semibold bg-gradient-to-r h-12 from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent">
                 Dari Gen Z untuk Negeri
               </h2>
 
@@ -62,7 +62,7 @@ export default function HeroSection() {
                   </Link>
                 </button>
 
-                <div className="flex-col md:flex-row items-center gap-4 mt-4">
+                <div className="flex-col lg:flex-row items-center gap-4 mt-4">
                   <div className="flex -space-x-3 mb-2">
                     {[
                       '/img/testi/avatar-dimas.webp',
@@ -84,10 +84,10 @@ export default function HeroSection() {
                     ))}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-[1.75rem] md:text-5xl">
+                    <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-[1.75rem] lg:text-5xl">
                       & 1.221.500+
                     </span>
-                    <span className="text-sm md:text-base max-w-[10rem] leading-tight bg-gradient-to-l pt-0.5 h-11 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
+                    <span className="text-sm lg:text-base max-w-[10rem] leading-tight bg-gradient-to-l pt-0.5 h-11 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
                       Pembelajar yang Telah Bergabung
                     </span>
                   </div>
@@ -95,7 +95,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="w-full md:w-1/2 lg:w-1/2 flex justify-center md:justify-end relative">
+            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative">
               <div className="absolute inset-0 bg-[#26D7C4] opacity-20 blur-[80px] rounded-full transform scale-75 z-0" />
                 <Image 
                   src="/img/lp/model-wfa.webp"
@@ -103,20 +103,20 @@ export default function HeroSection() {
                   width={800} 
                   height={900}
                   priority
-                  className="relative z-10 w-full max-w-md md:max-w-full h-auto object-contain drop-shadow-xl"
+                  className="relative z-10 w-full max-w-md lg:max-w-full h-auto object-contain drop-shadow-xl"
                 />
             </div>
 
           </div>
         </div>
-        <div className="px-6 md:px-24">
+        <div className="px-6 lg:px-24">
           <Image 
             src="/img/lp/trust-wfa.webp"
             alt="Trust Sekolah WFA Desktop"
             width={2000} 
             height={1000}
             priority
-            className="hidden md:block relative z-10 w-full h-auto object-contain"
+            className="hidden lg:block relative z-10 w-full h-auto object-contain"
           />
           <Image 
             src="/img/lp/mobile-trust-wfa.webp"
@@ -124,31 +124,35 @@ export default function HeroSection() {
             width={800}
             height={400}
             priority
-            className="block md:hidden relative z-10 w-full h-auto object-contain"
+            className="block lg:hidden relative z-10 w-full h-auto object-contain"
           />
         </div>
       </section>
 
       <TestimoniSection />
-
-      <FacilitiesSlider />
+      
+      <section className="mb-12 mt-0 md:mt-0 lg:mt-5">
+        <h2 className="text-[1.75rem] lg:text-4xl font-semibold text-center mb-1 text-[#147167]">
+          Fasilitas di Sekolah WFA
+        </h2>
+        <FacilitiesSlider />
+      </section>
 
       <section className="w-full py-20 bg-white overflow-hidden">
-          {/* Section Title */}
-          <h2 className="text-2xl md:text-5xl font-semibold text-[#147167] text-center mb-7 md:mb-16">
-            Profiling Facilitator
-          </h2>
-        <div className="container mx-auto px-4 flex justify-center">
+        <h2 className="text-2xl lg:text-5xl font-semibold text-[#147167] text-center mb-7 lg:mb-16">
+          Profiling Facilitator
+        </h2>
+        <div className="container mx-auto px-4 md:px-20 lg:px-4 flex justify-center">
 
-          <div className="flex flex-col md:flex-row gap-10 md:gap-1">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-1">
             
             {/* === CARD 1: FEBBY ANGGUN (Text Left, Image Right) === */}
-            <div className="flex flex-col-reverse md:flex-row items-center justify-center">
+            <div className="flex flex-col-reverse lg:flex-row items-center justify-center">
               
               {/* Text Card */}
-              <div className="relative w-full md:w-[550px] min-h-[400px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] rounded-[40px] p-5 md:p-12 md:pr-44 flex flex-col justify-between items-center md:items-end mt-[-60px] md:mt-0 z-0">
+              <div className="relative w-full lg:w-[550px] min-h-[400px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] rounded-[40px] p-5 lg:p-12 lg:pr-44 flex flex-col justify-between items-center lg:items-end mt-[-60px] lg:mt-0 z-0">
                 <div>
-                  <div className="flex flex-col items-center md:items-end gap-3 mb-2 mt-20 md:mt-0">
+                  <div className="flex flex-col items-center lg:items-end gap-3 mb-2 mt-20 lg:mt-0">
                     <h3 className="text-4xl font-semibold text-[#147167] mb-2">Febby Anggun</h3>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="bg-[#26D7C4]/75 border-[2.75px] border-[#147167] text-white text-[13px] font-semibold px-3 py-1 rounded-full tracking-wider">
@@ -196,13 +200,13 @@ export default function HeroSection() {
                 </div>
 
                 {/* Button */}
-                <button className="w-full md:w-fit mt-1 px-10 py-5 rounded-full bg-gradient-to-b from-[#26D7C4] to-[#147167] text-white font-semibold text-xl shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300">
+                <button className="w-full lg:w-fit mt-1 px-10 py-5 rounded-full bg-gradient-to-b from-[#26D7C4] to-[#147167] text-white font-semibold text-xl shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300">
                   Kenalan Lebih Dekat
                 </button>
               </div>
 
               {/* Image (Overlapping Right) */}
-              <div className="relative w-[180px] h-[280px] md:w-[320px] md:h-[450px] shrink-0 ml-0 md:-ml-44 mt-0 md:-mt-80 -mb-10 md:mb-0 z-10">
+              <div className="relative w-[180px] h-[280px] lg:w-[320px] lg:h-[450px] shrink-0 ml-0 lg:-ml-44 mt-0 lg:-mt-80 -mb-10 lg:mb-0 z-10">
                 <div className="relative w-full h-full overflow-hidden">
                   <Image 
                     src="/facilitatorwfa-febby.webp"
@@ -218,10 +222,10 @@ export default function HeroSection() {
 
 
             {/* === CARD 2: SYAUQI AZHAR (Image Left, Text Right) === */}
-            <div className="flex flex-col md:flex-row items-center justify-center mt-72 ml-0 md:-ml-28">
+            <div className="flex flex-col lg:flex-row items-center justify-center mt-72 ml-0 lg:-ml-28">
               
               {/* Image (Overlapping Left) */}
-              <div className="relative w-[180px] h-[380px] md:w-[320px] md:h-[450px] shrink-0 mr-0 md:-mr-[11.5rem] -mt-80 -mb-20 md:mb-0 z-10">
+              <div className="relative w-[180px] h-[380px] lg:w-[320px] lg:h-[450px] shrink-0 mr-0 lg:-mr-[11.5rem] -mt-80 -mb-20 lg:mb-0 z-10">
                 <div className="relative w-full h-full overflow-hidden">
                   <Image 
                     src="/facilitatorwfa-syauqi.webp"
@@ -234,9 +238,9 @@ export default function HeroSection() {
               </div>
 
               {/* Text Card */}
-              <div className="relative w-full md:w-[550px] min-h-[400px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] rounded-[40px] p-5 md:p-12 md:pl-44 flex flex-col justify-between items-center mt-[-60px] md:mt-0 z-0">
+              <div className="relative w-full lg:w-[550px] min-h-[400px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] rounded-[40px] p-5 lg:p-12 lg:pl-44 flex flex-col justify-between items-center mt-[-60px] lg:mt-0 z-0">
                 <div>
-                  <div className="flex flex-col items-center md:items-start gap-3 mt-[5.25rem] md:mb-2">
+                  <div className="flex flex-col items-center lg:items-start gap-3 mt-[5.25rem] lg:mb-2">
                     <h3 className="text-4xl font-semibold text-[#147167] mb-2">Syauqi Azhar</h3>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="flex items-center gap-1">
@@ -265,13 +269,13 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  <p className="text-[#147167] text-sm leading-normal mt-2 md:mt-0 mb-6 text-justify font-medium">
+                  <p className="text-[#147167] text-sm leading-normal mt-2 lg:mt-0 mb-6 text-justify font-medium">
                     Memulai karir di bidang teknologi sejak 2017, bermula dari Fullstack Web Developer kemudian terus berkembang mempelajari SEO, UI/UX, Digital Marketing, Artificial Intelegent, Spreadsheet Formula, Automation, dsb. Hingga detik ini masih terus mempelajari hal-hal baru seiring dengan perkembangan teknologi di dunia 👨🏻‍💻
                   </p>
                 </div>
 
                 {/* Button */}
-                <button className="w-full md:w-fit mt-1 px-10 py-5 rounded-full bg-gradient-to-b from-[#26D7C4] to-[#147167] text-white font-semibold text-xl shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300">
+                <button className="w-full lg:w-fit mt-1 px-10 py-5 rounded-full bg-gradient-to-b from-[#26D7C4] to-[#147167] text-white font-semibold text-xl shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300">
                   Kenalan Lebih Dekat
                 </button>
               </div>
@@ -285,7 +289,7 @@ export default function HeroSection() {
       <PortfolioLabSlider />
 
       <section className="mb-12 mt-20">
-        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10 md:mb-16 text-[#147167]">
+        <h2 className="text-3xl lg:text-4xl font-semibold text-center mb-10 lg:mb-16 text-[#147167]">
           Moment Bersama Komunitas
         </h2>
         <CommunitySlider images={COMMUNITY_IMAGES} />
@@ -294,7 +298,7 @@ export default function HeroSection() {
       <section className="relative mb-12 mt-28 w-full overflow-hidden">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
 
-        <h2 className="text-2xl md:text-4xl font-semibold text-center mb-10 md:mb-16 text-[#147167]">
+        <h2 className="text-2xl lg:text-4xl font-semibold text-center mb-10 lg:mb-16 text-[#147167]">
           Collaborator & Partnership Sekolah WFA
         </h2>
         <CollaboratorSlider images={COLLABORATOR_IMAGES} />
@@ -304,7 +308,7 @@ export default function HeroSection() {
       
     <footer className="w-full pt-16 pb-10 md:pt-32 md:pb-20 bg-gradient-to-b from-white to-[#26D7C4]/60">
       <div className="container mx-auto px-4 pt-10 md:pt-20">
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-12">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-12 md:gap-5 lg:gap-12">
           
           {/* --- LEFT SECTION: LOGO & TAGLINE --- */}
           <div className="flex flex-col gap-4 max-w-sm items-center md:items-start">
@@ -316,14 +320,14 @@ export default function HeroSection() {
                 className="object-contain"
               />
             </div>
-            <h3 className="text-xl mt-1 ml-0 md:ml-6 font-semibold leading-relaxed text-[#147167]">
+            <h3 className="text-xl md:text-base lg:text-xl mt-1 ml-0 md:ml-6 font-semibold leading-relaxed text-[#147167]">
               Sekolah Digital Masa Kini <br />
               Belajar, Berkarya, dan Berpenghasilan dari Mana Saja.
             </h3>
           </div>
 
           {/* --- RIGHT SECTION: NAVIGATION LINKS --- */}
-          <div className="w-full md:w-auto grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-20 text-left md:text-left">
+          <div className="w-full md:w-auto grid grid-cols-2 md:grid-cols-3 gap-10 lg:gap-20 text-left md:text-left">
 
             <div className="flex flex-col gap-4 items-center md:items-start text-center md:text-left">
               <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Fasilitas</h4>

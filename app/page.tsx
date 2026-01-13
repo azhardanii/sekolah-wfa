@@ -72,7 +72,7 @@ export default function HeroSection() {
                     ].map((src, i) => (
                       <div
                         key={i} // Menggunakan index sebagai key
-                        className="w-14 h-14 rounded-full border-2 border-white bg-gray-200 relative overflow-hidden"
+                        className="w-14 h-14 rounded-full border-2 border-white relative overflow-hidden"
                       >
                         <Image
                           src={src}
@@ -84,7 +84,7 @@ export default function HeroSection() {
                     ))}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-[2.15rem] md:text-5xl">
+                    <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-[2rem] md:text-5xl">
                       & 1.221.500+
                     </span>
                     <span className="text-sm md:text-base max-w-[10rem] leading-tight bg-gradient-to-l pt-0.5 h-11 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
@@ -119,7 +119,7 @@ export default function HeroSection() {
             className="hidden md:block relative z-10 w-full h-auto object-contain"
           />
           <Image 
-            src="/img/lp/mobver-trust-wfa.webp"
+            src="/img/lp/mobile-trust-wfa.webp"
             alt="Trust Sekolah WFA Mobile"
             width={800}
             height={400}
@@ -135,20 +135,20 @@ export default function HeroSection() {
 
       <section className="w-full py-20 bg-white overflow-hidden">
           {/* Section Title */}
-          <h2 className="text-3xl md:text-5xl font-semibold text-[#147167] text-center mb-16">
+          <h2 className="text-2xl md:text-5xl font-semibold text-[#147167] text-center mb-7 md:mb-16">
             Profiling Facilitator
           </h2>
         <div className="container mx-auto px-4 flex justify-center">
 
-          <div className="flex gap-20 md:gap-1">
+          <div className="flex flex-col md:flex-row gap-20 md:gap-1">
             
             {/* === CARD 1: FEBBY ANGGUN (Text Left, Image Right) === */}
             <div className="flex flex-col-reverse md:flex-row items-center justify-center">
               
               {/* Text Card */}
-              <div className="relative w-full md:w-[550px] min-h-[400px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] rounded-[40px] p-8 md:p-12 md:pr-44 flex flex-col justify-between items-center mt-[-60px] md:mt-0 z-0">
+              <div className="relative w-full md:w-[550px] min-h-[400px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] rounded-[40px] p-5 md:p-12 md:pr-44 flex flex-col justify-between items-center md:items-end mt-[-60px] md:mt-0 z-0">
                 <div>
-                  <div className="flex flex-col items-end gap-3 mb-2">
+                  <div className="flex flex-col items-center md:items-end gap-3 mb-2 mt-20 md:mt-0">
                     <h3 className="text-4xl font-semibold text-[#147167] mb-2">Febby Anggun</h3>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="bg-[#26D7C4]/75 border-[2.75px] border-[#147167] text-white text-[13px] font-semibold px-3 py-1 rounded-full tracking-wider">
@@ -202,7 +202,7 @@ export default function HeroSection() {
               </div>
 
               {/* Image (Overlapping Right) */}
-              <div className="relative w-[280px] h-[380px] md:w-[320px] md:h-[450px] shrink-0 -ml-44 -mt-80 z-10">
+              <div className="relative w-[180px] h-[280px] md:w-[320px] md:h-[450px] shrink-0 ml-0 md:-ml-44 mt-0 md:-mt-80 -mb-10 md:mb-0 z-10">
                 <div className="relative w-full h-full overflow-hidden">
                   <Image 
                     src="/facilitatorwfa-febby.webp"
@@ -218,10 +218,10 @@ export default function HeroSection() {
 
 
             {/* === CARD 2: SYAUQI AZHAR (Image Left, Text Right) === */}
-            <div className="flex flex-col md:flex-row items-center justify-center mt-72 -ml-28">
+            <div className="flex flex-col md:flex-row items-center justify-center mt-72 ml-0 md:-ml-28">
               
               {/* Image (Overlapping Left) */}
-              <div className="relative w-[280px] h-[380px] md:w-[320px] md:h-[450px] shrink-0 -mr-[11.5rem] -mt-80 z-10">
+              <div className="relative w-[180px] h-[380px] md:w-[320px] md:h-[450px] shrink-0 mr-0 md:-mr-[11.5rem] -mt-80 -mb-20 md:mb-0 z-10">
                 <div className="relative w-full h-full overflow-hidden">
                   <Image 
                     src="/facilitatorwfa-syauqi.webp"
@@ -234,9 +234,9 @@ export default function HeroSection() {
               </div>
 
               {/* Text Card */}
-              <div className="relative w-full md:w-[550px] min-h-[400px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] rounded-[40px] p-8 md:p-12 md:pl-44 flex flex-col justify-between items-center mt-[-60px] md:mt-0 z-0">
+              <div className="relative w-full md:w-[550px] min-h-[400px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] rounded-[40px] p-5 md:p-12 md:pl-44 flex flex-col justify-between items-center mt-[-60px] md:mt-0 z-0">
                 <div>
-                  <div className="flex flex-col items-start gap-3 mb-2">
+                  <div className="flex flex-col items-center md:items-start gap-3 mt-[5.25rem] md:mb-2">
                     <h3 className="text-4xl font-semibold text-[#147167] mb-2">Syauqi Azhar</h3>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="flex items-center gap-1">
@@ -265,7 +265,7 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  <p className="text-[#147167] text-sm leading-normal mb-6 text-justify font-medium">
+                  <p className="text-[#147167] text-sm leading-normal mt-2 md:mt-0 mb-6 text-justify font-medium">
                     Memulai karir di bidang teknologi sejak 2017, bermula dari Fullstack Web Developer kemudian terus berkembang mempelajari SEO, UI/UX, Digital Marketing, Artificial Intelegent, Spreadsheet Formula, Automation, dsb. Hingga detik ini masih terus mempelajari hal-hal baru seiring dengan perkembangan teknologi di dunia 👨🏻‍💻
                   </p>
                 </div>
@@ -285,7 +285,7 @@ export default function HeroSection() {
       <PortfolioLabSlider />
 
       <section className="mb-12 mt-20">
-        <h2 className="text-4xl font-semibold text-center mb-16 text-[#147167]">
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10 md:mb-16 text-[#147167]">
           Moment Bersama Komunitas
         </h2>
         <CommunitySlider images={COMMUNITY_IMAGES} />
@@ -294,7 +294,7 @@ export default function HeroSection() {
       <section className="relative mb-12 mt-28 w-full">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
 
-        <h2 className="text-4xl font-semibold text-center mb-16 text-[#147167]">
+        <h2 className="text-2xl md:text-4xl font-semibold text-center mb-10 md:mb-16 text-[#147167]">
           Collaborator & Partnership Sekolah WFA
         </h2>
         <CollaboratorSlider images={COLLABORATOR_IMAGES} />
@@ -302,83 +302,113 @@ export default function HeroSection() {
 
       <FAQSection />
       
-      <footer className="w-full pt-32 pb-20 bg-gradient-to-b from-white to-[#26D7C4]/60">
-        <div className="container mx-auto px-4 pt-20">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-            
-            {/* --- LEFT SECTION: LOGO & TAGLINE --- */}
-            <div className="flex flex-col gap-4 max-w-sm">
-              <div className="relative w-[180px] h-[60px]">
-                <Image 
-                  src="/logo-wfa.webp" 
-                  alt="Sekolah WFA Logo" 
-                  fill 
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="text-xl mt-1 ml-6 font-semibold leading-relaxed text-[#147167]">
-                Sekolah Digital Masa Kini <br />
-                Belajar, Berkarya, dan Berpenghasilan dari Mana Saja.
-              </h3>
+    <footer className="w-full pt-16 pb-10 md:pt-32 md:pb-20 bg-gradient-to-b from-white to-[#26D7C4]/60">
+      <div className="container mx-auto px-4 pt-10 md:pt-20">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-12">
+          
+          {/* --- LEFT SECTION: LOGO & TAGLINE --- */}
+          <div className="flex flex-col gap-4 max-w-sm items-center md:items-start">
+            <div className="relative w-[180px] h-[60px]">
+              <Image 
+                src="/logo-wfa.webp" 
+                alt="Sekolah WFA Logo" 
+                fill 
+                className="object-contain"
+              />
             </div>
-
-            {/* --- RIGHT SECTION: NAVIGATION LINKS --- */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-20">
-
-              <div className="flex flex-col gap-4">
-                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Fasilitas</h4>
-                <nav className="flex flex-col gap-2">
-                  {['Ruang Kelas','Ruang BK', 'Rekreasi', 'Laboratorium'].map((item) => (
-                    <Link key={item} href="#" className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
-                      {item}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Navigasi</h4>
-                <nav className="flex flex-col gap-2">
-                  {['Profil', 'Alumni', 'Mading', 'Kantin'].map((item) => (
-                    <Link key={item} href={`#${item.toLowerCase()}`} className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
-                      {item}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Dukungan</h4>
-                <nav className="flex flex-col gap-2">
-                  {['FAQ', 'Kontak', 'Syarat & Ketentuan', 'Kebijakan Privasi'].map((item) => (
-                    <Link key={item} href="#" className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
-                      {item}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-
-            </div>
+            <h3 className="text-xl mt-1 ml-0 md:ml-6 font-semibold leading-relaxed text-[#147167]">
+              Sekolah Digital Masa Kini <br />
+              Belajar, Berkarya, dan Berpenghasilan dari Mana Saja.
+            </h3>
           </div>
 
-          {/* --- BOTTOM SECTION: SOCIAL BUTTONS --- */}
-          <div className="mt-16 flex flex-wrap gap-4 items-center justify-end mr-44">
-            {[
-              { label: 'Instagram', href: '#' },
-              { label: 'Youtube', href: '#' },
-              { label: 'LinkedIn', href: '#' }
-            ].map((social) => (
-              <Link 
-                key={social.label} 
-                href={social.href}
-                className="px-8 py-2 rounded-full border-2 border-[#147167] text-[#147167] font-bold hover:bg-[#147167] hover:text-white transition-all duration-300 shadow-sm"
-              >
-                {social.label}
-              </Link>
-            ))}
+          {/* --- RIGHT SECTION: NAVIGATION LINKS --- */}
+          <div className="w-full md:w-auto grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-20 text-left md:text-left">
+
+            <div className="flex flex-col gap-4 items-center md:items-start text-center md:text-left">
+              <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Fasilitas</h4>
+              <nav className="flex flex-col gap-2">
+                {['Ruang Kelas','Ruang BK', 'Rekreasi', 'Laboratorium'].map((item) => (
+                  <Link key={item} href="#" className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
+                    {item}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            <div className="flex flex-col gap-4 items-center md:items-start text-center md:text-left">
+              <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Navigasi</h4>
+              <nav className="flex flex-col gap-2">
+                {['Profil', 'Alumni', 'Mading', 'Kantin'].map((item) => (
+                  <Link key={item} href={`#${item.toLowerCase()}`} className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
+                    {item}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            <div className="col-span-2 md:col-span-1 flex flex-col gap-4 items-center md:items-start text-center md:text-left">
+              <h4 className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent font-bold text-xl">Dukungan</h4>
+              <nav className="flex flex-col gap-2">
+                {['FAQ', 'Kontak', 'Syarat & Ketentuan', 'Kebijakan Privasi'].map((item) => (
+                  <Link key={item} href="#" className="text-[#147167]/80 hover:text-[#147167] font-medium transition-colors">
+                    {item}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
           </div>
         </div>
-      </footer>
+
+        {/* --- BOTTOM SECTION: SOCIAL BUTTONS --- */}
+        <div className="mt-16 flex flex-wrap gap-4 items-center justify-center md:justify-end mr-0 md:mr-2">
+          {[
+            { label: 'Instagram', href: '#' },
+            { label: 'Youtube', href: '#' },
+            { label: 'LinkedIn', href: '#' }
+          ].map((social) => (
+            <Link 
+              key={social.label} 
+              href={social.href}
+              className="px-8 py-2 rounded-full border-2 border-[#147167] text-[#147167] font-bold hover:bg-[#147167] hover:text-white transition-all duration-300 shadow-sm"
+            >
+              {social.label}
+            </Link>
+          ))}
+          <div className="hidden md:flex items-center text-[#147167] font-medium text-sm opacity-90">
+            <span>&copy; {new Date().getFullYear()}</span>
+            <div className="relative inline-block align-middle">
+              <Image 
+                src="/inlinelogo-sekolahwfa.svg" 
+                alt="WFA Mark"
+                width={100}
+                height={24}
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* 2. COPYRIGHT MOBILE (Hanya muncul di Mobile, Posisi Paling Bawah Tengah) */}
+        <div className="md:hidden flex flex-col items-center justify-center mt-12 pt-8 border-t border-[#147167]/20 text-[#147167] font-medium text-xs opacity-90">
+          <div className="flex items-center justify-center flex-wrap gap-1">
+            <span className="-mr-1">&copy; {new Date().getFullYear()}</span>
+            <div className="relative inline-block align-middle">
+                <Image 
+                  src="/inlinelogo-sekolahwfa.svg" 
+                  alt="WFA Mark"
+                  width={100}
+                  height={24}
+                  className="object-contain"
+                />
+            </div>
+            <span className="-ml-1">– Semua Bisa Kerja Dari Mana Aja.</span>
+          </div>
+        </div>
+
+      </div>
+    </footer>
     </>
   );
 }

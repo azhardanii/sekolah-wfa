@@ -106,7 +106,7 @@ export default function PortfolioLabSlider() {
       <div className="absolute left-[70%] top-1/2 -translate-y-1/2 w-screen h-[650px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
 
       {/* TITLE */}
-      <h2 className="text-4xl md:text-5xl font-semibold text-[#147167] mb-16 text-center">
+      <h2 className="text-4xl md:text-5xl font-semibold text-[#147167] mb-10 md:mb-16 text-center">
         Portofolio Project Sekolah WFA
       </h2>
 
@@ -138,7 +138,7 @@ export default function PortfolioLabSlider() {
             >
               
               {/* === MAIN CARD === */}
-              <div className="relative w-[320px] h-[400px] md:w-[350px] md:h-[420px]">
+              <div className="relative w-[320px] h-[350px] md:w-[350px] md:h-[420px]">
                 
                 {/* 1. PRODUCT CARD BACKGROUND & IMAGE */}
                 <div className="w-full h-full rounded-[40px] bg-gradient-to-b from-[#26D7C4] to-[#FFFFFF] shadow-xl p-4 flex flex-col justify-center items-center relative z-10 overflow-hidden">
@@ -172,8 +172,7 @@ export default function PortfolioLabSlider() {
                            animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
                            exit={{ opacity: 0, scale: 0 }}
                            transition={{ delay: 0.1, type: 'spring' }}
-                           // Ukuran container disesuaikan dengan aspek rasio image chat bubble
-                           className="absolute -top-28 -right-40 w-[300px] h-[230px] z-50"
+                           className="absolute -top-28 -right-14 md:-right-40 w-[280px] md:w-[300px] h-[200px] md:h-[230px] z-50"
                         >
                             <Image 
                                 src={item.userProfileImage} 
@@ -184,15 +183,13 @@ export default function PortfolioLabSlider() {
                         </motion.div>
                       )}
 
-                      {/* B. INCOME PROOF POPUP (Bottom Left) */}
-                      {/* Masih menggunakan codingan agar angka terlihat tajam, tapi style minimalis */}
                       {item.income && (
                         <motion.div
                            initial={{ opacity: 0, scale: 0, x: 20 }}
                            animate={{ opacity: 1, scale: 1.15, x: 0 }}
                            exit={{ opacity: 0, scale: 0 }}
                            transition={{ delay: 0.2, type: 'spring' }}
-                           className="absolute bottom-9 -left-12 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg border-2 border-white z-50 flex items-center gap-3 pr-5"
+                           className="absolute bottom-14 md:bottom-9 -left-2 md:-left-12 bg-white/95 backdrop-blur-sm rounded-xl p-2 md:p-3 shadow-lg border-2 border-white z-50 flex items-center gap-3 pr-3 md:pr-5"
                         >
                             <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-[#147167]">
                                 <TrendingUp size={20} />
@@ -214,7 +211,7 @@ export default function PortfolioLabSlider() {
       </div>
 
       {/* --- NAVIGATION BUTTONS --- */}
-      <div className="flex items-center gap-6 mt-12 z-30">
+      <div className="flex items-center gap-6 mt-0 md:mt-12 z-30">
         <button 
             onClick={handlePrev}
             className="group w-20 h-14 rounded-full bg-white border-2 border-[#26D7C4] flex items-center justify-center shadow-lg hover:bg-[#26D7C4] hover:border-[#147167] transition-all duration-300 active:scale-95"

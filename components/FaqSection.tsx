@@ -83,7 +83,7 @@ export default function FAQSection() {
   return (
     <section className="w-full min-h-screen py-20 px-4 flex flex-col items-center justify-center">
       <div className="mb-10 text-center">
-        <h2 className="text-3xl md:text-[3.5rem] h-16 pt-1 font-bold bg-clip-text text-transparent bg-gradient-to-b from-[#26D7C4] to-[#147167] uppercase tracking-wider">
+        <h2 className="text-3xl md:text-[3.5rem] h-20 md:h-16 pt-1 font-bold bg-clip-text text-transparent bg-gradient-to-b from-[#26D7C4] to-[#147167] uppercase tracking-wider">
           Frequently Ask Question
         </h2>
       </div>

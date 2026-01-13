@@ -155,8 +155,8 @@ export default function TestimonialSection() {
 
   return (
     <section className="relative w-full bg-white pt-10 pb-20 md:pb-32 overflow-hidden flex flex-col items-center min-h-[900px]">
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-[500px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
-      <div className="absolute top-[10%] md:top-[20%] left-0 w-full h-[700px] pointer-events-none">
+      <div className="absolute left-1/2 top-[25%] md:top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-[300px] md:h-[500px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
+      <div className="absolute top-[20%] left-0 w-full h-[300px] md:h-[700px] pointer-events-none">
         <svg 
             viewBox="0 0 1440 700" 
             className="w-full h-full" 
@@ -185,8 +185,8 @@ export default function TestimonialSection() {
 
       {/* --- HEADER TEXT --- */}
       <div className="relative z-10 text-center px-4 mb-8 md:mb-2 mx-auto mt-8">
-        <h2 className="text-xl md:text-2xl font-semibold text-[#147167] leading-snug">
-          Teman belajar di Sekolah WFA yang berhasil memulai & <br />
+        <h2 className="text-base md:text-2xl font-semibold text-[#147167] leading-snug">
+          Teman belajar di Sekolah WFA yang berhasil memulai & <br className="hidden md:block" />
           berpenghasilan dari mana aja dengan sistem yang telah mereka pelajari.
         </h2>
       </div>
@@ -195,11 +195,11 @@ export default function TestimonialSection() {
       <div className="relative z-10 w-full h-[700px] flex items-center justify-center mt-4" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
         
         {/* Nav Buttons */}
-        <button onClick={handlePrev} className="absolute left-4 md:left-20 z-50 p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
-            <ArrowLeft className="w-6 h-6 text-[#147167] stroke-[2.5] stroke-[#147167] group-hover:text-white group-hover:stroke-white transition-colors" />
+        <button onClick={handlePrev} className="absolute left-3 md:left-20 z-50 p-2 md:p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-[26.5%] md:top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
+            <ArrowLeft className="w-4 h-4 md:w-6 md:h-6 text-[#147167] stroke-[2.5] stroke-[#147167] group-hover:text-white group-hover:stroke-white transition-colors" />
         </button>
-        <button onClick={handleNext} className="absolute right-4 md:right-20 z-50 p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
-            <ArrowRight className="w-6 h-6 text-[#147167] stroke-[2.5] stroke-[#147167] group-hover:text-white group-hover:stroke-white transition-colors" />
+        <button onClick={handleNext} className="absolute right-3 md:right-20 z-50 p-2 md:p-3 bg-white rounded-full shadow-lg hover:scale-110 text-[#147167] transition-all top-[26.5%] md:top-1/2 -translate-y-1/2 border-2 border-[#26D7C4]">
+            <ArrowRight className="w-4 h-4 md:w-6 md:h-6 text-[#147167] stroke-[2.5] stroke-[#147167] group-hover:text-white group-hover:stroke-white transition-colors" />
         </button>
 
         {/* ITEMS */}
@@ -251,7 +251,7 @@ export default function TestimonialSection() {
              const mobileSpacing = 160;
              x = `calc(-50% + ${offset * mobileSpacing}px)`;
              if (Math.abs(offset) === 1) { y = baseY - 80; scale: 0.6; }
-             if (Math.abs(offset) >= 2) { opacity = 0; pointerEvents: 'none' } // Hide far items on mobile
+             if (Math.abs(offset) >= 2) { opacity = 0; pointerEvents: 'none' }
           }
 
           return (
@@ -274,44 +274,38 @@ export default function TestimonialSection() {
               
               {isActive ? (
                 /* === ACTIVE STATE (CLEAN IMAGE CARD) === */
-                <div className="relative flex flex-col items-center md:-mt-60"> {/* Tetap gunakan margin negatif agar posisi naik sesuai kurva */}
-                    
-                    {/* IMAGE CONTAINER */}
-                    {/* Ukuran disesuaikan agar proporsional sebagai kartu foto vertical */}
-                    
-                        <Image 
-                            src={item.image} 
-                            alt="Testimonial Image" 
-                            width={500}
-                            height={750}
-                        />
+                <div className="relative flex flex-col items-center -mt-96 md:-mt-60">            
+                      <Image 
+                          src={item.image} 
+                          alt="Testimonial Image" 
+                          width={500}
+                          height={750}
+                          className="scale-125"
+                      />
 
-                    {/* TEXT CARD OVERLAY (Floating at bottom) */}
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        // Adjust posisi bottom agar overlap-nya pas dengan kartu gambar
-                        className="absolute -bottom-16 w-[340px] md:w-[600px] bg-white rounded-3xl px-6 pt-3 pb-5 shadow-[0_-3px_10px_0_rgba(0,0,0,0.15)] z-30 text-center border border-gray-50"
+                        className="absolute -bottom-24 md:-bottom-16 w-[300px] md:w-[600px] bg-white rounded-3xl px-2 md:px-6 pt-2 md:pt-3 pb-3 md:pb-5 shadow-[0_-3px_10px_0_rgba(0,0,0,0.15)] z-30 text-center border border-gray-50"
                     >
-                        <h3 className="text-[#147167] text-2xl md:text-2xl font-semibold mb-2">
+                        <h3 className="text-[#147167] text-xl md:text-2xl font-semibold mb-0.5 md:mb-2">
                           {item.name}
                         </h3>
-                        <p className="text-[#147167] text-sm md:text-lg leading-relaxed font-normal">
+                        <p className="text-[#147167] text-xs md:text-lg leading-relaxed font-normal">
                           {item.text}
                         </p>
                     </motion.div>
                 </div>
               ) : (
-                /* === INACTIVE STATE (AVATAR ONLY) === */
-                <div className="relative group flex flex-col justify-center items-center">
-                   <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-full p-1 transition-transform duration-300 group-hover:scale-105`}>
+                <div className="hidden relative group md:flex flex-col justify-center items-center -mt-60 md:mt-0">
+                   <div className={`relative w-16 h-16 md:w-28 md:h-28 rounded-full p-1 transition-transform duration-300 group-hover:scale-105`}>
                       <div className="w-full h-full rounded-full overflow-hidden relative">
                         <Image src={item.avatar} alt="user" fill className="object-cover shadow-md" />
                       </div>
                    </div>
                    
-                   <div className="mt-1 px-4 py-1 bg-white/90 backdrop-blur-sm rounded-full shadow-sm text-sm font-bold text-[#147167] whitespace-nowrap">
+                   <div className="mt-1 px-4 py-1 bg-white/90 backdrop-blur-sm rounded-full shadow-sm text-xs md:text-sm font-semibold text-[#147167] whitespace-nowrap">
                        {item.name}
                    </div>
                 </div>

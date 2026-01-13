@@ -10,37 +10,37 @@ const megaMenuItems = [
   {
     title: "Ruang Kelas",
     desc: "Pembelajaran kerja WFA (berpenghasilan dari mana aja). Akses kapanpun & dimanapun Kamu berada.",
-    icon: "/iconwfa-ruangkelas.webp",
+    icon: "/iconwfa-ruangkelas.svg",
     href: "/ruang-kelas",
   },
   {
     title: "Laboratorium",
     desc: "Digital Asset's Agency (jasa customise development digital tools).",
-    icon: "/iconwfa-lab.webp",
+    icon: "/iconwfa-lab.svg",
     href: "/laboratorium",
   },
   {
     title: "Rekreasi",
     desc: "Trip bersama ke destinasi dalam & luar negeri, sekaligus menjalin relasi.",
-    icon: "/iconwfa-rekreasi.webp",
+    icon: "/iconwfa-rekreasi.svg",
     href: "/rekreasi",
   },
   {
     title: "Ruang BK",
     desc: "Konsultasi Mental Health & Kenali Potensi Dalam Dirimu Bareng Psikolog.",
-    icon: "/iconwfa-ruangbk.webp",
+    icon: "/iconwfa-ruangbk.svg",
     href: "/ruang-bk",
   },
   {
     title: "Kantin",
     desc: "Tempat Jajan Ebook, Tools Digital, Record Webinar, dsb.",
-    icon: "/iconwfa-kantin.webp",
+    icon: "/iconwfa-kantin.svg",
     href: "/kantin",
   },
   {
     title: "Mading",
     desc: "Pusat Info loker, showcase karya, & news update seputar dunia digital.",
-    icon: "/iconwfa-mading.webp",
+    icon: "/iconwfa-mading.svg",
     href: "/mading",
   },
 ];

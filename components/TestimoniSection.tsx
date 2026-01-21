@@ -12,7 +12,7 @@ const TESTIMONIALS = [
     handle: '@aifarifah',
     avatar: '/img/testi/avatar-aif.webp',
     image: '/img/testi/profileig-aif.webp',
-    text: "Belajar di Sekolah WFA beneran mengubah mindset saya. Materinya daging semua dan mentornya sangat suportif!",
+    text: "Duh gimana ya, seneng banget rasanya. Dulu tuh aku cuma bisa bikin konten, tapi gak ngerti gimana cara monetize dengan bener. Nah Sekolah WFA ini ngajarin semua hal itu—dari strategi, eksekusi, sampe cara dapetin penghasilan dari mana aja. Dan yang paling aku suka, mereka ngajarin dengan cara yang fun, gak boring. Mentor-mentornya juga asik, bisa diajak diskusi kapan aja. Pokoknya materinya daging semua deh!",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const TESTIMONIALS = [
     handle: '@radengie',
     avatar: '/img/testi/avatar-anggie.webp',
     image: '/img/testi/profileig-anggie.webp',
-    text: "Awalnya ragu, tapi setelah join ternyata sistemnya sangat terstruktur. Sekarang sudah bisa dapet klien pertama!",
+    text: "Awalnya sih agak ragu ya, namanya juga modal nekat, apalagi sebelumnya aku pernah ikut kelas gini zonkk banget! Tapi pas udah masuk, wahhh ternyata beneran berkualitas. Sistemnya rapi, step by step jelas. Dan yang bikin kaget, dalam waktu sebulan aja aku udah dapet 10 juta pertama ku! Gak nyangka secepatnya itu. Sekarang income aku lebih stabil, dan yang paling penting, aku happy karena bisa atur waktu sendiri. Thank God mempertemukan ku dengan Sekolah WFA!",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const TESTIMONIALS = [
     handle: '@gashady',
     avatar: '/img/testi/avatar-asran.webp',
     image: '/img/testi/profileig-asran.webp',
-    text: "Dalam misi trip ke semua negara di dunia. Sekolah WFA ngasih fleksibilitas yang aku butuhin banget buat traveling.",
+    text: "Sebagai orang yang pekerjaannya mobile, saya butuh skill yang bisa mendukung fleksibilitas itu. Sekolah WFA memberikan perspektif baru tentang bagaimana saya bisa diversifikasi pekerjaan tanpa meninggalkan passion saya di dunia jurnalistik. Kurikulumnya applicable, dan saya bisa langsung praktek. Kalau ditanya worth it atau tidak, jawabannya absolutely worth it.",
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const TESTIMONIALS = [
     handle: '@ceritadigitalclara',
     avatar: '/img/testi/avatar-clara.webp',
     image: '/img/testi/profileig-clara.webp',
-    text: "Komunitasnya aktif banget. Gak cuma belajar skill, tapi juga networking sama temen-temen se-visi.",
+    text: "Guys, jujur sebenernya aku tuh udah mulai nyemplung, tapi sempet stuck dan ragu banget buat lanjut karena ngerasa super newbie di dunia digital. Tapi untungnya setelah belajar di Sekolah WFA, akar permasalahanku bener-bener dibedah tuntas! Akhirnya aku bisa lepas dari mental block, dan sekarang malah jadi makin pede buat action. Ternyata kuncinya bukan cuma di skill, tapi di pola pikir yang bener. Thanks banget ilmunya!",
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ const TESTIMONIALS = [
     handle: '@davidlo.fit',
     avatar: '/img/testi/avatar-david.webp',
     image: '/img/testi/profileig-david.webp',
-    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+    text: "Gue udah coba berbagai course online, tapi Sekolah WFA beda level sih. Mereka tuh praktis banget, langsung to the point. Gak pake basa-basi teori yang bikin ngantuk. Sekarang gue bisa dapetin income dari mana aja, meanwhile gue lagi workout di gym manapun yang gue mau. Life's good, man.",
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ const TESTIMONIALS = [
     handle: '@dimasramadhan',
     avatar: '/img/testi/avatar-dimas.webp',
     image: '/img/testi/profileig-dimas.webp',
-    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+    text: "Jadi ceritanya gue kan udah lama banget jadi travel creator ya. Kira-kira udah ngerti semua lah. Eh pas ikut Sekolah WFA, ternyata banyak banget yang masih missing. Especially soal sistemnya. Mereka ngajarin hal-hal yang gak pernah kepikiran sama gue sebelumnya. Dan yang gue suka, kak Anggun itu humble, gak sok tau. Pokoknya recommended deh kalau lo serius.",
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ const TESTIMONIALS = [
     handle: '@fannykondoh',
     avatar: '/img/testi/avatar-fanny.webp',
     image: '/img/testi/profileig-fanny.webp',
-    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+    text: "Pas gue lagi masa-masa berat dulu, gue sadar banget pentingnya punya kerjaan yang fleksibel. Dan WFA ini literally ngasih semua yang gue butuhin. Dari mulai skill sampai support system-nya. Gue nangis beberapa kali lho waktu belajar, bukan karena susah, tapi karena grateful aja akhirnya nemu tempat yang bener-bener understand our needs as digital workers.",
   },
   {
     id: 8,
@@ -68,7 +68,7 @@ const TESTIMONIALS = [
     handle: '@fuadekspor',
     avatar: '/img/testi/avatar-fuad.webp',
     image: '/img/testi/profileig-fuad.webp',
-    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+    text: "Kak, saya jujur ya. Awalnya mikir, lah ini kok kayak kursus-kursus online pada umumnya. Tapi ternyata beda jauh. Mereka tuh detail banget ngajarinnya, dan bisa disesuaikan sama industri kita. Saya kan di bidang ekspor, tradisional banget. Eh mereka bisa breakdown gimana cara digitalisasinya. Mantap pokoknya. Sekarang kerjaan saya jauh lebih ringan, bisnis makin lancar.",
   },
   {
     id: 9,
@@ -76,7 +76,7 @@ const TESTIMONIALS = [
     handle: '@hana.ph',
     avatar: '/img/testi/avatar-hana.webp',
     image: '/img/testi/profileig-hana.webp',
-    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+    text: "Gue tuh dari dulu pengen banget bisa kerja sambil traveling gitu kan. Nah, Sekolah WFA ini jawaban banget sih buat mimpi gue. Mereka ngajarin everything you need to know dari nol sampai bisa profit. Dan gak cuma ngajarin doang, tapi juga kasih insight tentang lifestyle-nya gimana. Now I'm living in Istanbul, working with clients from Indonesia, dan hidup gue so much better. Literally living the dream!",
   },
   {
     id: 10,
@@ -84,7 +84,7 @@ const TESTIMONIALS = [
     handle: '@kadafidevayana',
     avatar: '/img/testi/avatar-kadafi.webp',
     image: '/img/testi/profileig-kadafi.webp',
-    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+    text: "Sebagai seseorang yang udah berkecimpung di dunia personal branding cukup lama, aku bisa bilang Sekolah WFA punya kurikulum yang terstruktur. Mereka ngerti betul ekosistem digital yang sebenarnya. Bukan janji-janji muluk yang ngga masuk akal. Approach-nya strategic, actionable, dan yang paling penting, proven! Aku personally recommend untuk profesional yang ingin serius di bidang digital.",
   },
   {
     id: 11,
@@ -92,7 +92,7 @@ const TESTIMONIALS = [
     handle: '@miaauliaa.p',
     avatar: '/img/testi/avatar-mia.webp',
     image: '/img/testi/profileig-mia.webp',
-    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+    text: "Komunitasnya aktif banget. Gak cuma belajar materinya doang, tapi juga bisa networking sama temen-temen se-visi dari berbagai macam background berbeda-beda yang kerjanya WFA, jadi ngebuka peluang kolaborasi yang aku butuhin banget selama ini.",
   },
   {
     id: 12,
@@ -100,7 +100,7 @@ const TESTIMONIALS = [
     handle: '@amanddanf',
     avatar: '/img/testi/avatar-mindiw.webp',
     image: '/img/testi/profileig-mindiw.webp',
-    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+    text: "Okay so. Aku kan udah kerja di beberapa agency, handle brand-brand gede juga. Kirain udah expert lah ya. Tapi pas ikut Sekolah WFA, Aku nyadar masih banyak yang bisa di-improve. Mereka tuh ngasih framework yang bikin kerjaan aku jauh lebih efisien. Plus, sekarang aku udah gak perlu stuck di kantor. Bisa kerja dari coffee shop, dari rumah, bahkan dari luar kota. Best decision ever sih ini.",
   },
   {
     id: 13,
@@ -108,7 +108,7 @@ const TESTIMONIALS = [
     handle: '@digital.afterhours',
     avatar: '/img/testi/avatar-suci.webp',
     image: '/img/testi/profileig-suci.webp',
-    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+    text: "Hai semuanya! Jadi aku tuh passionate banget soal empower perempuan di bidang digital. Dan Sekolah WFA ini align banget sama misi aku. Yang bikin seneng, mereka tuh gak elitist. Bahasa yang dipakai juga gampang dipahami, cocok banget buat pemula. Aku udah ajak temen-temen di komunitas aku, dan mereka pada excited semua. Thankful banget nemu tempat belajar yang supportive kayak gini!",
   },
   {
     id: 14,
@@ -116,7 +116,7 @@ const TESTIMONIALS = [
     handle: '@rinaprana',
     avatar: '/img/testi/avatar-yetti.webp',
     image: '/img/testi/profileig-yetti.webp',
-    text: "Worth every penny! Skill digital marketing yang diajarin bener-bener applicable di dunia kerja sekarang.",
+    text: "Permisi ya, mau sharing dikit. Aku dari Lubuklinggau, kadang suka insecure juga sih karena jauh dari kota besar. Tapi sejak ikut Sekolah WFA, mindset aku berubah total. Ternyata lokasi tuh bukan penghalang. Materinya lengkap, bisa diakses kapan aja, dan mentor-mentornya baik-baik banget mau jawab pertanyaan. Sekarang aku udah berani ambil project dari klien luar daerah. Alhamdulillah banget deh pokoknya!",
   },
 ];
 
@@ -282,12 +282,12 @@ export default function TestimonialSection() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.1, ease: "easeOut", delay: 0.1 }}
-                        className="absolute -bottom-24 md:-bottom-20 w-[300px] md:w-[600px] bg-white rounded-3xl px-2 md:px-6 pt-2 md:pt-3 pb-3 md:pb-5 shadow-[0_-3px_10px_0_rgba(0,0,0,0.15)] z-30 text-center border border-gray-50"
+                        className="absolute -bottom-32 w-[350px] md:w-[600px] bg-white rounded-3xl px-2 md:px-6 pt-2 md:pt-3 pb-3 md:pb-5 shadow-[0_-3px_10px_0_rgba(0,0,0,0.15)] z-30 text-center border border-gray-50"
                     >
                         <h3 className="text-[#147167] text-xl md:text-2xl font-semibold mb-0.5 md:mb-2">
                           {item.name}
                         </h3>
-                        <p className="text-[#147167] text-xs md:text-lg leading-relaxed font-normal">
+                        <p className="text-[#147167] text-[10px] md:text-sm leading-relaxed font-normal">
                           {item.text}
                         </p>
                     </motion.div>

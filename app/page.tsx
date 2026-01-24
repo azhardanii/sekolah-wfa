@@ -368,9 +368,9 @@ export default function HeroSection() {
         {/* --- BOTTOM SECTION: SOCIAL BUTTONS --- */}
         <div className="mt-16 flex flex-wrap gap-4 items-center justify-center md:justify-end mr-0 md:mr-2">
           {[
-            { label: 'Instagram', href: '#' },
-            { label: 'Youtube', href: '#' },
-            { label: 'LinkedIn', href: '#' }
+            { label: 'Instagram', href: 'https://www.instagram.com/sekolahwfa' },
+            { label: 'Youtube', href: 'https://www.youtube.com/@sekolahwfa' },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/company/sekolahwfa' }
           ].map((social) => (
             <Link 
               key={social.label} 

@@ -71,7 +71,7 @@ export default function HeroSection() {
                       '/img/testi/avatar-mindiw.webp',
                     ].map((src, i) => (
                       <div
-                        key={i} // Menggunakan index sebagai key
+                        key={i}
                         className="w-14 h-14 rounded-full border-2 border-white relative overflow-hidden"
                       >
                         <Image

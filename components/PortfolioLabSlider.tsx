@@ -66,6 +66,46 @@ const PORTFOLIO_ITEMS = [
       amount: "13,274,300"
     }
   },
+  {
+    id: 7,
+    desc: "Tools AI Menemukan Program Studi & Roadmap Belajar (Personality Based)",
+    productImage: "/img/portolab/portoproduct-sadewa.webp",
+    userProfileImage: "/img/portolab/portoprofile-sadewa.webp",
+    income: {
+      label: "Monthly Earnings",
+      amount: "22,104,000"
+    }
+  },
+  {
+    id: 8,
+    desc: "Flipbook Interaktif Bayi Gembul - 100% Base on Real Experience Fanny Kondoh",
+    productImage: "/img/portolab/portoproduct-fanny.webp",
+    userProfileImage: "/img/portolab/portoprofile-fanny.webp",
+    income: {
+      label: "Daily Earnings",
+      amount: "11,566,000"
+    }
+  },
+  {
+    id: 9,
+    desc: "Tools AI + Tracker Berpenghasilan Berdasarkan Hobi yang Disukai",
+    productImage: "/img/portolab/portoproduct-dewangga.webp",
+    userProfileImage: "/img/portolab/portoprofile-dewangga.webp",
+    income: {
+      label: "Daily Earnings",
+      amount: "6,445,500"
+    }
+  },
+  {
+    id: 10,
+    desc: "Tools AI Untuk Para Freelancer Bisa Berpenghasilan Dari Rumah",
+    productImage: "/img/portolab/portoproduct-shofina.webp",
+    userProfileImage: "/img/portolab/portoprofile-shofina.webp",
+    income: {
+      label: "Total Revenue",
+      amount: "101,590,000"
+    }
+  },
 ];
 
 export default function PortfolioLabSlider() {

@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// Data Mega Menu dipindah ke luar agar bisa diakses Mobile & Desktop
 const megaMenuItems = [
   {
     title: "Ruang Kelas",
@@ -58,21 +57,17 @@ export default function NavbarWFA() {
   const pathname = usePathname();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
-  
-  // State untuk Mobile
+    
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileFasilitasOpen, setIsMobileFasilitasOpen] = useState(false);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
-      // Kunci scroll halaman utama
       document.body.style.overflow = "hidden";
     } else {
-      // Kembalikan scroll halaman utama
       document.body.style.overflow = "unset";
     }
 
-    // Cleanup function: memastikan scroll kembali aktif jika komponen di-unmount
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -83,7 +78,6 @@ export default function NavbarWFA() {
       {isMobileMenuOpen && (
         <div className="fixed top-0 left-0 right-0 h-[6.5rem] w-full bg-white z-50 lg:hidden" />
       )}
-      {/* 1. LOGO SECTION */}
       <Link href="/" className="flex flex-col relative z-50">
         <Image
           src="/logo-wfa.webp"
@@ -95,8 +89,6 @@ export default function NavbarWFA() {
         />
       </Link>
 
-      {/* ================= DESKTOP NAV START (SAMA PERSIS SEPERTI SEBELUMNYA) ================= */}
-      {/* Dibungkus hidden lg:flex agar hilang di mobile */}
       <div className="hidden lg:flex pt-[3.5px] pb-[3.65px] pl-[3.75px] pr-[4px] rounded-full bg-gradient-to-b from-[#2AB3B0] to-[#147167] shadow-sm">
         <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full text-base relative">
           {navItems.map((item, index) => {
@@ -144,7 +136,6 @@ export default function NavbarWFA() {
                   </Link>
                 )}
 
-                {/* MEGA MENU DESKTOP */}
                 {item.hasMegaMenu && isMegaMenuOpen && (
                   <div className="absolute top-full -left-72 mt-0.5 w-[1000px] z-50">
                     <div
@@ -185,14 +176,12 @@ export default function NavbarWFA() {
           })}
         </div>
       </div>
-      {/* ================= DESKTOP NAV END ================= */}
 
       {/* 3. CTA BUTTON & MOBILE TOGGLE */}
       {/* Container utama tombol stylingnya SAMA untuk Desktop & Mobile */}
       <div
         className="group relative pb-[3.5px] pt-[3.5px] pl-[3px] pr-[3px] rounded-full bg-gradient-to-t from-[#147167] to-[#2AB3B0] shadow-lg shadow-teal-700/20 active:scale-95 transition-all duration-150 z-50 cursor-pointer"
         onClick={() => {
-          // Hanya berfungsi sebagai toggle di mode mobile
           if (window.innerWidth < 768) {
             setIsMobileMenuOpen(!isMobileMenuOpen);
           }
@@ -281,7 +270,7 @@ export default function NavbarWFA() {
                           <Link
                             key={idx}
                             href={megaItem.href}
-                            onClick={() => setIsMobileMenuOpen(false)} // Tutup menu saat klik
+                            onClick={() => setIsMobileMenuOpen(false)}
                             className="flex items-start gap-4 p-3 rounded-xl bg-gray-50 hover:bg-teal-50 border border-transparent hover:border-teal-200 transition-colors"
                           >
                             <div className="relative w-12 h-12 flex-shrink-0">

@@ -9,11 +9,11 @@ const PORTFOLIO_ITEMS = [
   {
     id: 1,
     desc: "Pelopor Tools Bikin Konten yang Tersistem & Terintegrasi AI",
-    productImage: "/img/portolab/portoproduct-febby.webp", 
+    productImage: "/img/portolab/portoproduct-febbyanggun.webp", 
     userProfileImage: "/img/portolab/portoprofile-febby.webp",
     income: {
       label: "Lifetime Sales (IDR)",
-      amount: "300,665,021"
+      amount: "492,665,021"
     }
   },
   {

@@ -74,14 +74,14 @@ const FAQItem = ({ question, answer, defaultOpen = false }: FAQItemProps) => {
 };
 
 const FeatureItem = ({ text }: { text: string }) => (
-  <div className="flex items-center gap-2">
+  <div className="flex items-center gap-1 md:gap-2">
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
       fill="none" 
       viewBox="0 0 24 24" 
       strokeWidth={4}
       stroke="currentColor" 
-      className="w-6 h-6 mb-0.5"
+      className="w-5 h-5 md:w-6 md:h-6 mb-0.5"
     >
       <path 
         strokeLinecap="round"
@@ -101,21 +101,21 @@ const FeatureCard = ({ title, desc }: { title: string, desc: string }) => {
           <h4 className="font-bold text-[#147167] text-lg">
             {title}
           </h4>
-          <p className="text-[#147167] text-sm md:text-base leading-relaxed">
+          <p className="text-[#147167] text-xs md:text-base leading-relaxed">
             {desc}
           </p>
         </div>
       </div>
 
       <div className="absolute top-1/2 -left-5 -translate-y-1/2 z-10">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#26D7C4] to-[#147167] flex items-center justify-center text-white shadow-lg">
+        <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-[#26D7C4] to-[#147167] flex items-center justify-center text-white shadow-lg">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             fill="none" 
             viewBox="0 0 24 24" 
             strokeWidth={4}
             stroke="currentColor" 
-            className="w-6 h-6"
+            className="w-5 h-5 md:w-6 md:h-6"
           >
             <path 
               strokeLinecap="round"
@@ -209,17 +209,18 @@ const TESTIMONIALS = [
 ];
 
 const AutoFitLine = ({ text }: { text: string }) => {
-  const COMPRESSION_RATE = 0.65; 
+  const COMPRESSION_RATE = 0.57; 
   
   return (
     <div 
-      className="w-full flex justify-center items-center px-2"
+      className="w-full flex justify-center items-center px-1 md:px-2"
       style={{ containerType: 'inline-size' }} 
     >
       <h1 
-        className="font-bold bg-gradient-to-l from-[#26D7C4] to-[#147167] bg-clip-text text-transparent pb-2 text-center"
+        className="font-bold bg-gradient-to-l from-[#26D7C4] to-[#147167] bg-clip-text text-transparent pb-1 md:pb-2 text-center"
         style={{
-            fontSize: `clamp(1.5rem, calc(95cqi / (${text.length} * ${COMPRESSION_RATE})), 5.5rem)`,
+            fontSize: `clamp(0.5rem, calc(95cqi / (${text.length} * ${COMPRESSION_RATE})), 5.5rem)`,
+            
             whiteSpace: 'nowrap',
             lineHeight: '1.1',
             width: 'auto',
@@ -259,15 +260,15 @@ export default function FINAPage() {
         <div className="absolute -bottom-5 -left-44 w-[350px] h-[350px] bg-white opacity-30 rounded-full translate-x-1/3 -translate-y-[30%] pointer-events-none"></div>
         <div className="absolute -bottom-10 left-24 w-[350px] h-[350px] bg-gradient-to-b from-[#26D7C4] to-white opacity-15 rounded-full pointer-events-none"></div>
 
-        <div className="relative z-10 container mx-auto py-10 px-6 lg:px-0">
-          <div className="flex flex-col items-center justify-between gap-10 lg:gap-4">
-            <div className="w-full max-w-7xl mt-0 px-4">
+        <div className="relative z-10 container mx-auto pt-0 md:pt-16 pb-0 px-2 lg:px-0"> 
+          <div className="flex flex-col items-center justify-between gap-0 lg:gap-4 min-h-screen lg:min-h-0">
+            <div className="w-full md:max-w-7xl mt-0 px-4">
               <div className="relative min-h-[200px] flex flex-col justify-center items-center">
                 
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={index}
-                    className="w-full flex flex-col items-center gap-2"
+                    className="w-full flex flex-col items-center gap-0 md:gap-2"
                     initial={{ opacity: 0, y: 30, filter: 'blur(12px)' }}
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, y: -30, filter: 'blur(12px)' }}
@@ -282,9 +283,9 @@ export default function FINAPage() {
               </div>
             </div>
 
-            <div className="w-full flex flex-col items-center relative -mt-5">
+            <div className="w-full flex flex-col items-center relative -mt-5 lg:mt-0">
               <div className="relative w-full flex justify-center mb-0 z-10">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[#26D7C4] opacity-20 blur-[80px] rounded-full z-0" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[80%] h-full md:h-[80%] bg-[#26D7C4] opacity-20 blur-[80px] rounded-full z-0" />
                 <div className="relative z-10 w-full lg:w-[60%] flex justify-center">
                   <Image 
                     src="/fina/fina-banner.webp"
@@ -297,30 +298,32 @@ export default function FINAPage() {
                 </div>
               </div>
 
-              <div className="w-screen relative py-7 bg-gradient-to-r from-[#26D7C4] via-[#1DA495] to-[#26D7C4]">
+              <div className="w-screen relative py-3 md:py-7 bg-gradient-to-r from-[#26D7C4] via-[#1DA495] to-[#26D7C4]">
                 <div className="max-w-7xl mx-auto px-4">
-                  <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white font-semibold text-xl md:text-2xl">
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-1 md:gap-4 text-white font-semibold text-lg md:text-2xl">
+                    <FeatureItem text="Langsung Pakai" />
                     <FeatureItem text="Akses Seumur Hidup" />
                     <FeatureItem text="Tercatat Otomatis Di Spreadsheet" />
-                    <FeatureItem text="Langsung Pakai" />
                   </div>
                 </div>
               </div>
+
             </div>
+
           </div>
         </div>
       </section>
 
       <section className="flex flex-col items-center text-center gap-8 mb-20 mt-10">
-        <div className="flex flex-col sm:flex-row gap-16">
-          <Link href="#intro" className="px-10 py-5 rounded-full bg-gradient-to-b from-gray-100 to-[#8BD4D4] text-[#147167] font-semibold text-2xl shadow-lg hover:shadow-xl hover:cursor-pointer transition-all">
+        <div className="flex flex-col sm:flex-row gap-8 md:gap-16">
+          <Link href="#intro" className="px-6 md:px-10 py-3 md:py-5 rounded-full bg-gradient-to-b from-gray-100 to-[#8BD4D4] text-[#147167] font-semibold text-xl md:text-2xl shadow-lg hover:shadow-xl hover:cursor-pointer transition-all">
             Pelajari Selengkapnya
           </Link>
 
           <button className="hover:scale-105 block group relative pb-[3.25px] pt-[3.5px] pl-[3px] pr-[2.5px] rounded-full bg-gradient-to-t from-[#147167] to-[#2AB3B0] shadow-lg shadow-teal-700/20 active:scale-95 transition-transform duration-150 ease-in-out hover:cursor-pointer">
             <Link
               href="#cta"
-              className="block w-full h-full px-10 py-5 rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white font-semibold text-2xl tracking-wide"
+              className="block w-full h-full px-6 md:px-10 py-3 md:py-5 rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white font-semibold text-xl md:text-2xl tracking-wide"
             >
               Mulai Chat dengan FINA
             </Link>
@@ -328,18 +331,18 @@ export default function FINAPage() {
         </div>
       </section>
 
-      <section className="w-full pb-20 bg-white overflow-hidden mt-44">
+      <section className="w-full pb-20 bg-white overflow-hidden mt-20 md:mt-44">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mx-auto text-center max-w-5xl mb-20">
-            <h2 className="text-3xl md:text-5xl font-medium text-[#147167] tracking-normal">
+            <h2 className="text-[1.75rem] leading-tight md:leading-snug md:text-5xl font-medium text-[#147167] tracking-normal">
               Niatnya mau <span className="font-extrabold">Mandiri Finansial</span>, <br className="hidden md:block pb-10"/>
               tapi baru nyatet aja udah kena mental.
             </h2>
           </div>
 
           <div className="relative space-y-10">
-            <div className="absolute -right-1/2 top-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-30" />
-            <div className="absolute -left-[35%] top-1/2 w-[400px] h-[400px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
+            <div className="absolute -right-1/2 top-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-30 z-0" />
+            <div className="absolute -left-[35%] top-1/2 w-[400px] h-[400px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50 z-0" />
             {/* ITEM 1: Kopi 25 Ribu (Text Left - Image Right) */}
             <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
               <div className="w-full md:w-3/4 text-center md:text-right">
@@ -365,11 +368,11 @@ export default function FINAPage() {
                   src="/fina/fina-4.webp"
                   alt="Ribet catat manual"
                   width={500} height={500}
-                  className="object-contain md:scale-125 transition-transform duration-500"
+                  className="object-contain md:scale-125 transition-transform duration-500 z-20"
                 />
               </div>
               <div className="w-full md:w-3/4 text-center md:text-left">
-                <h3 className="text-xl md:text-2xl font-medium text-[#1EA697] mb-2">
+                <h3 className="text-lg md:text-2xl font-medium text-[#1EA697] mb-2">
                   <span className="font-extrabold text-2xl md:text-3xl">Ngerasa Ribet </span>buat catat <span className="font-extrabold">1 Transaksi doang?</span> <br className="hidden md:block"/>
                   Ujung-ujungnya males, lupa, dan<br className="hidden md:block"/>gak pernah dibuka lagi.
                 </h3>
@@ -380,8 +383,8 @@ export default function FINAPage() {
             <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
               <div className="w-full md:w-3/4 text-center md:text-right">
                 <h3 className="text-xl md:text-2xl font-medium text-[#1EA697] mb-2">
-                  Struk & Nota numpuk habis belanja<br className="hidden md:block"/>
-                  <span className="font-extrabold">mau di input satu-satu?</span> <br className="hidden md:block"/>
+                  Struk & Nota numpuk habis belanja <br className="hidden md:block"/>
+                  <span className="font-extrabold">mau di input satu-satu?</span> <br/>
                   <span className="font-extrabold text-2xl md:text-3xl">Duh, Cape dehh.</span>
                 </h3>
               </div>
@@ -390,7 +393,7 @@ export default function FINAPage() {
                   src="/fina/fina-2.webp"
                   alt="Struk menumpuk"
                   width={600} height={600}
-                  className="object-contain md:scale-150 transition-transform duration-500"
+                  className="object-contain md:scale-150 transition-transform duration-500 z-20"
                 />
               </div>
             </div>
@@ -406,7 +409,7 @@ export default function FINAPage() {
                 />
               </div>
               <div className="w-full md:w-3/4 text-center md:text-left">
-                <h3 className="text-xl md:text-2xl font-medium text-[#1EA697] mb-2">
+                <h3 className="text-lg md:text-2xl font-medium text-[#1EA697] mb-2">
                   Bingung duit <span className="font-extrabold text-2xl md:text-3xl">habis kemana.</span> <br className="hidden md:block"/>
                   Gaji baru masuk, tiba-tiba udah mau abis aja.
                 </h3>
@@ -418,8 +421,8 @@ export default function FINAPage() {
 
       <section id="intro" className="w-full py-20 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-6xl tracking-wide font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
+          <div className="text-center mb-8 md:mb-16 space-y-1 md:space-y-4">
+            <h2 className="text-4xl md:text-6xl tracking-wide font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
               Kenalan Sama FINA
             </h2>
             <p className="text-lg md:text-2xl text-[#1b8d82] font-medium max-w-3xl mx-auto leading-relaxed">
@@ -456,15 +459,15 @@ export default function FINAPage() {
             </div>
 
             <div className="flex flex-col space-y-8">
-              <h3 className="text-2xl md:text-[2.75rem] tracking-wide font-bold bg-gradient-to-r from-[#26D7C4] to-[#124D4C] bg-clip-text text-transparent leading-tight text-center md:text-left">
+              <h3 className="text-3xl md:text-[2.75rem] tracking-wide font-bold bg-gradient-to-r from-[#26D7C4] to-[#124D4C] bg-clip-text text-transparent leading-tight text-center md:text-left">
                 Kenapa FINA Bisa Jadi <br/>
                 Bestie Finansialmu?
               </h3>
 
-              <div className="space-y-5">
+              <div className="space-y-5 pl-4 md:pl-0">
                 <FeatureCard 
                   title="Catat Sat-Set dari chat WA"
-                  desc="Lupain ngetik manual. Cukup kirim foto nota / voice note di WA, FINA langsung proses cuma hitungan detik."
+                  desc="Lupain ngetik manual. Cukup kirim foto nota / voice note di WA, FINA memproses cuma hitungan detik."
                 />
 
                 <FeatureCard 
@@ -482,7 +485,7 @@ export default function FINAPage() {
                 <button className="hover:scale-105 block group relative pb-[3.25px] pt-[3.5px] pl-[3px] pr-[2.5px] rounded-full bg-gradient-to-t from-[#147167] to-[#2AB3B0] shadow-lg w-full shadow-teal-700/20 active:scale-95 transition-transform duration-150 ease-in-out hover:cursor-pointer">
                   <Link
                     href="#cta"
-                    className="block w-full h-full px-10 py-5 rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white font-bold text-3xl tracking-wide"
+                    className="block w-full h-full px-7 md:px-10 py-4 md:py-5 rounded-full bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white font-bold text-2xl md:text-3xl tracking-wide"
                   >
                     Mulai Coba Gratis!
                   </Link>
@@ -495,8 +498,8 @@ export default function FINAPage() {
 
       <section className="w-full py-20 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-6xl tracking-wide pb-2 font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
+          <div className="text-center mb-10 md:mb-16 space-y-4">
+            <h2 className="text-4xl md:text-6xl tracking-wide pb-2 font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
               Cara Pakainya Gampang Banget
             </h2>
           </div>
@@ -505,17 +508,26 @@ export default function FINAPage() {
               src="/fina/fina-carapakai.webp"
               alt="FINA Sekolah WFA"
               width={1000} 
-              height={800}
+              height={400}
               priority
-              className="w-full max-w-full h-auto object-contain"
+              className="w-full max-w-full h-auto object-contain hidden lg:block"
+            />
+            <Image 
+              src="/fina/mobver-fina-carapakai.webp"
+              alt="FINA Sekolah WFA"
+              width={400} 
+              height={1000}
+              priority
+              className="w-full max-w-full h-auto object-contain block lg:hidden"
             />
           </div>
         </div>
-        <div className="w-screen relative py-7 bg-gradient-to-r from-[#26D7C4] via-[#1DA495] to-[#26D7C4]">
+        <div className="w-screen relative py-3 md:py-7 bg-gradient-to-r from-[#26D7C4] via-[#1DA495] to-[#26D7C4]">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white font-semibold text-xl md:text-2xl">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-1 md:gap-4 text-white font-semibold text-lg md:text-2xl">
+              <span className="block md:hidden"><FeatureItem text="Akses Seumur Hidup!" /></span>
               <FeatureItem text="Data aman di Google Sheets-mu sendiri" />
-              <FeatureItem text="Akses Seumur Hidup, Tanpa Langganan Tiap Bulan" />
+              <span className="hidden md:block"><FeatureItem text="Akses Seumur Hidup, Tanpa Langganan Tiap Bulan" /></span>
             </div>
           </div>
         </div>
@@ -523,14 +535,14 @@ export default function FINAPage() {
 
       <section className="w-full py-20 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-8 md:mb-16 space-y-4">
             <h2 className="text-3xl md:text-6xl tracking-wide font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
               DENGERIN KATA MEREKA <br />
               YANG UDAH PAKAI FINA!!
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          <div className="flex flex-col-reverse md:grid md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-8 flex flex-col space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
                 <div className="flex flex-col gap-6 md:gap-8">
@@ -548,7 +560,7 @@ export default function FINAPage() {
             </div>
 
             <div className="md:col-span-4 relative w-full flex justify-center md:justify-start pr-0">
-              <div className="absolute w-[300px] md:w-[350px] -bottom-32">
+              <div className="md:absolute w-[400px] md:w-[350px] bottom-0 md:-bottom-32">
                 <div className="relative z-20 pointer-events-none drop-shadow-2xl">
                   <Image 
                     src="/frame-iphone.webp"
@@ -578,7 +590,7 @@ export default function FINAPage() {
 
       <section id="cta" className="w-full py-20 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-8 md:mb-16 space-y-4">
             <h2 className="text-3xl md:text-6xl tracking-wide pb-2 font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
               FINA UDAH SIAP <br />
               NGE-BANTU KAMU!!
@@ -613,7 +625,7 @@ export default function FINAPage() {
 
       <section className="w-full py-20 overflow-hidden mb-20">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-8 md:mb-16 space-y-4">
             <h2 className="text-3xl md:text-6xl tracking-wide pb-2 font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
               PERTANYAAN YANG <br />
               SERING FINA JAWAB

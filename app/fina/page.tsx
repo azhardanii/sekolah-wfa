@@ -261,7 +261,7 @@ export default function FINAPage() {
         <div className="absolute -bottom-10 left-24 w-[350px] h-[350px] bg-gradient-to-b from-[#26D7C4] to-white opacity-15 rounded-full pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto pt-0 md:pt-16 pb-0 px-2 lg:px-0"> 
-          <div className="flex flex-col items-center justify-between gap-0 lg:gap-4 min-h-screen lg:min-h-0">
+          <div className="flex flex-col items-center justify-between gap-0 lg:gap-4 min-h-[90vh] lg:min-h-0">
             <div className="w-full md:max-w-7xl mt-0 px-4">
               <div className="relative min-h-[200px] flex flex-col justify-center items-center">
                 
@@ -334,7 +334,7 @@ export default function FINAPage() {
       <section className="w-full pb-20 bg-white overflow-hidden mt-20 md:mt-44">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mx-auto text-center max-w-5xl mb-20">
-            <h2 className="text-[1.75rem] leading-tight md:leading-snug md:text-5xl font-medium text-[#147167] tracking-normal">
+            <h2 className="text-[1.65rem] leading-tight md:leading-snug md:text-5xl font-medium text-[#147167] tracking-normal">
               Niatnya mau <span className="font-extrabold">Mandiri Finansial</span>, <br className="hidden md:block pb-10"/>
               tapi baru nyatet aja udah kena mental.
             </h2>
@@ -410,7 +410,7 @@ export default function FINAPage() {
               </div>
               <div className="w-full md:w-3/4 text-center md:text-left">
                 <h3 className="text-lg md:text-2xl font-medium text-[#1EA697] mb-2">
-                  Bingung duit <span className="font-extrabold text-2xl md:text-3xl">habis kemana.</span> <br className="hidden md:block"/>
+                  Bingung duit <span className="font-extrabold text-xl md:text-3xl">habis kemana.</span> <br className="hidden md:block"/>
                   Gaji baru masuk, tiba-tiba udah mau abis aja.
                 </h3>
               </div>
@@ -422,10 +422,10 @@ export default function FINAPage() {
       <section id="intro" className="w-full py-20 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-8 md:mb-16 space-y-1 md:space-y-4">
-            <h2 className="text-4xl md:text-6xl tracking-wide font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-6xl tracking-wide font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
               Kenalan Sama FINA
             </h2>
-            <p className="text-lg md:text-2xl text-[#1b8d82] font-medium max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-2xl text-[#1b8d82] font-medium max-w-3xl mx-auto leading-snug md:leading-relaxed">
               Bukan App. Bukan AI biasa. Tapi temen canggih yang 
               bantuin kamu atur duit langsung dari WhatsApp.
             </p>
@@ -526,7 +526,8 @@ export default function FINAPage() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex flex-col md:flex-row justify-between items-center gap-1 md:gap-4 text-white font-semibold text-lg md:text-2xl">
               <span className="block md:hidden"><FeatureItem text="Akses Seumur Hidup!" /></span>
-              <FeatureItem text="Data aman di Google Sheets-mu sendiri" />
+              <span className="block md:hidden"><FeatureItem text="Data aman di Google Sheets-mu " /></span>
+              <span className="hidden md:block"><FeatureItem text="Data aman di Google Sheets-mu sendiri" /></span>
               <span className="hidden md:block"><FeatureItem text="Akses Seumur Hidup, Tanpa Langganan Tiap Bulan" /></span>
             </div>
           </div>
@@ -536,7 +537,7 @@ export default function FINAPage() {
       <section className="w-full py-20 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-8 md:mb-16 space-y-4">
-            <h2 className="text-3xl md:text-6xl tracking-wide font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
+            <h2 className="text-[1.75rem] md:text-6xl tracking-wide leading-tight md:leading-normal font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
               DENGERIN KATA MEREKA <br />
               YANG UDAH PAKAI FINA!!
             </h2>

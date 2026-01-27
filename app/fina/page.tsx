@@ -576,10 +576,10 @@ export default function FINAPage() {
                 <div className="absolute top-[2.5%] left-[5%] right-[5%] bottom-[2.5%] z-10 rounded-[2.5rem] overflow-hidden bg-black">
                   <div className="w-full h-full mt-[3rem]">
                     <LazyYoutube
-                      videoId="_IefQ3zlB10"
-                      title="Video Clip FINA"
+                      videoId="ZLBh7Ql8MN4"
+                      title="Video Testimonial FINA"
                       ratio="9:16"
-                      thumbnailUrl="/content-pilot/cap-preview-thumb.webp"
+                      thumbnailUrl="/fina/fina-thumbtesti.webp"
                     />
                   </div>
                 </div>

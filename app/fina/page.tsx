@@ -610,7 +610,7 @@ export default function FINAPage() {
           </div>
           <div className="w-full max-w-7xl mx-auto px-4 mb-16">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-center">
-              <Link href="https://lynk.id" target="_blank" className="order-2 md:order-1 md:col-span-5 w-[80%] md:w-full mx-auto flex justify-center">
+              <Link href="https://wa.me/6285161047107" target="_blank" className="order-2 md:order-1 md:col-span-5 w-[80%] md:w-full mx-auto flex justify-center">
                 <Image 
                   src="/fina/fina-ctafree.webp"
                   alt="FINA Free Version"
@@ -620,7 +620,7 @@ export default function FINAPage() {
                 />
               </Link>
 
-              <Link href="https://lynk.id" target="_blank" className="order-1 md:order-2 md:col-span-7 w-full">
+              <Link href="http://lynk.id/febbyanggun/6qn2d0pmpp38/checkout" target="_blank" className="order-1 md:order-2 md:col-span-7 w-full">
                 <Image 
                   src="/fina/fina-ctapersonal.webp"
                   alt="FINA Personal Version"

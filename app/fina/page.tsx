@@ -283,12 +283,12 @@ export default function FINAPage() {
               </div>
             </div>
 
-            <div className="w-full flex flex-col items-center relative -mt-5 lg:mt-0">
+            <div className="w-full flex flex-col items-center relative -mt-20 lg:mt-0">
               <div className="relative w-full flex justify-center mb-0 z-10">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[80%] h-full md:h-[80%] bg-[#26D7C4] opacity-20 blur-[80px] rounded-full z-0" />
                 <div className="relative z-10 w-full lg:w-[60%] flex justify-center">
                   <Image 
-                    src="/fina/fina-banner.webp"
+                    src="/fina/mobver-bannerfina.webp"
                     alt="FINA Sekolah WFA"
                     width={1000} 
                     height={800}

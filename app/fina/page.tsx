@@ -129,23 +129,18 @@ const FeatureCard = ({ title, desc }: { title: string, desc: string }) => {
   );
 };
 
-const TestimonialCard = ({ name, text, image }: { name: string; text: string; image: string }) => {
+const TestimonialCard = ({ text, image }: { text: string; image: string }) => {
   return (
     <div className="w-full rounded-[2rem] p-5 bg-gradient-to-b from-[#E0F8F6] to-[#2AB3B0] shadow-[0_10px_30px_-10px_rgba(42,179,176,0.5)] hover:scale-[1.02] transition-transform duration-300 flex flex-col">
-      <div className="flex items-center gap-4 mb-4 px-2">
-        <div className="w-12 h-12 flex-shrink-0 rounded-full overflow-hidden shadow-sm">
-          <Image 
-            src={image}
-            alt={name}
-            width={48}
-            height={48}
-            className="object-cover w-full h-full"
-          />
-        </div>
-        
-        <h4 className="text-xl font-bold text-[#147167]">
-          {name}
-        </h4>
+      
+      <div className="w-full mb-4 px-1"> 
+        <Image 
+          src={image}
+          alt="Testimonial FINA User"
+          width={300}
+          height={100}
+          className="w-full h-auto object-contain rounded-xl"
+        />
       </div>
 
       <div className="bg-white rounded-2xl p-6 flex-grow shadow-sm">
@@ -153,6 +148,7 @@ const TestimonialCard = ({ name, text, image }: { name: string; text: string; im
           {text}
         </p>
       </div>
+
     </div>
   );
 };
@@ -172,39 +168,33 @@ const HEADLINES = [
 const TESTIMONIALS = [
   {
     id: 1,
-    name: "Rizky", 
-    image: "/img/testi/avatar-aif.webp",
-    text: "Jadi ceritanya gue tuh orangnya kalau liat lucu langsung checkout, nyadarnya pas cek rekening tinggal 50rb padahal masi tanggal 15. Sejak pakai FINA, setiap abis belanja langsung foto struk terus dia ngasih warning “budget fashion bulan ini udah 70% nih”, baru deh gue mikir dua kali sebelum mau beli-beli lagi."
+    image: "/fina/user-dimas.webp",
+    text: "Paling suka fitur voice note-nya karena aku orangnya malas banget kalau harus input teks panjang lebar. Tinggal ngomong doang, eh pas dicek laporannya udah rapii."
   },
   {
     id: 2,
-    name: "Budi",
-    image: "/img/testi/avatar-asran.webp",
-    text: "Istriku sampe kaget kok tiba-tiba bisa nabung 800rb sebulan. Rahasianya simpel: FINA ngasih tau ternyata jajan kopi sama rokok gue udah 600rb seminggu, langsung sadar deh."
+    image: "/fina/user-mia.webp",
+    text: "Kirain bakal ribet kayak aplikasi sebelah yang kebanyakan menu, ternyata sesimpel chattingan biasa doang. Jujur, baru kali ini aku betah nyatet keuangan lebih dari seminggu karena prosesnya nggak ribet hehe..."
   },
   {
     id: 3,
-    name: "Sarah",
-    image: "/img/testi/avatar-clara.webp",
-    text: "Integrasi ke spreadsheet-nya beneran mulus dan lengkap banget buat aku yang butuh data mentah dan diolah kembali jadi strategi hemat."
+    image: "/fina/user-neni.webp",
+    text: "Jadi ceritanya gue tuh orangnya kalau liat lucu langsung checkout, nyadarnya pas cek rekening tinggal 50rb padahal masi tanggal 15. Sejak pakai FINA, setiap abis belanja langsung foto struk terus dia ngasih warning “budget fashion bulan ini udah 70% nih”, baru deh gue mikir dua kali sebelum mau beli-beli lagi."
   },
   {
     id: 4,
-    name: "Dimas",
-    image: "/img/testi/avatar-dimas.webp",
+    image: "/fina/user-ara.webp",
     text: "Bulan lalu gue nangis di kosan karena uang tinggal 50rb padahal masih tanggal 20. Literally cuma makan indomie seminggu. Sejak pakai FINA, gue baru sadar ternyata jajan boba sama nongkrong cafe itu udah habis 400rb sebulan gila kan?! Sekarang gue bisa budgeting beneran, bahkan masih bisa sisain buat pulang kampung."
   },
   {
     id: 5,
-    name: "Putri",
-    image: "/img/testi/avatar-anggie.webp",
-    text: "Kirain bakal ribet kayak aplikasi sebelah yang kebanyakan menu, ternyata sesimpel chattingan biasa doang. Jujur, baru kali ini aku betah nyatet keuangan lebih dari seminggu karena prosesnya nggak ribet hehe..."
+    image: "/fina/user-robi.webp",
+    text: "Istriku sampe kaget kok tiba-tiba bisa nabung 1juta sebulan. Rahasianya simpel: FINA ngasih tau ternyata jajan kopi sama rokok gue udah 600rb seminggu, langsung nyadar dan mulai ngurangin jatah jajan deh."
   },
   {
     id: 6,
-    name: "Andi",
-    image: "/img/testi/avatar-fuad.webp",
-    text: "Paling suka fitur voice note-nya karena aku orangnya malas banget kalau harus input teks panjang lebar. Tinggal ngomong doang, eh pas dicek laporannya udah rapii."
+    image: "/fina/user-mitha.webp",
+    text: "Integrasi ke spreadsheet-nya beneran mulus dan lengkap banget buat aku yang butuh insight langsung soal kondisi keuanganku saat ini."
   }
 ];
 
@@ -293,7 +283,15 @@ export default function FINAPage() {
                     width={1000} 
                     height={800}
                     priority
-                    className="w-full max-w-full h-auto object-contain drop-shadow-xl"
+                    className="block md:hidden w-full max-w-full h-auto object-contain drop-shadow-xl"
+                  />
+                  <Image 
+                    src="/fina/bannerfina.webp"
+                    alt="FINA Sekolah WFA"
+                    width={1000} 
+                    height={800}
+                    priority
+                    className="hidden md:block w-[76%] h-auto object-contain drop-shadow-xl"
                   />
                 </div>
               </div>
@@ -302,8 +300,9 @@ export default function FINAPage() {
                 <div className="max-w-7xl mx-auto px-4">
                   <div className="flex flex-col md:flex-row justify-between items-center gap-1 md:gap-4 text-white font-semibold text-lg md:text-2xl">
                     <FeatureItem text="Langsung Pakai" />
+                    <span className="hidden md:block"><FeatureItem text="Tercatat Otomatis Di Spreadsheet" /></span>
                     <FeatureItem text="Akses Seumur Hidup" />
-                    <FeatureItem text="Tercatat Otomatis Di Spreadsheet" />
+                    <span className="block md:hidden"><FeatureItem text="Tercatat Otomatis Di Spreadsheet" /></span>
                   </div>
                 </div>
               </div>
@@ -560,27 +559,39 @@ export default function FINAPage() {
               </div>
             </div>
 
-            <div className="md:col-span-4 relative w-full flex justify-center md:justify-start pr-0">
-              <div className="md:absolute w-[400px] md:w-[350px] bottom-0 md:-bottom-32">
-                <div className="relative z-20 pointer-events-none drop-shadow-2xl">
+            <div className="md:col-span-4 relative w-full flex justify-center md:justify-start pr-0 md:mt-32">
+              <div className="md:absolute w-[400px] md:w-[350px] bottom-0 md:-bottom-32 flex flex-col items-center gap-2">
+                <div className="relative z-30 w-[85%] md:w-[90%]">
                   <Image 
-                    src="/frame-iphone.webp"
-                    alt="FINA WhatsApp Interface"
-                    width={380} 
-                    height={700}
-                    priority
-                    className="w-full h-auto"
+                    src="/fina/user-dinna.webp"
+                    alt="User FINA Testimonial"
+                    width={600}
+                    height={300}
+                    className="w-full h-auto object-contain"
                   />
                 </div>
 
-                <div className="absolute top-[2.5%] left-[5%] right-[5%] bottom-[2.5%] z-10 rounded-[2.5rem] overflow-hidden bg-black">
-                  <div className="w-full h-full mt-[3rem]">
-                    <LazyYoutube
-                      videoId="ZLBh7Ql8MN4"
-                      title="Video Testimonial FINA"
-                      ratio="9:16"
-                      thumbnailUrl="/fina/fina-thumbtesti.webp"
+                <div className="relative w-full">
+                  <div className="relative z-20 pointer-events-none drop-shadow-2xl">
+                    <Image 
+                      src="/frame-iphone.webp"
+                      alt="FINA WhatsApp Interface"
+                      width={380} 
+                      height={700}
+                      priority
+                      className="w-full h-auto"
                     />
+                  </div>
+
+                  <div className="absolute top-[2.5%] left-[5%] right-[5%] bottom-[2.5%] z-10 rounded-[2.5rem] overflow-hidden bg-black">
+                    <div className="w-full h-full mt-[3rem]">
+                      <LazyYoutube
+                        videoId="ZLBh7Ql8MN4"
+                        title="Video Testimonial FINA"
+                        ratio="9:16"
+                        thumbnailUrl="/fina/fina-thumbtesti.webp"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

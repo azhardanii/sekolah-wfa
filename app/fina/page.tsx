@@ -131,7 +131,7 @@ const FeatureCard = ({ title, desc }: { title: string, desc: string }) => {
 
 const TestimonialCard = ({ text, image }: { text: string; image: string }) => {
   return (
-    <div className="w-full rounded-[2rem] p-5 bg-gradient-to-b from-[#E0F8F6] to-[#2AB3B0] shadow-[0_10px_30px_-10px_rgba(42,179,176,0.5)] hover:scale-[1.02] transition-transform duration-300 flex flex-col">
+    <div className="w-full rounded-[2rem] p-5 bg-gradient-to-b from-[#E0F8F6] to-[#26D7C4] shadow-[0_10px_30px_-10px_rgba(42,179,176,0.5)] hover:scale-[1.02] transition-transform duration-300 flex flex-col">
       
       <div className="w-full mb-4 px-1"> 
         <Image 
@@ -144,7 +144,7 @@ const TestimonialCard = ({ text, image }: { text: string; image: string }) => {
       </div>
 
       <div className="bg-white rounded-2xl p-6 flex-grow shadow-sm">
-        <p className="text-black leading-relaxed text-sm md:text-[15px]">
+        <p className="text-black leading-relaxed text-sm md:text-[15px] text-justify whitespace-pre-line">
           {text}
         </p>
       </div>
@@ -153,17 +153,17 @@ const TestimonialCard = ({ text, image }: { text: string; image: string }) => {
   );
 };
 
-const HEADLINES = [
-  "Uang Bulanan Habis Kemana?\nTanya Aja ke FINA.",
-  "Asisten Canggih yang Gak Pernah Lelah,\nFINA Catat Keuanganmu Lebih Mudah!",
-  "Kelola Duit Sambil WFA?\nFINA Ngikutin Kamu Kemana Aja!",
-  "Asisten Keuangan Canggih\nyang Kerja 24/7 di WhatsApp-mu!",
-  "FINA - Pelopor Catat Keuangan\nCuma Pakai WA yang Eksis Sejak 2024.",
-  "Dari Kopi Pagi Sampai Makan Malem,\nFINA Bisa Langsung Catat Dari Foto Struk-mu!",
-  "Catat di WhatsApp,\nOtomatis Rapi di Spreadsheet.",
-  "Males Buka Laptop Buat Catat Pengeluaran?\nChat Aja ke FINA!!",
-  "Keuangan Lebih Rapi,\nFINA Bikin Hidup Lebih Happy!",
-];
+// const HEADLINES = [
+//   "Uang Bulanan Habis Kemana?\nTanya Aja ke FINA.",
+//   "Asisten Canggih yang Gak Pernah Lelah,\nFINA Catat Keuanganmu Lebih Mudah!",
+//   "Kelola Duit Sambil WFA?\nFINA Ngikutin Kamu Kemana Aja!",
+//   "Asisten Keuangan Canggih\nyang Kerja 24/7 di WhatsApp-mu!",
+//   "FINA - Pelopor Catat Keuangan\nCuma Pakai WA yang Eksis Sejak 2024.",
+//   "Dari Kopi Pagi Sampai Makan Malem,\nFINA Bisa Langsung Catat Dari Foto Struk-mu!",
+//   "Catat di WhatsApp,\nOtomatis Rapi di Spreadsheet.",
+//   "Males Buka Laptop Buat Catat Pengeluaran?\nChat Aja ke FINA!!",
+//   "Keuangan Lebih Rapi,\nFINA Bikin Hidup Lebih Happy!",
+// ];
 
 const TESTIMONIALS = [
   {
@@ -179,63 +179,63 @@ const TESTIMONIALS = [
   {
     id: 3,
     image: "/fina/user-neni.webp",
-    text: "Jadi ceritanya gue tuh orangnya kalau liat lucu langsung checkout, nyadarnya pas cek rekening tinggal 50rb padahal masi tanggal 15. Sejak pakai FINA, setiap abis belanja langsung foto struk terus dia ngasih warning “budget fashion bulan ini udah 70% nih”, baru deh gue mikir dua kali sebelum mau beli-beli lagi."
+    text: "Jujur, ya kak. Aku orangnya lemah di data dan nggak terbiasa juga sebenernya rekap pemasukan - pengeluaran kayak kebanyakan orang gituu (notion, spreadsheet dll). Pernah sih sekalii bikin sendiri di spreadsheet. Tapi berantakan, karena perlu bikin rumusnya juga, kann. Apalagi kalau udah recap akhir bulann. Aduuhh, puyengg💆🏻‍♀️\n\nTerus, ketika ada FINA ini, amat sangat membantuku buat handle recap monthly cost kakk. Bener-bener canggih! Asli, nggak peres. Nggak cuma bisa recap dari ketikan kita aja tapi bisa lewat capture juga, voice note juga. Terus auto direkapin sama FINA inii secara DETAILL. Recap cash flownya, alokasi dananya juga dia yang nge-kategorikan.\n\nFinally, waktuku bisa dipakai buat ngerjain yang lainn.\n\nBerasa punya asisten keuangan. Asek. Luv luv FINAA 💃🏻\nJadi makasiihh yaaa buat produk amazing iniii 🙌💕"
   },
   {
     id: 4,
     image: "/fina/user-ara.webp",
-    text: "Bulan lalu gue nangis di kosan karena uang tinggal 50rb padahal masih tanggal 20. Literally cuma makan indomie seminggu. Sejak pakai FINA, gue baru sadar ternyata jajan boba sama nongkrong cafe itu udah habis 400rb sebulan gila kan?! Sekarang gue bisa budgeting beneran, bahkan masih bisa sisain buat pulang kampung."
+    text: "selama aku pake FINA ini lebih kebantu banget, udah gaada panik”an kalo uang tiba” habis entah kemana perginya.\n\nlebih teratur pengeluaranku, masih ttp bisa jajan dan belanja, bahkan nabung/invest berkat si FINA, bener-bener best banget, mana ga ribet lagi nginputnya, tinggal foto” aja udah deh kelar❤️\n\nFINA BEST BANGET✨💝"
   },
   {
     id: 5,
-    image: "/fina/user-robi.webp",
-    text: "Istriku sampe kaget kok tiba-tiba bisa nabung 1juta sebulan. Rahasianya simpel: FINA ngasih tau ternyata jajan kopi sama rokok gue udah 600rb seminggu, langsung nyadar dan mulai ngurangin jatah jajan deh."
+    image: "/fina/user-mitha.webp",
+    text: "Integrasi ke spreadsheet-nya beneran mulus dan lengkap banget buat aku yang butuh insight langsung soal kondisi keuanganku saat ini."
   },
   {
     id: 6,
-    image: "/fina/user-mitha.webp",
-    text: "Integrasi ke spreadsheet-nya beneran mulus dan lengkap banget buat aku yang butuh insight langsung soal kondisi keuanganku saat ini."
+    image: "/fina/user-jihan.webp",
+    text: "Aku ngerasa FINA nih hadir di momen tepat, tauuk!!!\n\nYang aku suka dari Fina itu simpel tapi impactful.\nPencatatan keuangan bisa langsung lewat chat WhatsApp, rasanya kayak lagi ngobrol sama asisten pribadi. Semua transaksi tercatat rapi, kategorinya jelas, dan dashboard-nya gampang banget ku pahami.\nDari situ aku jadi lebih kebuka matanya soal kondisi keuangan sendiri, bener-bener makenya ga ribet, jadi semangat buat konsisten nyatet.\n\nThankyou Sekolah WFA udah bikin FINA secanggih ini! ✨✨"
   }
 ];
 
-const AutoFitLine = ({ text }: { text: string }) => {
-  const COMPRESSION_RATE = 0.57; 
+// const AutoFitLine = ({ text }: { text: string }) => {
+//   const COMPRESSION_RATE = 0.57; 
   
-  return (
-    <div 
-      className="w-full flex justify-center items-center px-1 md:px-2"
-      style={{ containerType: 'inline-size' }} 
-    >
-      <h1 
-        className="font-bold bg-gradient-to-l from-[#26D7C4] to-[#147167] bg-clip-text text-transparent pb-1 md:pb-2 text-center"
-        style={{
-            fontSize: `clamp(0.5rem, calc(95cqi / (${text.length} * ${COMPRESSION_RATE})), 5.5rem)`,
+//   return (
+//     <div 
+//       className="w-full flex justify-center items-center px-1 md:px-2"
+//       style={{ containerType: 'inline-size' }} 
+//     >
+//       <h1 
+//         className="font-bold bg-gradient-to-l from-[#26D7C4] to-[#147167] bg-clip-text text-transparent pb-1 md:pb-2 text-center"
+//         style={{
+//             fontSize: `clamp(0.5rem, calc(95cqi / (${text.length} * ${COMPRESSION_RATE})), 5.5rem)`,
             
-            whiteSpace: 'nowrap',
-            lineHeight: '1.1',
-            width: 'auto',
-            maxWidth: '100%' 
-        }}
-      >
-        {text}
-      </h1>
-    </div>
-  );
-};
+//             whiteSpace: 'nowrap',
+//             lineHeight: '1.1',
+//             width: 'auto',
+//             maxWidth: '100%' 
+//         }}
+//       >
+//         {text}
+//       </h1>
+//     </div>
+//   );
+// };
 
 export default function FINAPage() {
-  const [index, setIndex] = useState<number | null>(null);
+  // const [index, setIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    setIndex(Math.floor(Math.random() * HEADLINES.length));
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev === null ? 0 : (prev + 1) % HEADLINES.length));
-    }, 10000);
-    return () => clearInterval(timer);
-  }, []);
+  // useEffect(() => {
+  //   setIndex(Math.floor(Math.random() * HEADLINES.length));
+  //   const timer = setInterval(() => {
+  //     setIndex((prev) => (prev === null ? 0 : (prev + 1) % HEADLINES.length));
+  //   }, 10000);
+  //   return () => clearInterval(timer);
+  // }, []);
 
-  if (index === null) return <div className="h-40" />;
-  const currentLines = HEADLINES[index].split('\n');
+  // if (index === null) return <div className="h-40" />;
+  // const currentLines = HEADLINES[index].split('\n');
 
   const column1 = TESTIMONIALS.filter((_, i) => i % 2 === 0);
   const column2 = TESTIMONIALS.filter((_, i) => i % 2 !== 0);
@@ -252,10 +252,9 @@ export default function FINAPage() {
 
         <div className="relative z-10 container mx-auto pt-0 md:pt-16 pb-0 px-2 lg:px-0"> 
           <div className="flex flex-col items-center justify-between gap-0 lg:gap-4 min-h-[90vh] lg:min-h-0">
-            <div className="w-full md:max-w-7xl mt-0 px-4">
+            <div className="w-full md:max-w-7xl mt-0 px-0 md:px-4">
               <div className="relative min-h-[200px] flex flex-col justify-center items-center">
-                
-                <AnimatePresence mode="wait">
+                {/* <AnimatePresence mode="wait">
                   <motion.div
                     key={index}
                     className="w-full flex flex-col items-center gap-0 md:gap-2"
@@ -268,12 +267,22 @@ export default function FINAPage() {
                       <AutoFitLine key={i} text={line} />
                     ))}
                   </motion.div>
-                </AnimatePresence>
+                </AnimatePresence> */}
+                <div className="w-full flex justify-center items-center px-4 md:px-0">
+                  <h1 className="font-bold text-center bg-gradient-to-l from-[#26D7C4] to-[#147167] bg-clip-text text-transparent pb-2 text-3xl md:text-5xl lg:text-6xl">
+                    <span className="block">
+                      Pelopor Catat Keuangan dari WA
+                    </span>
 
+                    <span className="block mt-0.5 md:mt-4 text-[1.9rem] sm:text-5xl md:text-6xl lg:text-7xl">
+                      Pertama di Indonesia 
+                    </span>
+                  </h1>
+                </div>
               </div>
             </div>
 
-            <div className="w-full flex flex-col items-center relative -mt-20 lg:mt-0">
+            <div className="w-full flex flex-col items-center relative -mt-[6rem] md:-mt-20 lg:mt-0">
               <div className="relative w-full flex justify-center mb-0 z-10">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[80%] h-full md:h-[80%] bg-[#26D7C4] opacity-20 blur-[80px] rounded-full z-0" />
                 <div className="relative z-10 w-full lg:w-[60%] flex justify-center">
@@ -283,7 +292,7 @@ export default function FINAPage() {
                     width={1000} 
                     height={800}
                     priority
-                    className="block md:hidden w-full max-w-full h-auto object-contain drop-shadow-xl"
+                    className="block md:hidden w-[full] mt-10 max-w-full h-auto object-contain drop-shadow-xl"
                   />
                   <Image 
                     src="/fina/bannerfina.webp"
@@ -450,7 +459,7 @@ export default function FINAPage() {
                       videoId="_IefQ3zlB10"
                       title="Video Clip FINA"
                       ratio="9:16"
-                      thumbnailUrl="/content-pilot/cap-preview-thumb.webp"
+                      thumbnailUrl="/fina/fina-thumbuse.webp"
                     />
                   </div>
                 </div>
@@ -504,7 +513,7 @@ export default function FINAPage() {
           </div>
           <div className="relative z-10 w-full flex justify-center mb-16">
             <Image 
-              src="/fina/fina-carapakai.webp"
+              src="/fina/fina-use.webp"
               alt="FINA Sekolah WFA"
               width={1000} 
               height={400}
@@ -512,7 +521,7 @@ export default function FINAPage() {
               className="w-full max-w-full h-auto object-contain hidden lg:block"
             />
             <Image 
-              src="/fina/mobver-fina-carapakai.webp"
+              src="/fina/mobver-fina-use.webp"
               alt="FINA Sekolah WFA"
               width={400} 
               height={1000}
@@ -534,7 +543,7 @@ export default function FINAPage() {
       </section>
 
       <section className="w-full py-20 bg-white overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 md:mb-16 space-y-4">
             <h2 className="text-[1.75rem] md:text-6xl tracking-wide leading-tight md:leading-normal font-bold bg-gradient-to-b from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
               DENGERIN KATA MEREKA <br />
@@ -559,7 +568,7 @@ export default function FINAPage() {
               </div>
             </div>
 
-            <div className="md:col-span-4 relative w-full flex justify-center md:justify-start pr-0 md:mt-32">
+            <div className="md:col-span-4 relative w-full flex justify-center md:justify-start pr-0 md:-mt-64">
               <div className="md:absolute w-[400px] md:w-[350px] bottom-0 md:-bottom-32 flex flex-col items-center gap-2">
                 <div className="relative z-30 w-[85%] md:w-[90%]">
                   <Image 

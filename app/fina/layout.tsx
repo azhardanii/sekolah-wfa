@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "F.I.N.A – Financial Assistant Sekolah WFA",
     images: [
       {
-        url: "https://raw.githubusercontent.com/azhardanii/sekolah-wfa/main/public/content-pilot/cap-metaimg.jpg",
+        url: "https://raw.githubusercontent.com/azhardanii/sekolah-wfa/main/public/fina/meta-img.webp",
         width: 1200,
         height: 630,
         alt: "F.I.N.A – Financial Assistant Sekolah WFA",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     description:
       "Kelola keuangan cuma lewat WhatsApp. Tanpa instal aplikasi tambahan! Terintegrasi dengan AI dan Sheets secara otomatis.",
     images: [
-      "https://raw.githubusercontent.com/azhardanii/sekolah-wfa/main/public/content-pilot/cap-metaimg.jpg",
+      "https://raw.githubusercontent.com/azhardanii/sekolah-wfa/main/public/fina/meta-img.webp",
     ],
     creator: "@azhardanii",
   },

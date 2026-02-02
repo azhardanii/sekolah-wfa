@@ -595,10 +595,10 @@ export default function FINAPage() {
                   <div className="absolute top-[2.5%] left-[5%] right-[5%] bottom-[2.5%] z-10 rounded-[2.5rem] overflow-hidden bg-black">
                     <div className="w-full h-full mt-[3rem]">
                       <LazyYoutube
-                        videoId="ZLBh7Ql8MN4"
+                        videoId="IZ-WTgANUEo"
                         title="Video Testimonial FINA"
                         ratio="9:16"
-                        thumbnailUrl="/fina/fina-thumbtesti.webp"
+                        thumbnailUrl="/fina/thumb-testi.webp"
                       />
                     </div>
                   </div>
@@ -621,7 +621,7 @@ export default function FINAPage() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-center">
               <Link href="http://lynk.id/febbyanggun/6p099jogdwgx/checkout" target="_blank" className="order-2 md:order-1 md:col-span-5 w-[80%] md:w-full mx-auto flex justify-center">
                 <Image 
-                  src="/fina/fina-ctafree.webp"
+                  src="/fina/cta-free.webp"
                   alt="FINA Free Version"
                   width={400} 
                   height={400}
@@ -631,7 +631,7 @@ export default function FINAPage() {
 
               <Link href="http://lynk.id/febbyanggun/6qn2d0pmpp38/checkout" target="_blank" className="order-1 md:order-2 md:col-span-7 w-full">
                 <Image 
-                  src="/fina/fina-ctapersonal.webp"
+                  src="/fina/cta-personal.webp"
                   alt="FINA Personal Version"
                   width={800} 
                   height={600}

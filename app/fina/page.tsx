@@ -173,28 +173,28 @@ const TESTIMONIALS = [
   },
   {
     id: 2,
-    image: "/fina/user-mia.webp",
-    text: "Kirain bakal ribet kayak aplikasi sebelah yang kebanyakan menu, ternyata sesimpel chattingan biasa doang. Jujur, baru kali ini aku betah nyatet keuangan lebih dari seminggu karena prosesnya nggak ribet hehe..."
-  },
-  {
-    id: 3,
-    image: "/fina/user-neni.webp",
-    text: "Jujur, ya kak. Aku orangnya lemah di data dan nggak terbiasa juga sebenernya rekap pemasukan - pengeluaran kayak kebanyakan orang gituu (notion, spreadsheet dll). Pernah sih sekalii bikin sendiri di spreadsheet. Tapi berantakan, karena perlu bikin rumusnya juga, kann. Apalagi kalau udah recap akhir bulann. Aduuhh, puyengg💆🏻‍♀️\n\nTerus, ketika ada FINA ini, amat sangat membantuku buat handle recap monthly cost kakk. Bener-bener canggih! Asli, nggak peres. Nggak cuma bisa recap dari ketikan kita aja tapi bisa lewat capture juga, voice note juga. Terus auto direkapin sama FINA inii secara DETAILL. Recap cash flownya, alokasi dananya juga dia yang nge-kategorikan.\n\nFinally, waktuku bisa dipakai buat ngerjain yang lainn.\n\nBerasa punya asisten keuangan. Asek. Luv luv FINAA 💃🏻\nJadi makasiihh yaaa buat produk amazing iniii 🙌💕"
-  },
-  {
-    id: 4,
-    image: "/fina/user-ara.webp",
-    text: "selama aku pake FINA ini lebih kebantu banget, udah gaada panik”an kalo uang tiba” habis entah kemana perginya.\n\nlebih teratur pengeluaranku, masih ttp bisa jajan dan belanja, bahkan nabung/invest berkat si FINA, bener-bener best banget, mana ga ribet lagi nginputnya, tinggal foto” aja udah deh kelar❤️\n\nFINA BEST BANGET✨💝"
-  },
-  {
-    id: 5,
     image: "/fina/user-mitha.webp",
     text: "Integrasi ke spreadsheet-nya beneran mulus dan lengkap banget buat aku yang butuh insight langsung soal kondisi keuanganku saat ini."
   },
   {
-    id: 6,
+    id: 3,
+    image: "/fina/user-ara.webp",
+    text: "selama aku pake FINA ini lebih kebantu banget, udah gaada panik”an kalo uang tiba” habis entah kemana perginya.\n\nlebih teratur pengeluaranku, masih ttp bisa jajan dan belanja, bahkan nabung/invest berkat si FINA, bener-bener best banget, mana ga ribet lagi nginputnya, tinggal foto” aja udah deh kelar❤️\n\nFINA BEST BANGET✨💝"
+  },
+  {
+    id: 4,
+    image: "/fina/user-mia.webp",
+    text: "Kirain bakal ribet kayak aplikasi sebelah yang kebanyakan menu, ternyata sesimpel chattingan biasa doang. Jujur, baru kali ini aku betah nyatet keuangan lebih dari seminggu karena prosesnya nggak ribet hehe..."
+  },
+  {
+    id: 5,
     image: "/fina/user-jihan.webp",
     text: "Aku ngerasa FINA nih hadir di momen tepat, tauuk!!!\n\nYang aku suka dari Fina itu simpel tapi impactful.\nPencatatan keuangan bisa langsung lewat chat WhatsApp, rasanya kayak lagi ngobrol sama asisten pribadi. Semua transaksi tercatat rapi, kategorinya jelas, dan dashboard-nya gampang banget ku pahami.\nDari situ aku jadi lebih kebuka matanya soal kondisi keuangan sendiri, bener-bener makenya ga ribet, jadi semangat buat konsisten nyatet.\n\nThankyou Sekolah WFA udah bikin FINA secanggih ini! ✨✨"
+  },
+  {
+    id: 6,
+    image: "/fina/user-neni.webp",
+    text: "Jujur, ya kak. Aku orangnya lemah di data dan nggak terbiasa juga sebenernya rekap pemasukan - pengeluaran kayak kebanyakan orang gituu (notion, spreadsheet dll). Pernah sih sekalii bikin sendiri di spreadsheet. Tapi berantakan, karena perlu bikin rumusnya juga, kann. Apalagi kalau udah recap akhir bulann. Aduuhh, puyengg💆🏻‍♀️\n\nTerus, ketika ada FINA ini, amat sangat membantuku buat handle recap monthly cost kakk. Bener-bener canggih! Asli, nggak peres. Nggak cuma bisa recap dari ketikan kita aja tapi bisa lewat capture juga, voice note juga. Terus auto direkapin sama FINA inii secara DETAILL. Recap cash flownya, alokasi dananya juga dia yang nge-kategorikan.\n\nFinally, waktuku bisa dipakai buat ngerjain yang lainn.\n\nBerasa punya asisten keuangan. Asek. Luv luv FINAA 💃🏻\nJadi makasiihh yaaa buat produk amazing iniii 🙌💕"
   }
 ];
 
@@ -251,7 +251,7 @@ export default function FINAPage() {
         <div className="absolute -bottom-10 left-24 w-[350px] h-[350px] bg-gradient-to-b from-[#26D7C4] to-white opacity-15 rounded-full pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto pt-0 md:pt-16 pb-0 px-2 lg:px-0"> 
-          <div className="flex flex-col items-center justify-between gap-0 lg:gap-4 h-auto lg:min-h-0">
+          <div className="flex flex-col items-center justify-between gap-0 lg:gap-4 h-auto lg:min-h-0 mt-16 md:mt-0">
             <div className="w-full md:max-w-7xl mt-0 px-0 md:px-4">
               <div className="relative min-h-[200px] flex flex-col justify-center items-center">
                 {/* <AnimatePresence mode="wait">
@@ -287,12 +287,12 @@ export default function FINAPage() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[80%] h-full md:h-[80%] bg-[#26D7C4] opacity-20 blur-[80px] rounded-full z-0" />
                 <div className="relative z-10 w-full lg:w-[60%] flex justify-center">
                   <Image 
-                    src="/fina/mobver-bannerfina.webp"
+                    src="/fina/mobver-finahero.webp"
                     alt="FINA Sekolah WFA"
                     width={1000} 
                     height={800}
                     priority
-                    className="block md:hidden w-[full] mt-10 max-w-full h-auto object-contain px-10 drop-shadow-xl"
+                    className="block md:hidden w-[full] mt-20 max-w-full h-auto object-contain px-10 drop-shadow-xl"
                   />
                   <Image 
                     src="/fina/bannerfina.webp"

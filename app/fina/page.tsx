@@ -292,7 +292,7 @@ export default function FINAPage() {
                     width={1000} 
                     height={800}
                     priority
-                    className="block md:hidden w-[full] mt-10 max-w-full h-auto object-contain px-10 drop-shadow-xl"
+                    className="block md:hidden w-[full] mt-0 max-w-full h-auto object-contain px-10 drop-shadow-xl"
                   />
                   <Image 
                     src="/fina/bannerfina.webp"

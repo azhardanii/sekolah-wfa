@@ -242,7 +242,7 @@ export default function FINAPage() {
 
   return (
     <>
-      <section className="relative min-h-screen w-full bg-gradient-to-b from-[#E0F7F4] to-[#fff] overflow-hidden text-[#0E4E48]">
+      <section className="relative h-auto md:min-h-screen w-full bg-gradient-to-b from-[#E0F7F4] to-[#fff] overflow-hidden text-[#0E4E48]">
         <div className="absolute -right-20 top-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-30" />
         <div className="absolute -left-52 top-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
         <div className="absolute -bottom-5 right-5 w-[350px] h-[350px] bg-white opacity-30 rounded-full translate-x-1/3 -translate-y-[30%] pointer-events-none"></div>
@@ -292,7 +292,7 @@ export default function FINAPage() {
                     width={1000} 
                     height={800}
                     priority
-                    className="block md:hidden w-[full] mt-10 max-w-full h-auto object-contain drop-shadow-xl"
+                    className="block md:hidden w-[full] mt-10 max-w-full h-auto object-contain px-10 drop-shadow-xl"
                   />
                   <Image 
                     src="/fina/bannerfina.webp"
@@ -364,7 +364,7 @@ export default function FINAPage() {
                   src="/fina/fina-3.webp"
                   alt="Lupa catat pengeluaran kecil"
                   width={400} height={400}
-                  className="object-contain transition-transform duration-500"
+                  className="object-contain transition-transform duration-500 px-10 md:px-0"
                 />
               </div>
             </div>
@@ -376,7 +376,7 @@ export default function FINAPage() {
                   src="/fina/fina-4.webp"
                   alt="Ribet catat manual"
                   width={500} height={500}
-                  className="object-contain md:scale-125 transition-transform duration-500 z-20"
+                  className="object-contain md:scale-125 transition-transform duration-500 z-20 px-10 md:px-0"
                 />
               </div>
               <div className="w-full md:w-3/4 text-center md:text-left">
@@ -401,7 +401,7 @@ export default function FINAPage() {
                   src="/fina/fina-2.webp"
                   alt="Struk menumpuk"
                   width={600} height={600}
-                  className="object-contain md:scale-150 transition-transform duration-500 z-20"
+                  className="object-contain md:scale-150 transition-transform duration-500 z-20 px-5 md:px-0"
                 />
               </div>
             </div>
@@ -413,7 +413,7 @@ export default function FINAPage() {
                   src="/fina/fina-1.webp"
                   alt="Dompet kosong"
                   width={450} height={450}
-                  className="object-contain md:scale-125 transition-transform duration-500"
+                  className="object-contain md:scale-125 transition-transform duration-500 px-10 md:px-0"
                 />
               </div>
               <div className="w-full md:w-3/4 text-center md:text-left">
@@ -551,7 +551,7 @@ export default function FINAPage() {
             </h2>
           </div>
 
-          <div className="flex flex-col-reverse md:grid md:grid-cols-12 gap-12 items-center">
+          <div className="flex flex-col-reverse md:grid md:grid-cols-12 gap-12 items-center px-10 md:px-0">
             <div className="md:col-span-8 flex flex-col space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
                 <div className="flex flex-col gap-6 md:gap-8">

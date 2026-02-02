@@ -251,7 +251,7 @@ export default function FINAPage() {
         <div className="absolute -bottom-10 left-24 w-[350px] h-[350px] bg-gradient-to-b from-[#26D7C4] to-white opacity-15 rounded-full pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto pt-0 md:pt-16 pb-0 px-2 lg:px-0"> 
-          <div className="flex flex-col items-center justify-between gap-0 lg:gap-4 min-h-[90vh] lg:min-h-0">
+          <div className="flex flex-col items-center justify-between gap-0 lg:gap-4 h-auto lg:min-h-0">
             <div className="w-full md:max-w-7xl mt-0 px-0 md:px-4">
               <div className="relative min-h-[200px] flex flex-col justify-center items-center">
                 {/* <AnimatePresence mode="wait">

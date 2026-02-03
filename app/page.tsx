@@ -138,7 +138,38 @@ export default function HeroSection() {
         <FacilitiesSlider />
       </section>
 
-      <section className="w-full py-20 bg-white overflow-hidden">
+      <section className="relative w-full py-20 bg-white overflow-hidden">
+        <div className="absolute right-[70%] top-1/2 -translate-y-1/2 w-screen h-[650px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-25 z-0" />
+        <div className="absolute left-[70%] top-1/2 -translate-y-1/2 w-screen h-[650px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-25 z-0" />
+
+        <h2 className="text-2xl lg:text-5xl font-semibold text-[#147167] text-center mb-7 lg:mb-16 px-4">
+          Produk Paling Dicari di Kantin Sekolah WFA
+        </h2>
+        
+        <div className="container mx-auto px-4 md:px-8 lg:px-4 flex flex-col md:flex-row justify-center items-center gap-8 lg:gap-20">
+          <Link href="https://sekolahwfa.com/fina" target="_blank" className="w-full md:w-1/2 max-w-[500px] flex justify-center">
+            <Image
+              src="/best1-fina.webp"
+              alt="Produk Best Seller FINA"
+              width={800} 
+              height={800}
+              className="w-full h-auto object-cover rounded-3xl shadow-[0_25px_30px_-10px_rgba(20,113,103,0.5)] hover:scale-105 transition-transform duration-500 cursor-pointer z-20"
+            />
+          </Link>
+
+          <Link href="https://sekolahwfa.com/content-auto-pilot" target="_blank" className="w-full md:w-1/2 max-w-[500px] flex justify-center">
+            <Image
+              src="/best2-cap.webp"
+              alt="Produk Best Seller CAP"
+              width={800}
+              height={800}
+              className="w-full h-auto object-cover rounded-3xl shadow-[0_25px_30px_-10px_rgba(20,113,103,0.5)] hover:scale-105 transition-transform duration-500 cursor-pointer z-20"
+            />
+          </Link>
+        </div>
+      </section>
+
+      <section className="relative w-full py-20 bg-white overflow-hidden">
         <h2 className="text-2xl lg:text-5xl font-semibold text-[#147167] text-center mb-7 lg:mb-16">
           Profil Fasilitator
         </h2>

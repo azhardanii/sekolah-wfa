@@ -42,6 +42,15 @@ const nextConfig: any = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/dibales.ai',
+        destination: 'https://cs.pake.ai/a/FEBYA25IWVF7122I/instagram-comment-to-dm/sales/1',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;

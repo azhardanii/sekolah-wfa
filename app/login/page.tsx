@@ -24,7 +24,7 @@ export default function LoginPage() {
         
         <div className="p-8">
           <button 
-            onClick={() => signIn("google", { callbackUrl: "/ruang-belajar" })}
+            onClick={() => signIn("google", { callbackUrl: "/ruang-kelas" })}
             className="w-full flex items-center text-xl justify-center gap-3 border-2 border-[#147167] py-5 px-32 rounded-3xl bg-gray-50 text-[#147167] font-semibold active:scale-95 transition-transform duration-150 ease-in-out shadow-lg"
           >
             <Image src="https://www.svgrepo.com/show/475656/google-color.svg" width={30} height={30} alt="Google" />

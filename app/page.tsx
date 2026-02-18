@@ -84,10 +84,10 @@ export default function HeroSection() {
                     ))}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-[1.75rem] lg:text-5xl">
+                    <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-[2.1rem] lg:text-5xl">
                       & 1.221.500+
                     </span>
-                    <span className="text-sm lg:text-base max-w-[10rem] leading-tight bg-gradient-to-l pt-0.5 h-11 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
+                    <span className="text-sm lg:text-base max-w-[10rem] leading-tight bg-gradient-to-l pt-1 md:pt-0 h-12 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
                       Pembelajar yang Telah Bergabung
                     </span>
                   </div>

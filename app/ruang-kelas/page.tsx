@@ -1,27 +1,24 @@
 import { auth, signOut } from "@/auth";
-import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import Image from "next/image";
-import { LogOut, Home } from "lucide-react";
-import LazyYoutube from "@/components/LazyYoutube";
+import Link from "next/link";
+import { LogOut, Home, PlayCircle } from "lucide-react";
+import { COURSE_DATA } from "@/lib/data";
 
-export default async function RuangBelajarPage() {
+export default async function RuangKelasPage() {
   const session = await auth();
   if (!session) redirect("/api/auth/signin");
 
-  const [video, upsellProducts] = await Promise.all([
-    db.courseVideo.findFirst({ where: { isActive: true } }),
-    db.upsellProduct.findMany({ where: { isActive: true } }),
-  ]);
-
   return (
-    <div className="flex min-h-screen bg-[#F0FDFA]">
-      {/* SIDEBAR */}
-      <aside className="w-64 bg-[linear-gradient(180deg,_#FEFEFE_1%,_#26D7C4_55%,_#26D7C4_57%,_#FEFEFE_99%)] text-white flex flex-col px-0 pb-6 pt-20 fixed h-full">
-        <div className="mb-20 flex justify-center w-full">
-          <Image 
-            src="/logo-wfa.webp" 
-            alt="Sekolah WFA Logo" 
+    <div className="flex min-h-screen flex-col bg-[#F0FDFA] md:flex-row">
+      {/* SIDEBAR / TOP NAV (MOBILE) */}
+      <aside className="fixed left-0 right-0 top-0 z-50 flex h-20 flex-row items-center justify-between bg-white px-4 shadow-sm md:h-full md:w-64 md:flex-col md:justify-start md:bg-[linear-gradient(180deg,_#FEFEFE_1%,_#26D7C4_55%,_#26D7C4_57%,_#FEFEFE_99%)] md:px-0 md:pb-6 md:pt-20 md:text-white md:shadow-none">
+        
+        {/* Logo */}
+        <div className="flex w-24 justify-center md:mb-20 md:w-full">
+          <Image
+            src="/logo-wfa.webp"
+            alt="Sekolah WFA Logo"
             width={150}
             height={75}
             priority
@@ -29,31 +26,36 @@ export default async function RuangBelajarPage() {
           />
         </div>
 
-        <nav className="space-y-2 mb-2">
-          <div className="flex items-center gap-3 bg-gradient-to-r from-[#2AB3B0] to-[#147167] py-3 px-10 cursor-pointer">
-            <Home size={20} />
-            <span className="font-medium">Ruang Belajar</span>
-          </div>
-        </nav>
+        {/* Navigation & Logout Wrapper */}
+        <div className="flex flex-row items-center gap-2 md:w-full md:flex-col md:gap-0">
+          <nav className="md:mb-2 md:w-full">
+            <div className="flex cursor-pointer items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-[#2AB3B0] to-[#147167] px-3 py-2 text-white md:justify-start md:rounded-none md:px-10 md:py-3">
+              <Home size={20} className="h-5 w-5" />
+              <span className="hidden font-medium sm:block md:block">Ruang Kelas</span>
+            </div>
+          </nav>
 
-        <form
-          action={async () => {
-            "use server";
-            await signOut({ redirectTo: "/" });
-          }}
-        >
-          <button className="flex items-center gap-3 py-3 px-10 text-[#147167] w-full hover:bg-white/10 rounded-lg transition-colors">
-            <LogOut size={20} />
-            <span>Logout</span>
-          </button>
-        </form>
+          <form
+            action={async () => {
+              "use server";
+              await signOut({ redirectTo: "/" });
+            }}
+            className="md:w-full"
+          >
+            <button className="flex w-full items-center justify-center gap-3 rounded-lg px-3 py-2 text-[#147167] transition-colors hover:bg-black/5 md:justify-start md:rounded-lg md:px-10 md:py-3 md:hover:bg-white/10">
+              <LogOut size={20} className="h-5 w-5" />
+              <span className="hidden sm:block md:block">Logout</span>
+            </button>
+          </form>
+        </div>
       </aside>
 
       {/* MAIN CONTENT */}
-      <main className="ml-64 flex-1 px-10 pb-10 pt-20">
+      <main className="flex-1 px-5 pt-28 pb-10 md:ml-64 md:px-10 md:pt-20">
+        
         {/* HEADER USER */}
-        <div className="flex items-center gap-4 mb-[4.4rem]">
-          <div className="relative w-20 h-20 rounded-full overflow-hidden bg-gray-200 border-4 border-white shadow-sm">
+        <div className="mb-8 flex flex-col items-center gap-4 text-center md:mb-[4.4rem] md:flex-row md:text-left">
+          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-4 border-white bg-gray-200 shadow-sm">
             <Image
               src={session.user?.image || "/default-avatar.png"}
               alt="Profile"
@@ -62,55 +64,46 @@ export default async function RuangBelajarPage() {
             />
           </div>
           <div>
-            <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#26D7C4] to-[#147167] items-center">
-              Hai, {session.user?.name?.split(" ")[0]} <span className="text-white">👋🏻</span>
+            <h2 className="flex items-center justify-center gap-2 text-2xl font-bold md:justify-start md:text-4xl">
+              <span className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
+                Hai, {session.user?.name?.split(" ")[0]}
+              </span>
+              <span>👋🏻</span>
             </h2>
-            <p className="text-[#147167] font-semibold pt-1">Semangat belajarnya yaa!</p>
+            <p className="pt-1 text-sm font-semibold text-[#147167] md:text-base">
+              Selamat datang di Ruang Kelas! Semangat belajarnya yaa! 💪🏻🔥
+            </p>
           </div>
         </div>
 
-        <div className="mb-8 shadow-lg">
-          <LazyYoutube 
-            videoId="2s-k6Ov4xAY" 
-            title="Video Materi"
-            ratio="16:9"
-          />
-        </div>
+        {/* GRID VIDEO THUMBNAILS */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {COURSE_DATA.map((course) => (
+            <Link href={`/ruang-kelas/${course.id}`} key={course.id} className="group block h-full">
+              <div className="flex h-full flex-col overflow-hidden rounded-xl border border-teal-100 bg-white shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
+                
+                <div className="relative aspect-video w-full bg-gray-200">
+                  <Image
+                    src={`https://img.youtube.com/vi/${course.id}/maxresdefault.jpg`}
+                    alt={course.title}
+                    fill
+                    className="object-cover"
+                  />
+                  
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    <PlayCircle className="h-14 w-14 text-white drop-shadow-lg transition-transform duration-300 group-hover:scale-110" />
+                  </div>
 
-        {/* UPSELL SECTION (Mapping dari DB) */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {upsellProducts.length > 0 ? (
-            upsellProducts.map((product) => (
-              <a 
-                href={product.productLink} 
-                key={product.id}
-                target="_blank"
-                className="group"
-              >
-                <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-teal-100">
-                  <div className="aspect-square relative bg-gray-100">
-                    <Image 
-                      src={product.thumbnailUrl} 
-                      alt={product.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-[#134E4A] line-clamp-1">{product.name}</h3>
-                    <p className="text-xs text-teal-600 mt-1 line-clamp-2">{product.description}</p>
-                  </div>
                 </div>
-              </a>
-            ))
-          ) : (
-            // Placeholder jika DB kosong (Sesuai mockup abu-abu)
-            [1, 2, 3, 4].map((i) => (
-              <div key={i} className="aspect-square bg-gray-200 rounded-xl flex items-center justify-center text-gray-400 font-bold uppercase p-4 text-center">
-                Upsell Section Placeholder
+
+                <div className="flex flex-1 flex-col p-5 border-t border-teal-50">
+                  <h4 className="line-clamp-2 font-bold text-lg text-[#147167] transition-colors duration-300 group-hover:text-[#1c8a82]">
+                    {course.title}
+                  </h4>
+                </div>
               </div>
-            ))
-          )}
+            </Link>
+          ))}
         </div>
       </main>
     </div>

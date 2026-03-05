@@ -14,7 +14,6 @@ export default async function RuangKelasPage() {
       {/* SIDEBAR / TOP NAV (MOBILE) */}
       <aside className="fixed left-0 right-0 top-0 z-50 flex h-20 flex-row items-center justify-between bg-white px-4 shadow-sm md:h-full md:w-64 md:flex-col md:justify-start md:bg-[linear-gradient(180deg,_#FEFEFE_1%,_#26D7C4_55%,_#26D7C4_57%,_#FEFEFE_99%)] md:px-0 md:pb-6 md:pt-20 md:text-white md:shadow-none">
         
-        {/* Logo */}
         <div className="flex w-24 justify-center md:mb-20 md:w-full">
           <Image
             src="/logo-wfa.webp"
@@ -55,7 +54,7 @@ export default async function RuangKelasPage() {
         
         {/* HEADER USER */}
         <div className="mb-8 flex flex-col items-center gap-4 text-center md:mb-[4.4rem] md:flex-row md:text-left">
-          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-4 border-white bg-gray-200 shadow-sm">
+          <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-white bg-gray-200 shadow-sm">
             <Image
               src={session.user?.image || "/default-avatar.png"}
               alt="Profile"
@@ -66,12 +65,12 @@ export default async function RuangKelasPage() {
           <div>
             <h2 className="flex items-center justify-center gap-2 text-2xl font-bold md:justify-start md:text-4xl">
               <span className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
-                Hai, {session.user?.name?.split(" ")[0]}
+                Hai, {session.user?.name ? (session.user.name.split(" ")[0].charAt(0).toUpperCase() + session.user.name.split(" ")[0].slice(1).toLowerCase()) : "Kak"}
               </span>
               <span>👋🏻</span>
             </h2>
             <p className="pt-1 text-sm font-semibold text-[#147167] md:text-base">
-              Selamat datang di Ruang Kelas! Semangat belajarnya yaa! 💪🏻🔥
+              Selamat datang di Ruang Kelas!<br /> Semangat belajarnya yaa..🔥
             </p>
           </div>
         </div>

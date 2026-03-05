@@ -27,7 +27,7 @@ export default function LazyYoutube({
 
   return (
     <div
-      className="relative w-full h-0 overflow-hidden rounded-xl bg-black"
+      className="relative w-full h-0 overflow-hidden rounded-2xl bg-black"
       style={{ paddingBottom: aspectPadding }}
       onContextMenu={(e) => e.preventDefault()}
     >

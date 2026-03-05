@@ -1,13 +1,13 @@
 export const COURSE_DATA = [
   {
-    id: "7wLTuodPcaA",
+    id: "vbHn_Kc5LUU",
     title: "WFA Course Fundamental",
     links: [
       { title: "Kelas Belajar Bersama (Max. 10 Orang)", url: "https://lynk.id/febbyanggun/9Qe3WLw" },
       { title: "VIP Private One by One Online Meet", url: "https://lynk.id/febbyanggun/Jr6lvLP" },
       { title: "Exclusive Offline Private One by One", url: "https://lynk.id/febbyanggun/Bqx157P" },
       { title: "Konsultasi Pembuatan Produk Digital", url: "https://wa.me/6285157991798" },
-      { title: "Akses Tools Content Auto Pilot", url: "https://sekolahwfa.com/content-auto-pilot" },
+      { title: "AI Tools Content Auto Pilot", url: "https://sekolahwfa.com/content-auto-pilot" },
     ]
   },
   {

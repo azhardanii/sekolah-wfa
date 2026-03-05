@@ -85,10 +85,10 @@ export default function HeroSection() {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-[2.1rem] lg:text-5xl">
-                      & 122.150+
+                      & 182.180+
                     </span>
-                    <span className="text-sm lg:text-base max-w-[10rem] leading-tight bg-gradient-to-l pt-1 md:pt-0 h-12 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
-                      Pembelajar yang Telah Bergabung
+                    <span className="text-xs lg:text-sm max-w-[10rem] leading-tight bg-gradient-to-l pt-1 h-12 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
+                      Teman Belajar yang Telah Bergabung
                     </span>
                   </div>
                 </div>

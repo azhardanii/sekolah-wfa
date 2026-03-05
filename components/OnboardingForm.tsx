@@ -65,12 +65,10 @@ export function OnboardingForm({ questions }: OnboardingFormProps) {
         const result = await submitOnboarding(answers)
 
         if (result && result.success) {
-            // 🔥 3. UPDATE TOKEN JWT SECARA MANUAL
             await update({ onboardingCompleted: true })
 
-            // 4. Beri jeda sedikit agar session tersimpan, lalu redirect
             router.refresh()
-            window.location.href = "/ruang-belajar" 
+            window.location.href = "/ruang-kelas" 
         } else {
             setIsSubmitting(false)
             alert(result?.error || "Gagal menyimpan")
@@ -150,7 +148,7 @@ export function OnboardingForm({ questions }: OnboardingFormProps) {
               onKeyDown={(e) => {
                 // Mencegah Enter kalau input masih kosong/spasi doang
                 if (e.key === "Enter") {
-                  e.preventDefault() // Mencegah perilaku default form
+                  e.preventDefault()
                   if (isValid) {
                     handleNext()
                   }

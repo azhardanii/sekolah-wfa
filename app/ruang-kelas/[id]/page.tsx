@@ -18,7 +18,6 @@ export default async function DetailVideoPage({
 
   const courseDetail = COURSE_DATA.find((c) => c.id === videoId);
 
-  // Fallback jika ID video tidak ditemukan
   if (!courseDetail) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center bg-[#F0FDFA] p-5 text-center">
@@ -37,9 +36,8 @@ export default async function DetailVideoPage({
 
   return (
     <div className="min-h-screen bg-[#F0FDFA] p-5 md:p-10">
-      <div className="mx-auto max-w-4xl pt-20 md:pt-0"> {/* pt-20 untuk safe area mobile jika perlu */}
+      <div className="mx-auto max-w-4xl pt-20 md:pt-0">
         
-        {/* TOMBOL KEMBALI */}
         <Link 
           href="/ruang-kelas" 
           className="mb-6 inline-flex items-center gap-2 text-[#147167] transition-all hover:font-bold"
@@ -53,7 +51,7 @@ export default async function DetailVideoPage({
           {courseDetail.title}
         </h1>
         
-        <div className="mb-10 w-full overflow-hidden rounded-2xl border-4 border-white shadow-xl">
+        <div className="mb-10 w-full overflow-hidden rounded-2xl border-[5.5px] border-white shadow-xl">
           <LazyYoutube
             videoId={courseDetail.id}
             title={courseDetail.title}
@@ -64,12 +62,11 @@ export default async function DetailVideoPage({
         {/* UPSELL / RELEVANT LINKS SECTION */}
         <div className="rounded-2xl border border-teal-100 bg-white p-6 shadow-sm md:p-8">
           <h3 className="mb-6 border-b border-teal-100 pb-4 text-xl font-bold text-[#147167]">
-            Akses Layanan & Produk Terkait:
+            Akses yang kamu butuhkan:
           </h3>
           
           <div className="flex flex-col gap-3">
             {courseDetail.links.map((link, index) => {
-              // Validasi jika link masih kosong ("#")
               const isLinkEmpty = link.url === "#" || link.url === "";
               
               return isLinkEmpty ? (

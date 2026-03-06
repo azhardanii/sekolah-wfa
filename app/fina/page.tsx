@@ -619,16 +619,6 @@ export default function FINAPage() {
           </div>
           <div className="w-full max-w-7xl mx-auto px-4 mb-16">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-center">
-              <Link href="http://lynk.id/febbyanggun/6p099jogdwgx/checkout" target="_blank" className="order-2 md:order-1 md:col-span-5 w-[80%] md:w-full mx-auto flex justify-center">
-                <Image 
-                  src="/fina/cta-free.webp"
-                  alt="FINA Free Version"
-                  width={400} 
-                  height={400}
-                  className="w-full h-auto object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300 hover:cursor-pointer"
-                />
-              </Link>
-
               <Link href="http://lynk.id/febbyanggun/6qn2d0pmpp38/checkout" target="_blank" className="order-1 md:order-2 md:col-span-7 w-full">
                 <Image 
                   src="/fina/cta-personal.webp"
@@ -637,6 +627,16 @@ export default function FINAPage() {
                   height={600}
                   priority
                   className="w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300 hover:cursor-pointer"
+                />
+              </Link>
+
+              <Link href="https://wa.me/6285157991798?text=Haloo%20kak%2C%20aku%20mau%20custom%20FINA%20buat%20bisnisku%21" target="_blank" className="order-2 md:order-1 md:col-span-5 w-[80%] md:w-full mx-auto flex justify-center">
+                <Image 
+                  src="/fina/cta-bisnis.webp"
+                  alt="FINA Bisnis Version"
+                  width={400} 
+                  height={400}
+                  className="w-full h-auto object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300 hover:cursor-pointer"
                 />
               </Link>
             </div>
@@ -671,7 +671,7 @@ export default function FINAPage() {
           <p>Copyright &copy; {new Date().getFullYear()}</p>
           <Image
             src="/logo-wfa.webp"
-            alt="KADEV Academy"
+            alt="SEKOLAH WFA"
             width={50}
             height={20}
             className="ml-1.5 mr-1"

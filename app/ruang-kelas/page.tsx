@@ -2,7 +2,7 @@ import { auth, signOut } from "@/auth";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { LogOut, Home, PlayCircle } from "lucide-react";
+import { LogOut, Home, PlayCircle, Lock, Users } from "lucide-react";
 import { COURSE_DATA } from "@/lib/data";
 
 export default async function RuangKelasPage() {
@@ -52,57 +52,115 @@ export default async function RuangKelasPage() {
       {/* MAIN CONTENT */}
       <main className="flex-1 px-5 pt-28 pb-10 md:ml-64 md:px-10 md:pt-20">
         
-        {/* HEADER USER */}
-        <div className="mb-8 flex flex-col items-center gap-4 text-center md:mb-[4.4rem] md:flex-row md:text-left">
-          <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-white bg-gray-200 shadow-sm">
-            <Image
-              src={session.user?.image || "/default-avatar.png"}
-              alt="Profile"
-              fill
-              className="object-cover"
-            />
+        {/* HEADER USER & TOMBOL KOMUNITAS */}
+        <div className="mb-8 flex flex-col gap-6 md:mb-[4.4rem] md:flex-row md:items-center md:justify-between">
+          
+          {/* Bagian Profil (Kiri pada Desktop, Atas pada Mobile) */}
+          <div className="flex flex-col items-center gap-4 text-center md:flex-row md:text-left">
+            <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-white bg-gray-200 shadow-sm">
+              <Image
+                src={session.user?.image || "/default-avatar.png"}
+                alt="Profile"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="flex items-center justify-center gap-2 text-2xl font-bold md:justify-start md:text-4xl">
+                <span className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
+                  Hai, {session.user?.name ? (session.user.name.split(" ")[0].charAt(0).toUpperCase() + session.user.name.split(" ")[0].slice(1).toLowerCase()) : "Kak"}
+                </span>
+                <span>👋🏻</span>
+              </h2>
+              <p className="pt-1 text-sm font-semibold text-[#147167] md:text-base">
+                Selamat datang di Ruang Kelas!<br /> Semangat belajarnya yaa..🔥
+              </p>
+            </div>
           </div>
-          <div>
-            <h2 className="flex items-center justify-center gap-2 text-2xl font-bold md:justify-start md:text-4xl">
-              <span className="bg-gradient-to-r from-[#26D7C4] to-[#147167] bg-clip-text text-transparent">
-                Hai, {session.user?.name ? (session.user.name.split(" ")[0].charAt(0).toUpperCase() + session.user.name.split(" ")[0].slice(1).toLowerCase()) : "Kak"}
+
+          <div className="flex w-full justify-center md:w-auto md:justify-end">
+            <Link 
+              href="https://chat.whatsapp.com/E3dPReLYer5AoXOJEF1KTr?mode=gi_t"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex w-full max-w-sm items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-bold text-[#147167] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:ring-2 hover:ring-[#147167] md:w-auto md:max-w-none"
+            >
+              <div className="hidden shrink-0 items-center justify-center rounded-full bg-[#E6F8F6] p-2 text-center transition-colors group-hover:bg-[#26D7C4]/20 md:flex">
+                <Users className="h-5 w-5" />
+              </div>
+              
+              <span className="block text-center text-lg leading-snug md:hidden">
+                Join Grup Community <br /> Sekolah WFA 
+                <span className="inline-block pl-1 text-xl transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">
+                  ↗
+                </span>
               </span>
-              <span>👋🏻</span>
-            </h2>
-            <p className="pt-1 text-sm font-semibold text-[#147167] md:text-base">
-              Selamat datang di Ruang Kelas!<br /> Semangat belajarnya yaa..🔥
-            </p>
+
+              <span className="hidden items-center whitespace-nowrap md:flex md:text-base">
+                Join Grup Community Sekolah WFA 
+                <span className="ml-1 inline-block transition-transform group-hover:-translate-y-1 text-xl group-hover:translate-x-1">
+                  ↗
+                </span>
+              </span>
+            </Link>
           </div>
         </div>
 
         {/* GRID VIDEO THUMBNAILS */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {COURSE_DATA.map((course) => (
-            <Link href={`/ruang-kelas/${course.id}`} key={course.id} className="group block h-full">
-              <div className="flex h-full flex-col overflow-hidden rounded-xl border border-teal-100 bg-white shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
+          {COURSE_DATA.map((course) => {
+            const isComingSoon = course.isComingSoon;
+
+            // Memisahkan komponen isi agar bisa dipakai untuk kondisi Link maupun Div disabled
+            const CardContent = (
+              <div className={`flex h-full flex-col overflow-hidden rounded-xl border border-teal-100 bg-white shadow-sm transition-all duration-300 ${!isComingSoon && 'group-hover:-translate-y-1 group-hover:shadow-lg'}`}>
                 
-                <div className="relative aspect-video w-full bg-gray-200">
+                <div className="relative aspect-video w-full bg-gray-200 overflow-hidden">
                   <Image
                     src={`https://img.youtube.com/vi/${course.id}/maxresdefault.jpg`}
                     alt={course.title}
                     fill
-                    className="object-cover"
+                    className={`object-cover transition-all duration-300 ${isComingSoon ? 'blur-lg grayscale' : ''}`}
                   />
                   
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                    <PlayCircle className="h-14 w-14 text-white drop-shadow-lg transition-transform duration-300 group-hover:scale-110" />
-                  </div>
-
+                  {isComingSoon ? (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[1px]">
+                      <div className="flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-bold text-[#147167] shadow-md">
+                        <Lock className="h-4 w-4" />
+                        Coming Soon
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <PlayCircle className="h-14 w-14 text-white drop-shadow-lg transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex flex-1 flex-col p-5 border-t border-teal-50">
-                  <h4 className="line-clamp-2 font-bold text-lg text-[#147167] transition-colors duration-300 group-hover:text-[#1c8a82]">
+                  <h4 className={`line-clamp-2 font-bold text-sm md:text-lg transition-colors duration-300 ${isComingSoon ? 'text-gray-400' : 'text-[#147167] group-hover:text-[#1c8a82]'}`}>
                     {course.title}
                   </h4>
                 </div>
               </div>
-            </Link>
-          ))}
+            );
+
+            // Jika coming soon dirender hanya sebagai div mati (disabled)
+            if (isComingSoon) {
+              return (
+                <div key={course.id} className="block h-full cursor-not-allowed opacity-90">
+                  {CardContent}
+                </div>
+              );
+            }
+
+            // Jika available dirender sebagai Link yang bisa diklik
+            return (
+              <Link href={`/ruang-kelas/${course.id}`} key={course.id} className="group block h-full">
+                {CardContent}
+              </Link>
+            );
+          })}
         </div>
       </main>
     </div>

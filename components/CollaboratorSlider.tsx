@@ -31,8 +31,6 @@ const SliderRow = ({ images, direction }: { images: string[], direction: 'left' 
   return (
     <div className="relative w-full flex overflow-hidden group">
       <div
-        // Tambahkan 'items-center' agar gambar rata tengah vertikal
-        // Perbesar gap antar logo biar lebih lega (opsional, ubah gap-8 sesuai selera)
         className={`flex gap-4 w-max py-4 items-center ${
           direction === 'left' ? 'animate-scrollcollab-left' : 'animate-scrollcollab-right'
         } group-hover:paused`}

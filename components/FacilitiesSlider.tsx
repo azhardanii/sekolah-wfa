@@ -3,9 +3,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight } from 'lucide-react'; // Ikon panah default, bisa diganti image
+import { ArrowLeft, ArrowRight } from 'lucide-react'; 
 
-// DATA FASILITAS (Berdasarkan gambar referensi Anda)
 const FACILITIES = [
   {
     id: 1,
@@ -58,18 +57,15 @@ export default function FacilitiesSlider() {
   };
 
   useEffect(() => {
-    // Jika sedang dipause (kursor di atas slider), hentikan timer
     if (isPaused) return;
 
     const interval = setInterval(() => {
       handleNext();
-    }, 15000); // 15000ms = 15 detik
+    }, 15000);
 
-    // Bersihkan interval saat komponen unmount atau state berubah
     return () => clearInterval(interval);
   }, [isPaused]);
 
-  // Helper untuk mendapatkan offset posisi
   const getOffset = (index: number) => {
     const total = FACILITIES.length;
     let offset = index - activeIndex;
@@ -80,7 +76,7 @@ export default function FacilitiesSlider() {
 
   return (
     <div className="w-full bg-white flex flex-col items-center overflow-hidden pb-5">    
-      <div className="relative w-full h-[450px] lg:h-[500px] flex items-center justify-center perspective-1000">
+      <div className="relative w-full h-[400px] lg:h-[500px] flex items-center justify-center perspective-1000">
         {FACILITIES.map((item, index) => {
           const offset = getOffset(index);
           const isActive = offset === 0;
@@ -114,7 +110,7 @@ export default function FacilitiesSlider() {
 
           const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
           if (isMobile) {
-            if (!isActive) opacity = 0; // Di mobile hanya tampilkan 1
+            if (!isActive) opacity = 0;
           }
 
           return (
@@ -131,7 +127,7 @@ export default function FacilitiesSlider() {
             >
               <div 
                 className={`
-                  relative w-[280px] h-[360px] lg:w-[300px] lg:h-[300px] 
+                  relative w-[250px] h-[300px] lg:w-[300px] 
                   rounded-[35px] p-6 flex flex-col items-center text-center justify-between
                   bg-gradient-to-br from-[#FEFEFE] via-[#23c6b6] to-[#147167]
                   shadow-[0_20px_40px_-10px_rgba(20,113,103,0.3)]

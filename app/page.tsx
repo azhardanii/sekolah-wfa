@@ -84,10 +84,10 @@ export default function HeroSection() {
                     ))}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-[2.1rem] lg:text-5xl">
+                    <span className="font-semibold bg-gradient-to-l from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent text-[1.92rem] lg:text-5xl">
                       & 182.180+
                     </span>
-                    <span className="text-xs lg:text-sm max-w-[10rem] leading-tight bg-gradient-to-l pt-1 h-12 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
+                    <span className="text-sm max-w-[10rem] leading-tight bg-gradient-to-l pt-1 h-12 from-[#2AB3B0] via-[#147167] to-[#147167] bg-clip-text text-transparent font-medium">
                       Teman Belajar yang Telah Bergabung
                     </span>
                   </div>
@@ -319,17 +319,17 @@ export default function HeroSection() {
 
       <PortfolioLabSlider />
 
-      <section className="mb-12 mt-20">
+      <section className="mb-0 lg:mb-12 mt-20">
         <h2 className="text-3xl lg:text-5xl font-semibold text-center mb-10 lg:mb-16 text-[#147167]">
           Moment Bersama Komunitas
         </h2>
         <CommunitySlider images={COMMUNITY_IMAGES} />
       </section>
       
-      <section className="relative mb-12 mt-28 w-full overflow-hidden">
+      <section className="relative mb-12 mt-0 md:mt-28 w-full overflow-hidden">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[100px] rounded-full pointer-events-none opacity-50" />
 
-        <h2 className="text-2xl lg:text-5xl font-semibold text-center mb-10 lg:mb-16 text-[#147167]">
+        <h2 className="text-2xl lg:text-5xl font-bold lg:font-semibold text-center mt-10 mb-10 lg:mt-0 lg:mb-16 text-[#147167]">
           Collaborator & Partnership Sekolah WFA
         </h2>
         <CollaboratorSlider images={COLLABORATOR_IMAGES} />

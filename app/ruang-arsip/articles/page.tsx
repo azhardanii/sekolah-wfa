@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -13,7 +13,7 @@ type Article = {
   createdAt: string;
 };
 
-export default function ArticlesDashboard() {
+function ArticlesDashboardInner() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const activeTab = searchParams.get('status') || 'DRAFT';
@@ -267,5 +267,13 @@ export default function ArticlesDashboard() {
         </table>
       </div>
     </div>
+  );
+}
+
+export default function ArticlesDashboard() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center text-gray-400">Memuat data...</div>}>
+      <ArticlesDashboardInner />
+    </Suspense>
   );
 }

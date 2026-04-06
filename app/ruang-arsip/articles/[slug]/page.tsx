@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+import { db as prisma } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-
-const prisma = new PrismaClient();
 
 export default async function ArticlePreviewPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;

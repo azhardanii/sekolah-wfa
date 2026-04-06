@@ -1,8 +1,8 @@
-import { PrismaClient } from '@prisma/client';
+import { db as prisma } from '@/lib/db';
 import Link from 'next/link';
 import NavbarWFA from '@/components/NavbarWFA';
 
-const prisma = new PrismaClient();
+
 
 // Optional revalidation for static rendering
 export const revalidate = 60; 

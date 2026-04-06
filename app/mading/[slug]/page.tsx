@@ -1,10 +1,8 @@
-import { PrismaClient } from '@prisma/client';
+import { db as prisma } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import NavbarWFA from '@/components/NavbarWFA';
-
-const prisma = new PrismaClient();
 
 // Revalidate cache setiap 60 detik (ISR)
 export const revalidate = 60;

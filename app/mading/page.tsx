@@ -5,7 +5,7 @@ import NavbarWFA from '@/components/NavbarWFA';
 
 
 // Optional revalidation for static rendering
-export const revalidate = 60; 
+export const revalidate = 60;
 
 function formatCategory(cat: string) {
   return cat.replace(/_/g, ' ');
@@ -22,9 +22,9 @@ export default async function MadingPublicPage() {
       <div className="bg-gradient-to-b from-[#E0F7F4] to-[#f4fbfa]">
         <div className="absolute top-0 w-full h-[500px] bg-[radial-gradient(circle,_#26D7C4_0%,_transparent_100%)] blur-[120px] pointer-events-none opacity-20" />
         <NavbarWFA />
-        
+
         <header className="relative z-10 container mx-auto px-6 py-20 text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl lg:text-6xl md:pb-2 font-bold bg-gradient-to-r from-[#2AB3B0] to-[#147167] bg-clip-text text-transparent mb-2">
             Mading Sekolah WFA
           </h1>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
@@ -42,15 +42,15 @@ export default async function MadingPublicPage() {
           )}
 
           {publishedArticles.map((article) => (
-            <Link 
-              href={`/mading/${article.slug}`} 
+            <Link
+              href={`/mading/${article.slug}`}
               key={article.id}
               className="group flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 overflow-hidden transition-all duration-300 border border-[#26D7C4]/10"
             >
               <div className="aspect-[16/9] w-full bg-gray-100 relative overflow-hidden">
                 {article.thumbnailUrl ? (
-                  <img 
-                    src={article.thumbnailUrl} 
+                  <img
+                    src={article.thumbnailUrl}
                     alt={article.title}
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
                   />
@@ -75,7 +75,7 @@ export default async function MadingPublicPage() {
                 <h2 className="text-xl font-bold text-gray-800 leading-tight mb-3 group-hover:text-[#2AB3B0] transition-colors line-clamp-2">
                   {article.title}
                 </h2>
-                
+
                 {/* We won't render HTML here, just a "Baca selengkapnya" button */}
                 <div className="mt-auto pt-4 flex items-center gap-2 text-[#147167] font-semibold text-sm group-hover:gap-3 transition-all">
                   <span>Baca Selengkapnya</span>

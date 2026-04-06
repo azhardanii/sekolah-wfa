@@ -61,7 +61,7 @@ export default async function MadingArticlePage({ params }: { params: Promise<{ 
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#147167] to-[#2AB3B0] h-24 bg-clip-text text-transparent leading-tight mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#147167] to-[#2AB3B0] pb-1 bg-clip-text text-transparent leading-tight mb-6">
             {article.title}
           </h1>
 

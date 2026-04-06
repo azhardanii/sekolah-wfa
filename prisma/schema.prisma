@@ -105,3 +105,51 @@ model UpsellProduct {
   price        Decimal?
   isActive     Boolean  @default(true)
 }
+
+model FormCustomDigitalProduct {
+  id                 String   @id @default(cuid())
+  productName        String
+  whatsapp           String
+  productType        String
+  productDescription String
+  urgentProblem      String
+  targetUser         String
+  referenceProducts  String?
+  designStyle        String
+  primaryColor       String
+  fontPreference     String
+  additionalNotes    String?
+  
+  createdAt          DateTime @default(now())
+}
+
+enum ArticleCategory {
+  WFA_PRODUCTIVITY
+  TECH_UPDATE
+  CONTENT_CREATION
+  WFA_HACKS
+  DIGITAL_NOMAD_LIFESTYLE
+  FINANCE_MANAGEMENT
+  MENTAL_HEALTH
+}
+
+enum ArticleStatus {
+  DRAFT
+  SCHEDULED
+  PUBLISHED
+}
+
+model Article {
+  id           String          @id @default(cuid())
+  title        String
+  slug         String          @unique
+  content      String
+  thumbnailUrl String?
+  category     ArticleCategory
+  status       ArticleStatus   @default(DRAFT)
+  seoKeywords  String[]
+  scheduledAt  DateTime?
+  
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+}

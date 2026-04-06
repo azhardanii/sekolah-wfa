@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { supabase } from "@/lib/supabase";
+import { submitFormBrief } from "@/actions/formbrief";
 
 const initialFormData = {
   productName: "",
@@ -68,8 +68,9 @@ export default function ClientBriefForm() {
       }
     }
 
-    if (!/^\d{9,15}$/.test(formData.whatsapp)) {
-      setErrorMsg("No. WA tidak valid.");
+    const cleanedWa = formData.whatsapp.replace(/\D/g, "");
+    if (!/^\d{9,15}$/.test(cleanedWa)) {
+      setErrorMsg("No. WA tidak valid. Masukkan angka saja.");
       return false;
     }
 
@@ -87,21 +88,21 @@ export default function ClientBriefForm() {
 
     try {
       const sanitizedData = Object.fromEntries(
-        Object.entries(formData).map(([key, val]) => [
-          key,
-          typeof val === "string" ? sanitize(val) : val,
-        ])
+        Object.entries(formData).map(([key, val]) => {
+          let finalVal = val;
+          if (key === "whatsapp" && typeof val === "string") {
+            finalVal = val.replace(/\D/g, "");
+          } else if (typeof val === "string") {
+            finalVal = sanitize(val);
+          }
+          return [key, finalVal];
+        })
       );
 
-      const res = await fetch("/api/submit-formbrief-customproduct", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(sanitizedData),
-      });
+      const res = await submitFormBrief(sanitizedData);
 
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.error || "Submit failed");
+      if (res.error) {
+        throw new Error(res.error || "Submit failed");
       }
 
       setStatus("success");
@@ -121,6 +122,7 @@ export default function ClientBriefForm() {
     placeholder: string;
     type: "input" | "textarea";
     inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
+    required?: boolean;
   }[] = [
     {
       name: "whatsapp",
@@ -152,6 +154,7 @@ export default function ClientBriefForm() {
       name: "referenceProducts",
       placeholder: "Referensi (link/nama produk) *jika ada",
       type: "input",
+      required: false,
     },
     {
       name: "primaryColor",
@@ -167,6 +170,7 @@ export default function ClientBriefForm() {
       name: "additionalNotes",
       placeholder: "Catatan Penting",
       type: "textarea",
+      required: false,
     },
   ];
 
@@ -245,7 +249,7 @@ export default function ClientBriefForm() {
             onSubmit={handleSubmit}
             className="space-y-5 px-5 text-[#156357]"
           >
-            {formFields.map(({ name, placeholder, type, inputMode }) => {
+            {formFields.map(({ name, placeholder, type, inputMode, required = true }) => {
               const inputProps = inputMode ? { inputMode } : {};
 
               return type === "textarea" ? (
@@ -255,7 +259,7 @@ export default function ClientBriefForm() {
                   placeholder={placeholder}
                   value={formData[name as keyof typeof formData] as string}
                   onChange={handleChange}
-                  required
+                  required={required}
                   autoComplete="off"
                   rows={1}
                   className={inputStyle}
@@ -268,7 +272,7 @@ export default function ClientBriefForm() {
                   placeholder={placeholder}
                   value={formData[name as keyof typeof formData] as string}
                   onChange={handleChange}
-                  required
+                  required={required}
                   autoComplete="off"
                   className={inputStyle}
                   {...inputProps}

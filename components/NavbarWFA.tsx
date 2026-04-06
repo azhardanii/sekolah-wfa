@@ -92,7 +92,7 @@ export default function NavbarWFA() {
       <div className="hidden lg:flex pt-[3.5px] pb-[3.65px] pl-[3.75px] pr-[4px] rounded-full bg-gradient-to-b from-[#2AB3B0] to-[#147167] shadow-sm">
         <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full text-base relative">
           {navItems.map((item, index) => {
-            const isActuallyActive = pathname === item.href;
+            const isActuallyActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
             const isHovered = hoveredItem === item.name;
 
             const showAsActive = hoveredItem ? isHovered : isActuallyActive;
@@ -130,7 +130,7 @@ export default function NavbarWFA() {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`text-[#147167] font-semibold hover:text-[#2AB3B0] transition-all duration-300 scale-105 ${inactiveLinkPadding}`}
+                    className={`block py-2 text-[#147167] font-semibold hover:text-[#2AB3B0] transition-all duration-300 scale-105 ${inactiveLinkPadding}`}
                   >
                     {item.name}
                   </Link>

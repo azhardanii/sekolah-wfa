@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db as prisma } from '@/lib/db';
+import { pingIndexing } from '@/lib/ping-indexing';
 
 
 
@@ -50,6 +51,11 @@ export async function POST(req: Request) {
         seoKeywords: keywordsArray
       }
     });
+
+    // Ping n8n indexing if new article is directly published
+    if (created.status === 'PUBLISHED') {
+      pingIndexing(created.slug, 'URL_UPDATED');
+    }
 
     return NextResponse.json({ message: 'Success', article: created }, { status: 201 });
   } catch (error: any) {

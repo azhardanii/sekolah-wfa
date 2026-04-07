@@ -45,14 +45,14 @@ function ArticlesDashboardInner() {
   const tabs = ['DRAFT', 'SCHEDULED', 'PUBLISHED'];
 
   const toggleSelect = (id: string) => {
-    setSelectedIds(prev => 
+    setSelectedIds(prev =>
       prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
     );
   };
 
   const handleBulkPublish = async () => {
     if (selectedIds.length === 0) return;
-    
+
     if (confirm(`Yakin ingin mem-publish ${selectedIds.length} artikel secara massal?`)) {
       try {
         const res = await fetch('/api/articles/bulk', {
@@ -60,7 +60,7 @@ function ArticlesDashboardInner() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ ids: selectedIds, status: 'PUBLISHED' })
         });
-        
+
         if (res.ok) {
           alert('Berhasil dipublish!');
           fetchArticles();
@@ -80,7 +80,7 @@ function ArticlesDashboardInner() {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' }
         });
-        
+
         if (res.ok) {
           alert('Artikel berhasil dihapus!');
           fetchArticles();
@@ -98,7 +98,7 @@ function ArticlesDashboardInner() {
 
   const handleBulkDelete = async () => {
     if (selectedIds.length === 0) return;
-    
+
     if (confirm(`Yakin ingin secara permanen menghapus ${selectedIds.length} artikel dari sistem?`)) {
       try {
         const res = await fetch('/api/articles/bulk', {
@@ -106,7 +106,7 @@ function ArticlesDashboardInner() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ ids: selectedIds })
         });
-        
+
         if (res.ok) {
           alert(`${selectedIds.length} artikel berhasil dihapus!`);
           fetchArticles();
@@ -127,8 +127,8 @@ function ArticlesDashboardInner() {
           <h1 className="text-3xl font-bold text-[#147167]">Manajemen Artikel</h1>
           <p className="text-gray-500 mt-1">Kelola draft AI, penjadwalan, dan publikasi Mading</p>
         </div>
-        <Link 
-          href="/ruang-arsip/articles/new/edit" 
+        <Link
+          href="/ruang-arsip/articles/new/edit"
           className="bg-gradient-to-r from-[#2AB3B0] to-[#147167] text-white px-6 py-2.5 rounded-full font-semibold shadow-md hover:shadow-lg transition-all"
         >
           + Tulis Manual
@@ -141,11 +141,10 @@ function ArticlesDashboardInner() {
           <button
             key={tab}
             onClick={() => router.push(`/ruang-arsip/articles?status=${tab}`)}
-            className={`px-4 py-3 font-medium text-sm transition-all border-b-2 ${
-              activeTab === tab 
-                ? 'border-[#147167] text-[#147167]' 
+            className={`px-4 py-3 font-medium text-sm transition-all border-b-2 ${activeTab === tab
+                ? 'border-[#147167] text-[#147167]'
                 : 'border-transparent text-gray-500 hover:text-gray-700'
-            }`}
+              }`}
           >
             {tab === 'DRAFT' ? 'Draf AI' : tab === 'SCHEDULED' ? 'Terjadwal' : 'Dipublikasi'}
           </button>
@@ -158,14 +157,14 @@ function ArticlesDashboardInner() {
           <div className="flex items-center gap-4 bg-[#E0F7F4] px-4 py-2 rounded-lg text-[#147167] text-sm animate-in fade-in slide-in-from-top-2">
             <span className="font-semibold">{selectedIds.length} terpilih</span>
             {activeTab !== 'PUBLISHED' && (
-              <button 
+              <button
                 onClick={handleBulkPublish}
                 className="bg-[#147167] text-white px-4 py-1.5 rounded-md hover:bg-[#0e4e48] transition-colors"
               >
                 Publish Semua
               </button>
             )}
-            <button 
+            <button
               onClick={handleBulkDelete}
               className="bg-red-50 text-red-600 border border-red-200 px-4 py-1.5 rounded-md hover:bg-red-100 hover:text-red-700 transition-colors font-medium"
             >
@@ -181,8 +180,8 @@ function ArticlesDashboardInner() {
           <thead>
             <tr className="bg-gray-50 text-gray-500 text-sm border-b border-gray-100">
               <th className="p-4 w-12">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   className="rounded text-[#2AB3B0] focus:ring-[#2AB3B0]"
                   onChange={(e) => {
                     if (e.target.checked) {
@@ -217,8 +216,8 @@ function ArticlesDashboardInner() {
               articles.map((article) => (
                 <tr key={article.id} className="hover:bg-gray-50/50 transition-colors">
                   <td className="p-4">
-                    <input 
-                      type="checkbox" 
+                    <input
+                      type="checkbox"
                       className="rounded text-[#2AB3B0] focus:ring-[#2AB3B0]"
                       checked={selectedIds.includes(article.id)}
                       onChange={() => toggleSelect(article.id)}
@@ -240,18 +239,20 @@ function ArticlesDashboardInner() {
                   </td>
                   <td className="p-4 text-right">
                     <div className="flex justify-end gap-2">
-                       <Link 
+                      <Link
                         href={`/ruang-arsip/articles/${article.slug}`}
                         className="text-sm px-3 py-1.5 rounded-md border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors"
                       >
                         Preview
                       </Link>
-                      <Link 
-                        href={`/ruang-arsip/articles/${article.slug}/edit`}
-                        className="text-sm px-3 py-1.5 rounded-md bg-[#E0F7F4] text-[#147167] hover:bg-[#c8f0ec] font-medium transition-colors"
-                      >
-                        Proofing
-                      </Link>
+                      {article.status !== 'PUBLISHED' && (
+                        <Link
+                          href={`/ruang-arsip/articles/${article.slug}/edit`}
+                          className="text-sm px-3 py-1.5 rounded-md bg-[#E0F7F4] text-[#147167] hover:bg-[#c8f0ec] font-medium transition-colors"
+                        >
+                          Proofing
+                        </Link>
+                      )}
                       <button
                         onClick={() => handleDelete(article.slug, article.title)}
                         className="text-sm px-3 py-1.5 rounded-md bg-red-50 text-red-600 hover:bg-red-100 font-medium transition-colors"

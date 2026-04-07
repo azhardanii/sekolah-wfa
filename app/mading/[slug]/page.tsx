@@ -3,9 +3,66 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import NavbarWFA from '@/components/NavbarWFA';
+import type { Metadata } from 'next';
+
+const BASE_URL = 'https://www.sekolahwfa.com';
 
 // Revalidate cache setiap 60 detik (ISR)
 export const revalidate = 60;
+
+// Extract plain text from first <p> tag in HTML content for meta description
+function extractDescription(html: string, maxLength = 160): string {
+  const match = html.match(/<p[^>]*>(.*?)<\/p>/is);
+  if (!match) return 'Baca artikel terbaru di Mading Sekolah WFA.';
+  const text = match[1].replace(/<[^>]*>/g, '').trim();
+  return text.length > maxLength ? text.substring(0, maxLength - 3) + '...' : text;
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const article = await prisma.article.findUnique({ where: { slug } });
+
+  if (!article || article.status !== 'PUBLISHED') {
+    return { title: 'Artikel Tidak Ditemukan — Sekolah WFA' };
+  }
+
+  const description = extractDescription(article.content);
+  const url = `${BASE_URL}/mading/${article.slug}`;
+  const categoryName = article.category.replace(/_/g, ' ');
+
+  return {
+    title: `${article.title} — Mading Sekolah WFA`,
+    description,
+    keywords: article.seoKeywords.length > 0 ? article.seoKeywords.join(', ') : undefined,
+    authors: [{ name: 'Sekolah WFA' }],
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: article.title,
+      description,
+      url,
+      siteName: 'Sekolah WFA',
+      type: 'article',
+      publishedTime: article.createdAt.toISOString(),
+      modifiedTime: article.updatedAt.toISOString(),
+      tags: [categoryName, ...article.seoKeywords],
+      images: article.thumbnailUrl
+        ? [{ url: article.thumbnailUrl, width: 1200, height: 630, alt: article.title }]
+        : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description,
+      images: article.thumbnailUrl ? [article.thumbnailUrl] : [],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
 
 export default async function MadingArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

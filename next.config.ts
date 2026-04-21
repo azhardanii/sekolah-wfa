@@ -28,6 +28,11 @@ const nextConfig: any = {
         destination: 'https://cs.pake.ai/a/FEBYA25IWVF7122I/instagram-comment-to-dm/sales/1',
         permanent: true,
       },
+      {
+        source: '/repliz',
+        destination: 'https://repliz.com/referral/68F6xe',
+        permanent: true,
+      },
     ]
   },
 };

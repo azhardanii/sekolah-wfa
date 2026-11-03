@@ -80,7 +80,7 @@ export default async function RuangKelasPage() {
 
           <div className="flex w-full justify-center md:w-auto md:justify-end">
             <Link 
-              href="https://chat.whatsapp.com/E3dPReLYer5AoXOJEF1KTr?mode=gi_t"
+              href="https://chat.whatsapp.com/CIeRurr6niN3aE95evS1E6?mode=gi_t"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex w-full max-w-sm items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-bold text-[#147167] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:ring-2 hover:ring-[#147167] md:w-auto md:max-w-none"
